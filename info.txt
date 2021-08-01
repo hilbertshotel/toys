@@ -1,3 +1,5 @@
+COUNTING:
+
 a field
 
 numbers
@@ -25,3 +27,5 @@ sound:
 
 
 BG / EN sounds?
+
+reverse count?
