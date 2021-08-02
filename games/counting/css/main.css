@@ -24,3 +24,9 @@ body {
     background-color: #7d929c;
     box-shadow: 2px 2px #adcadc;
 }
+
+#player {
+    left: 2px;
+    top: 2px;
+    box-shadow: none;
+}

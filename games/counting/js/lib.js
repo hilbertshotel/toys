@@ -1,12 +1,16 @@
-"use strict";
-const getById = (id) => {
-    return document.getElementById(id);
-};
+// GET ELEMENT BY ID
+const get = (id) => {
+    return document.getElementById(id)
+}
+
+// CREATE ELEMENT
 const make = (type) => {
-    return document.createElement(type);
-};
-const insertInto = (element, elements) => {
+    return document.createElement(type)
+}
+
+// APPEND CHILD
+const insert = (element, elements) => {
     for (const e of elements) {
-        element.appendChild(e);
+        element.appendChild(e)
     }
-};
+}
