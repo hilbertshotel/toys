@@ -16,6 +16,6 @@ const insert = (element: HTMLElement, elements: HTMLElement[]) => {
 }
 
 // IS NUMBER
-const isNum = (n: string): boolean => {
+const isNumber = (n: string): boolean => {
     return "12345678910".includes(n)
 }

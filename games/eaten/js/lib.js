@@ -14,6 +14,6 @@ const insert = (element, elements) => {
     }
 };
 // IS NUMBER
-const isNum = (n) => {
+const isNumber = (n) => {
     return "12345678910".includes(n);
 };
