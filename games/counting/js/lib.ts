@@ -15,7 +15,7 @@ const insert = (element: HTMLElement, elements: HTMLElement[]) => {
     }
 }
 
-// INCREMENT "tile-1" TO "tile-2"
-const increment = (id: string): string => {
-    return `tile-${ parseInt(id.split("-")[1]) + 1 }`
+// IS NUMBER
+const isNum = (n: string): boolean => {
+    return "12345678910".includes(n)
 }

@@ -23,6 +23,28 @@ body {
     position: relative;
     background-color: #7d929c;
     box-shadow: 2px 2px #adcadc;
+    border-radius: 10%;
+}
+
+.player {
+    position: relative;
+    background-color: #7d929c;
+    left: 2px;
+    top: 2px;
+}
+
+.obstacle {
+    position: relative;
+    background-color: #7d929c;
+    box-shadow: 2px 2px #adcadc;
+    border-radius: 10%;
+}
+
+.number {
+    position: relative;
+    background-color: #7d929c;
+    box-shadow: 2px 2px #adcadc;
+    border-radius: 10%;
 }
 
 #player {
