@@ -2,18 +2,16 @@
 // ==================================================
 
 const
-    startRow = 8,
-    startColumn = 3,
     tilesPerRow = 8,
     tilesPerColumn = 8,
     numberOfTiles = tilesPerRow * tilesPerColumn
 
 
-// GENERATE BOARD
+// BOARD
 // ==================================================
 
 const generateBoard = (): string[][] => {
-    let board = [
+    return [
         ["X", "X", "X", "X", "X", "X", "X", "X", "X", "X"],
         ["X", "T", "T", "T", "T", "T", "T", "T", "T", "X"],
         ["X", "T", "O", "3", "T", "T", "T", "2", "T", "X"],
@@ -25,15 +23,12 @@ const generateBoard = (): string[][] => {
         ["X", "T", "T", "P", "T", "T", "5", "T", "T", "X"],
         ["X", "X", "X", "X", "X", "X", "X", "X", "X", "X"],
     ]
-    return board
 }
 
 
-// DISPLAY BOARD IN DOM
-// ==================================================
-
 const displayBoard = (board: string[][]) => {
     const boardDiv = get("boardDiv")
+    boardDiv.innerHTML = ""
 
     for (const rows of board) {
         for (const [i, column] of rows.entries()) {
@@ -53,7 +48,6 @@ const displayBoard = (board: string[][]) => {
             else if (column === "P") {
                 const tileDiv = make("div")
                 tileDiv.className = "player"
-                tileDiv.id = "playerDiv"
                 tileDiv.innerHTML = "P"
                 insert(boardDiv, [tileDiv])
             }
@@ -71,19 +65,14 @@ const displayBoard = (board: string[][]) => {
 }
 
 
-const clearDOM = () => {
-    const boardDiv = get("boardDiv")
-    boardDiv.innerHTML = ""
-}
-
 // PLAYER
 // ==================================================
 
-let newPlayer = (row: number, column: number) => {
+let newPlayer = () => {
 
     // attributes
     let
-        position = { "row": row, "column": column },
+        position = { "row": 8, "column": 3 },
         number = 1
 
     // methods
@@ -122,7 +111,7 @@ let newPlayer = (row: number, column: number) => {
 
 let board = generateBoard()
 displayBoard(board)
-let player = newPlayer(startRow, startColumn)
+let player = newPlayer()
 
 document.onkeydown = handleKey
 
@@ -133,7 +122,7 @@ function handleKey(event: KeyboardEvent) {
     if (k === "ArrowLeft") {
         event.preventDefault()
 
-        const nextTile = board[player.row()][player.column()-1] // -1 for left
+        const nextTile = board[player.row()][player.column()-1]
 
         if (nextTile === "X" || nextTile === "O") {
             return
@@ -143,7 +132,6 @@ function handleKey(event: KeyboardEvent) {
             board[player.row()][player.column()] = "T"
             player.moveLeft()
             board[player.row()][player.column()] = "P"
-            clearDOM()
             displayBoard(board)
         }
 
@@ -151,51 +139,87 @@ function handleKey(event: KeyboardEvent) {
             board[player.row()][player.column()] = "T"
             player.moveLeft()
             board[player.row()][player.column()] = "P"
-            clearDOM()
             displayBoard(board)
             player.incrementNumber()
         }
-
     }
 
-    // // Move Right
-    // else if (k === "ArrowRight") {
-    //     event.preventDefault()
+    // Move Right
+    else if (k === "ArrowRight") {
+        event.preventDefault()
 
-    //     if (player.isOnLastColumn()) {
-    //         // play out of bounds sound effect ???
-    //         return
-    //     }
+        const nextTile = board[player.row()][player.column()+1]
 
-    //     player.pickup()
-    //     player.moveRight()
-    //     player.place()
-    // }
+        if (nextTile === "X" || nextTile === "O") {
+            return
+        }
 
-    // // Move Up
-    // else if (k === "ArrowUp") {
-    //     event.preventDefault()
+        else if (nextTile === "T") {
+            board[player.row()][player.column()] = "T"
+            player.moveRight()
+            board[player.row()][player.column()] = "P"
+            displayBoard(board)
+        }
 
-    //     if (player.isOnFirstRow()) {
-    //         return
-    //     }
+        else if (nextTile === player.number()) {
+            board[player.row()][player.column()] = "T"
+            player.moveRight()
+            board[player.row()][player.column()] = "P"
+            displayBoard(board)
+            player.incrementNumber()
+        }
+    }
 
-    //     player.pickup()
-    //     player.moveUp()
-    //     player.place()
-    // }
+    // Move Up
+    else if (k === "ArrowUp") {
+        event.preventDefault()
 
-    // // Move Down
-    // else if (k === "ArrowDown") {
-    //     event.preventDefault()
+        const nextTile = board[player.row()-1][player.column()]
 
-    //     if (player.isOnLastRow()) {
-    //         return
-    //     }
+        if (nextTile === "X" || nextTile === "O") {
+            return
+        }
 
-    //     player.pickup()
-    //     player.moveDown()
-    //     player.place()
-    // }
+        else if (nextTile === "T") {
+            board[player.row()][player.column()] = "T"
+            player.moveUp()
+            board[player.row()][player.column()] = "P"
+            displayBoard(board)
+        }
+
+        else if (nextTile === player.number()) {
+            board[player.row()][player.column()] = "T"
+            player.moveUp()
+            board[player.row()][player.column()] = "P"
+            displayBoard(board)
+            player.incrementNumber()
+        }
+    }
+
+    // Move Down
+    else if (k === "ArrowDown") {
+        event.preventDefault()
+
+        const nextTile = board[player.row()+1][player.column()]
+
+        if (nextTile === "X" || nextTile === "O") {
+            return
+        }
+
+        else if (nextTile === "T") {
+            board[player.row()][player.column()] = "T"
+            player.moveDown()
+            board[player.row()][player.column()] = "P"
+            displayBoard(board)
+        }
+
+        else if (nextTile === player.number()) {
+            board[player.row()][player.column()] = "T"
+            player.moveDown()
+            board[player.row()][player.column()] = "P"
+            displayBoard(board)
+            player.incrementNumber()
+        }
+    }
 
 }
