@@ -7,13 +7,19 @@ const get = (id) => {
 const make = (type) => {
     return document.createElement(type);
 };
-// APPEND CHILD
-const insert = (element, elements) => {
-    for (const e of elements) {
-        element.appendChild(e);
-    }
+// SLEEP
+const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
 };
-// IS NUMBER
-const isNumber = (n) => {
-    return "12345678910".includes(n);
+// RESTART
+const restartIn = async (ms) => {
+    await sleep(ms);
+    location.reload();
+};
+// SHUFFLE
+const shuffle = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        let rand = Math.floor(Math.random() * (i + 1));
+        [array[i], array[rand]] = [array[rand], array[i]];
+    }
 };

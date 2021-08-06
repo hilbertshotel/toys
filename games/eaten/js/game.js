@@ -1,166 +1,112 @@
 "use strict";
-// BOARD
-// ==================================================
+// GENERATE BOARD
 const generateBoard = () => {
-    return [
-        [["X", ""], ["X", ""], ["X", ""], ["X", ""], ["X", ""], ["X", ""], ["X", ""], ["X", ""], ["X", ""], ["X", ""]],
-        [["X", ""], ["E", "1"], ["E", "2"], ["O", "3"], ["3", "4"], ["E", "5"], ["E", "6"], ["E", "7"], ["10", "8"], ["X", ""]],
-        [["X", ""], ["E", "9"], ["E", "10"], ["E", "11"], ["E", "12"], ["E", "13"], ["E", "14"], ["E", "15"], ["O", "16"], ["X", ""]],
-        [["X", ""], ["O", "17"], ["E", "18"], ["E", "19"], ["O", "20"], ["6", "21"], ["O", "22"], ["2", "23"], ["E", "24"], ["X", ""]],
-        [["X", ""], ["5", "25"], ["E", "26"], ["E", "27"], ["E", "28"], ["7", "29"], ["O", "30"], ["E", "31"], ["E", "32"], ["X", ""]],
-        [["X", ""], ["E", "33"], ["O", "34"], ["O", "35"], ["E", "36"], ["E", "37"], ["E", "38"], ["E", "39"], ["E", "40"], ["X", ""]],
-        [["X", ""], ["E", "41"], ["E", "42"], ["E", "43"], ["1", "44"], ["E", "45"], ["E", "46"], ["O", "47"], ["9", "48"], ["X", ""]],
-        [["X", ""], ["E", "49"], ["8", "50"], ["O", "51"], ["E", "52"], ["E", "53"], ["E", "54"], ["E", "55"], ["E", "56"], ["X", ""]],
-        [["X", ""], ["E", "57"], ["E", "58"], ["P", "59"], ["E", "60"], ["E", "61"], ["E", "62"], ["4", "63"], ["E", "64"], ["X", ""]],
-        [["X", ""], ["X", ""], ["X", ""], ["X", ""], ["X", ""], ["X", ""], ["X", ""], ["X", ""], ["X", ""], ["X", ""]],
-    ];
+    const board = [[], [], [], [], [], [], [], []];
+    let empties = new Array(43).fill("E"), obstacles = new Array(10).fill("O"), rest = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "P"], types = [...empties, ...obstacles, ...rest];
+    shuffle(types);
+    let i = 0;
+    for (let row of board) {
+        for (let j = 0; j < 8; j++) {
+            row.push({
+                type: types[i],
+                id: `${i}`,
+            });
+            i++;
+        }
+    }
+    // TEST BOARD IF NOT VALID generateBoard()
+    return board;
 };
+// DISPLAY BOARD
 const displayBoard = (board) => {
-    const boardDiv = get("boardDiv");
-    let numbers = {};
-    for (const rows of board) {
-        for (const tile of rows) {
-            if (tile[0] === "E") {
-                const tileDiv = make("div");
-                tileDiv.className = "empty";
-                tileDiv.id = tile[1];
-                insert(boardDiv, [tileDiv]);
+    const boardDiv = get("boardDiv"), spawnDiv = (name, id, inner) => {
+        const div = make("div");
+        div.className = name;
+        div.id = id;
+        div.innerHTML = inner;
+        boardDiv.appendChild(div);
+    };
+    let numbers = {}, position = [];
+    for (const [i, rows] of board.entries()) {
+        for (const [j, tile] of rows.entries()) {
+            if (tile.type === "E") {
+                spawnDiv("empty", tile.id, "");
             }
-            else if (tile[0] === "O") {
-                const tileDiv = make("div");
-                tileDiv.className = "obstacle";
-                tileDiv.id = tile[1];
-                insert(boardDiv, [tileDiv]);
+            else if (tile.type === "O") {
+                spawnDiv("obstacle", tile.id, "");
             }
-            else if (tile[0] === "P") {
-                const tileDiv = make("div");
-                tileDiv.className = "player";
-                tileDiv.id = tile[1];
-                insert(boardDiv, [tileDiv]);
+            else if (tile.type === "P") {
+                position = [i, j];
+                spawnDiv("player", tile.id, "");
             }
-            else if (tile[0] === "1") {
-                numbers[tile[0]] = tile[1];
-                const tileDiv = make("div");
-                tileDiv.className = "nextNumber";
-                tileDiv.id = tile[1];
-                tileDiv.innerHTML = tile[0];
-                insert(boardDiv, [tileDiv]);
+            else if (tile.type === "1") {
+                numbers[tile.type] = tile.id;
+                spawnDiv("nextNumber", tile.id, tile.type);
             }
-            else if (isNumber(tile[0])) {
-                numbers[tile[0]] = tile[1];
-                const tileDiv = make("div");
-                tileDiv.className = "number";
-                tileDiv.id = tile[1];
-                tileDiv.innerHTML = tile[0];
-                insert(boardDiv, [tileDiv]);
+            else {
+                numbers[tile.type] = tile.id;
+                spawnDiv("number", tile.id, tile.type);
             }
         }
     }
-    return numbers;
+    return [position, numbers];
 };
 // MAIN
-// ==================================================
-let board = generateBoard(), row = 8, column = 3, number = 1, numbers = displayBoard(board);
+let board = generateBoard(), [position, numbers] = displayBoard(board), row = position[0], column = position[1], number = 1;
+const action = async (nextTile, move) => {
+    if (nextTile === "E") {
+        board[row][column].type = "E";
+        get(board[row][column].id).className = "empty";
+        move();
+        board[row][column].type = "P";
+        get(board[row][column].id).className = "player";
+    }
+    else if (nextTile === `${number}`) {
+        board[row][column].type = "E";
+        get(board[row][column].id).className = "empty";
+        move();
+        board[row][column].type = "P";
+        get(board[row][column].id).className = "player";
+        get(board[row][column].id).innerHTML = "";
+        number++;
+        if (number === 11) {
+            restartIn(2000);
+        }
+        get(numbers[number]).className = "nextNumber";
+    }
+};
 document.onkeydown = (event) => {
     const k = event.key;
-    // Move Left
     if (k === "ArrowLeft") {
         event.preventDefault();
-        const nextTile = board[row][column - 1][0];
-        if (nextTile === "X" || nextTile === "O") {
+        if (column - 1 < 0) {
             return;
         }
-        else if (nextTile === "E") {
-            board[row][column][0] = "E";
-            get(board[row][column][1]).className = "empty";
-            column--;
-            board[row][column][0] = "P";
-            get(board[row][column][1]).className = "player";
-        }
-        else if (nextTile === `${number}`) {
-            board[row][column][0] = "E";
-            get(board[row][column][1]).className = "empty";
-            column--;
-            board[row][column][0] = "P";
-            get(board[row][column][1]).className = "player";
-            get(board[row][column][1]).innerHTML = "";
-            number++;
-            get(numbers[number]).className = "nextNumber";
-        }
+        const nextTile = board[row][column - 1].type;
+        action(nextTile, () => { column--; });
     }
-    // Move Right
-    if (k === "ArrowRight") {
+    else if (k === "ArrowRight") {
         event.preventDefault();
-        const nextTile = board[row][column + 1][0];
-        if (nextTile === "X" || nextTile === "O") {
+        if (column + 1 > 7) {
             return;
         }
-        else if (nextTile === "E") {
-            board[row][column][0] = "E";
-            get(board[row][column][1]).className = "empty";
-            column++;
-            board[row][column][0] = "P";
-            get(board[row][column][1]).className = "player";
-        }
-        else if (nextTile === `${number}`) {
-            board[row][column][0] = "E";
-            get(board[row][column][1]).className = "empty";
-            column++;
-            board[row][column][0] = "P";
-            get(board[row][column][1]).className = "player";
-            get(board[row][column][1]).innerHTML = "";
-            number++;
-            get(numbers[number]).className = "nextNumber";
-        }
+        const nextTile = board[row][column + 1].type;
+        action(nextTile, () => { column++; });
     }
-    // Move Up
-    if (k === "ArrowUp") {
+    else if (k === "ArrowUp") {
         event.preventDefault();
-        const nextTile = board[row - 1][column][0];
-        if (nextTile === "X" || nextTile === "O") {
+        if (row - 1 < 0) {
             return;
         }
-        else if (nextTile === "E") {
-            board[row][column][0] = "E";
-            get(board[row][column][1]).className = "empty";
-            row--;
-            board[row][column][0] = "P";
-            get(board[row][column][1]).className = "player";
-        }
-        else if (nextTile === `${number}`) {
-            board[row][column][0] = "E";
-            get(board[row][column][1]).className = "empty";
-            row--;
-            board[row][column][0] = "P";
-            get(board[row][column][1]).className = "player";
-            get(board[row][column][1]).innerHTML = "";
-            number++;
-            get(numbers[number]).className = "nextNumber";
-        }
+        const nextTile = board[row - 1][column].type;
+        action(nextTile, () => { row--; });
     }
-    // Move Down
-    if (k === "ArrowDown") {
+    else if (k === "ArrowDown") {
         event.preventDefault();
-        const nextTile = board[row + 1][column][0];
-        if (nextTile === "X" || nextTile === "O") {
+        if (row + 1 > 7) {
             return;
         }
-        else if (nextTile === "E") {
-            board[row][column][0] = "E";
-            get(board[row][column][1]).className = "empty";
-            row++;
-            board[row][column][0] = "P";
-            get(board[row][column][1]).className = "player";
-        }
-        else if (nextTile === `${number}`) {
-            board[row][column][0] = "E";
-            get(board[row][column][1]).className = "empty";
-            row++;
-            board[row][column][0] = "P";
-            get(board[row][column][1]).className = "player";
-            get(board[row][column][1]).innerHTML = "";
-            number++;
-            get(numbers[number]).className = "nextNumber";
-        }
+        const nextTile = board[row + 1][column].type;
+        action(nextTile, () => { row++; });
     }
 };

@@ -8,19 +8,31 @@ const make = (type: string): HTMLElement => {
     return document.createElement(type)
 }
 
-// APPEND CHILD
-const insert = (element: HTMLElement, elements: HTMLElement[]) => {
-    for (const e of elements) {
-        element.appendChild(e)
-    }
+// SLEEP
+const sleep = (ms: number) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// IS NUMBER
-const isNumber = (n: string): boolean => {
-    return "12345678910".includes(n)
+// RESTART
+const restartIn = async (ms: number) => {
+    await sleep(ms)
+    location.reload()
+}
+
+// SHUFFLE
+const shuffle = (array: string[]) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        let rand = Math.floor(Math.random() * (i + 1));
+        [array[i], array[rand]] = [array[rand], array[i]]
+    }
 }
 
 // INTEFACES
 interface Numbers {
     [key: string]: string
+}
+
+interface Tile {
+    type: string,
+    id: string,
 }

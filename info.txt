@@ -1,31 +1,4 @@
-COUNTING:
+ADD MENU PAGE
 
-a field
-
-numbers
-
-some collision objects
-
-player
-
-goal is to collect numbers from 1 to 10
-
-
-
-- field
-- player
-- collision objects
-- numbers
-
-- next number reminder
-
-
-sound:
-- number collecting sounds (actual number)
-- player movement subtle sound
-- quiet ambient music in the background
-
-
-BG / EN sounds?
-
-reverse count?
+UP NEXT:
+    SHOOT LETTERS GAME
