@@ -19,3 +19,8 @@ const insert = (element: HTMLElement, elements: HTMLElement[]) => {
 const isNumber = (n: string): boolean => {
     return "12345678910".includes(n)
 }
+
+// INTEFACES
+interface Numbers {
+    [key: string]: string
+}
