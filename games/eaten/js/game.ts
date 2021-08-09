@@ -1,6 +1,47 @@
+// MENU
+// ============================================================
+const ADDRESS = "http://127.0.0.1:8888" 
+let NEXT = "nextNumber"
+
+const restart = () => {
+    main()
+}
+
+const quit = () => {
+    window.location.href = ADDRESS
+}
+
+const help = (button: HTMLElement) => {
+    const next = <HTMLElement>document.getElementsByClassName("nextNumber")[0]!
+
+    if (button.id === "help") {
+        button.id = ""
+        next.style.animationName = ""
+        NEXT = ""
+    } else {
+        button.id = "help"
+        next.style.animationName = "nextNumber"
+        NEXT = "nextNumber"
+    }
+}
+
+const music = (button: HTMLAudioElement) => {
+    if (button.id === "music") {
+        button.id = ""
+        audio().pause()
+    } else {
+        button.id = "music"
+        audio().play()
+    }
+}
+
+
 // GENERATE BOARD
+// ============================================================
 const generateBoard = (): Tile[][] => {
-    const board: Tile[][] = [[],[],[],[],[],[],[],[]]
+
+    const
+        board: Tile[][] = [[],[],[],[],[],[],[],[]]
 
     let
         empties = new Array(43).fill("E"),
@@ -21,28 +62,30 @@ const generateBoard = (): Tile[][] => {
         }
     }
 
-    // TEST BOARD IF NOT VALID generateBoard()
+    // test board (if not valid generateBoard())
 
     return board
 }
 
 
 // DISPLAY BOARD
+// ============================================================
 const displayBoard = (board: Tile[][]): [number[], Numbers] => {
     
-    const
-        boardDiv = get("boardDiv"),
-        spawnDiv = (name: string, id: string, inner: string) => {
+    const boardDiv = get("boardDiv")
+    boardDiv.innerHTML = ""
+    
+    let
+        numbers: Numbers = {},
+        position: number[] = []
+
+    const spawnDiv = (name: string, id: string, inner: string) => {
             const div = make("div")
             div.className = name
             div.id = id
             div.innerHTML = inner
             boardDiv.appendChild(div)
-        }
-    
-    let
-        numbers: Numbers = {},
-        position: number[] = []
+    }
 
     for (const [i, rows] of board.entries()) {
         for (const [j, tile] of rows.entries()) {
@@ -62,6 +105,7 @@ const displayBoard = (board: Tile[][]): [number[], Numbers] => {
             else if (tile.type === "1") {
                 numbers[tile.type] = tile.id
                 spawnDiv("nextNumber", tile.id, tile.type)
+                get(tile.id).style.animationName = NEXT
             }
 
             else {
@@ -77,69 +121,89 @@ const displayBoard = (board: Tile[][]): [number[], Numbers] => {
 
 
 // MAIN
-let 
-    board = generateBoard(),
-    [position, numbers] = displayBoard(board),
-    row = position[0],
-    column = position[1],
-    number = 1
+// ============================================================
+const main = () => {
+    let 
+        board = generateBoard(),
+        [[row, column], numbers] = displayBoard(board),
+        number = 1,
+        previous = { type: "E", class: "empty", text: "" }
 
 
-const action = async (nextTile: string, move: () => void) => {
-    if (nextTile === "E") {
-        board[row][column].type = "E"
-        get(board[row][column].id).className = "empty"
-        move()
-        
-        board[row][column].type = "P"
-        get(board[row][column].id).className = "player"
+    const action = async (nextTile: string, move: () => void) => {
+        if (nextTile === "E") {
+            board[row][column].type = previous.type
+            get(board[row][column].id).className = previous.class
+            get(board[row][column].id).innerHTML = previous.text
+
+            move()
+            previous = { type: "E", class: "empty", text: "" }
+
+            board[row][column].type = "P"
+            get(board[row][column].id).className = "player"
+        }
+
+        else if (nextTile === `${number}`) {
+            board[row][column].type = previous.type
+            get(board[row][column].id).className = previous.class
+            get(board[row][column].id).innerHTML = previous.text
+
+            move()
+            previous = { type: "E", class: "empty", text: "" }
+
+            board[row][column].type = "P"
+            get(board[row][column].id).className = "player"
+            get(board[row][column].id).innerHTML = ""
+            
+            number++
+            get(numbers[number]).className = "nextNumber"
+            get(numbers[number]).style.animationName = NEXT
+        }
+
+        else if (isNumber(nextTile)) {
+            board[row][column].type = previous.type
+            get(board[row][column].id).className = previous.class
+            get(board[row][column].id).innerHTML = previous.text
+
+            move()
+            previous = { type: nextTile, class: "number", text: nextTile }
+
+            board[row][column].type = "P"
+            get(board[row][column].id).className = "player"
+            get(board[row][column].id).innerHTML = ""
+        }
     }
 
-    else if (nextTile === `${number}`) {
-        board[row][column].type = "E"
-        get(board[row][column].id).className = "empty"
-        move()
-        
-        board[row][column].type = "P"
-        get(board[row][column].id).className = "player"
-        get(board[row][column].id).innerHTML = ""
-        
-        number++
-        if (number === 11) { restartIn(2000) }
-        get(numbers[number]).className = "nextNumber"
+
+    document.onkeydown = (event: KeyboardEvent) => {
+        const k = event.key
+        event.preventDefault()
+
+        if (k === "ArrowLeft") {
+            if (column-1 < 0) { return }
+            const nextTile = board[row][column-1].type
+            action(nextTile, () => { column-- })
+        }
+
+        else if (k === "ArrowRight") {
+            if (column+1 > 7) { return }
+            const nextTile = board[row][column+1].type
+            action(nextTile, () => { column++ })
+        }
+
+        else if (k === "ArrowUp") {
+            if (row-1 < 0) { return }
+            const nextTile = board[row-1][column].type
+            action(nextTile, () => { row-- })
+        }
+
+        else if (k === "ArrowDown") {
+            if (row+1 > 7) { return }
+            const nextTile = board[row+1][column].type
+            action(nextTile, () => { row++ })
+        }
     }
 }
 
 
-document.onkeydown = (event: KeyboardEvent) => {
-    const k = event.key
-    
-    if (k === "ArrowLeft") {
-        event.preventDefault()
-        if (column-1 < 0) { return }
-        const nextTile = board[row][column-1].type
-        action(nextTile, () => { column-- })
-    }
-
-    else if (k === "ArrowRight") {
-        event.preventDefault()
-        if (column+1 > 7) { return }
-        const nextTile = board[row][column+1].type
-        action(nextTile, () => { column++ })
-    }
-
-    else if (k === "ArrowUp") {
-        event.preventDefault()
-        if (row-1 < 0) { return }
-        const nextTile = board[row-1][column].type
-        action(nextTile, () => { row-- })
-    }
-
-    else if (k === "ArrowDown") {
-        event.preventDefault()
-        if (row+1 > 7) { return }
-        const nextTile = board[row+1][column].type
-        action(nextTile, () => { row++ })
-    }
-
-}
+main()

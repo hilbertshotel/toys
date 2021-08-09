@@ -1,0 +1,39 @@
+.menu {
+    float: right;
+    text-align: center;
+}
+
+p {
+    color: #362e34;
+    font-size: 1.1em;
+}
+
+h1 {
+    margin: 0;
+    font-size: 10rem;
+    color: #655561;
+    text-shadow: 4px 4px #d3cbbc;
+}
+
+button {
+    font-size: 56px;
+    font-family: 'VT323', monospace;
+    background-color: #655561;
+    color: #d3cbbc;
+    border: 4px solid #d3cbbc;
+    text-align: center;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#help {
+    background-color: #958174;
+}
+
+#music {
+    background-color: #958174;
+}
