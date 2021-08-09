@@ -63,6 +63,7 @@ const generateBoard = (): Tile[][] => {
     }
 
     // test board (if not valid generateBoard())
+    console.log(board)
 
     return board
 }

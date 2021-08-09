@@ -49,6 +49,7 @@ const generateBoard = () => {
         }
     }
     // test board (if not valid generateBoard())
+    console.log(board);
     return board;
 };
 // DISPLAY BOARD
