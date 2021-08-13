@@ -1,6 +1,5 @@
 // MENU
 // ============================================================
-const ADDRESS = "http://127.0.0.1:8888" 
 let NEXT = "nextNumber"
 
 const restart = () => {
@@ -8,7 +7,7 @@ const restart = () => {
 }
 
 const quit = () => {
-    window.location.href = ADDRESS
+    window.location.href = "/"
 }
 
 const help = (button: HTMLElement) => {

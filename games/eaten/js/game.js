@@ -1,13 +1,12 @@
 "use strict";
 // MENU
 // ============================================================
-const ADDRESS = "http://127.0.0.1:8888";
 let NEXT = "nextNumber";
 const restart = () => {
     main();
 };
 const quit = () => {
-    window.location.href = ADDRESS;
+    window.location.href = "/";
 };
 const help = (button) => {
     const next = document.getElementsByClassName("nextNumber")[0];

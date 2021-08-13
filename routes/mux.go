@@ -8,7 +8,7 @@ func Mux() *http.ServeMux {
 
 	mux := http.NewServeMux()
 	
-	main := http.FileServer(http.Dir("games/menu/"))
+	main := http.FileServer(http.Dir("frontend/"))
 	mux.Handle("/", main)
 
 	counting := http.StripPrefix("/eaten/", http.FileServer(http.Dir("games/eaten/")))
