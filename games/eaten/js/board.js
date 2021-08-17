@@ -60,7 +60,7 @@ const loadNewBoard = (board, boardDiv) => {
 };
 const startGame = (boardDiv) => {
     let board = newBoard(), [[row, column], numbers] = loadNewBoard(board, boardDiv), nextNumber = 1, previous = { type: "E", class: "empty", text: "" };
-    const action = async (nextTile, move) => {
+    const action = (nextTile, move) => {
         if (nextTile === "E") {
             getAudio("moveSound").play();
             board[row][column].type = previous.type;
@@ -103,7 +103,7 @@ const startGame = (boardDiv) => {
         }
     };
     document.onkeydown = (event) => {
-        // event.preventDefault()
+        event.preventDefault();
     };
     document.onkeyup = (event) => {
         const k = event.key;

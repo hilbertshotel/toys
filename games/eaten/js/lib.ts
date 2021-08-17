@@ -37,10 +37,6 @@ const playNextNumber = (nextNumber: number) => {
     getAudio(n).play()
 }
 
-const sleep = (ms: number) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 const shuffle = (array: string[]) => {
     for (let i = array.length - 1; i > 0; i--) {
         let rand = Math.floor(Math.random() * (i + 1));
