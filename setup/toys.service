@@ -1,0 +1,13 @@
+[Unit]
+Description=toys
+
+[Service]
+Restart=always
+RestartSec=30s
+WorkingDirectory=/home/user/src/toys
+ExecStart=/home/user/src/toys/toys
+StandardOutput=append:/home/user/src/toys/logs/toys.log
+StandardError=append:/home/user/src/toys/logs/toys.log
+
+[Install]
+WantedBy=multi-user.target
