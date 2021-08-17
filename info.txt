@@ -1,4 +1,9 @@
-ADD MENU PAGE
+ other ideas:
+    - shoot the alphabet
+    - pick similar colors
 
-UP NEXT:
-    SHOOT LETTERS GAME
+adult:
+    - baga
+    - factorio
+    - upuaut
+    - foxhole

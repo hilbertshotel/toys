@@ -1,3 +1,20 @@
 body {
     margin: 2rem;
 }
+
+#eaten {
+    display: block;
+    font-size: 2rem;
+    text-decoration: none;
+    color: black;
+    background-color: cadetblue;
+    padding: 1rem;
+}
+
+#eaten:hover {
+    background-color: darkgoldenrod;
+}
+
+#repo {
+    font-size: 1.2rem;
+}
