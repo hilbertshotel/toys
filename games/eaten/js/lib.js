@@ -62,3 +62,9 @@ const shuffle = (array) => {
 const isNumber = (str) => {
     return "12345678910".includes(str);
 };
+const getNextNumberTile = () => {
+    return document.getElementsByClassName("nextNumber")[0];
+};
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}

@@ -38,14 +38,33 @@ const addMuteButton = (menuDiv: HTMLElement) => {
     menuDiv.appendChild(muteButton)
 }
 
-const addHelpButton = (menuDiv: HTMLElement) => {
-    const helpButton = make("button", "", "help", "Help")
-    helpButton.onclick = () => { help(helpButton) }
-    menuDiv.appendChild(helpButton)
-}
-
 const addLineBreak = (menuDiv: HTMLElement) => {
     menuDiv.appendChild(make("br", "", "", ""))
+}
+
+const addEasyButton = (menuDiv: HTMLElement) => {
+    const easyButton = make("button", "", "easy", "Easy")
+    easyButton.onclick = () => { easy(easyButton) }
+    menuDiv.appendChild(easyButton)
+}
+
+const addMediumButton = (menuDiv: HTMLElement) => {
+    const mediumButton = make("button", "", "", "Medium")
+    mediumButton.onclick = () => { medium(mediumButton) }
+    menuDiv.appendChild(mediumButton)
+}
+
+const addHardButton = (menuDiv: HTMLElement) => {
+    const hardButton = make("button", "", "", "Hard")
+    hardButton.onclick = () => { hard(hardButton) }
+    menuDiv.appendChild(hardButton)
+}
+
+const addCheatSheet = (menuDiv: HTMLElement) => {
+    const nextNumberTile = getNextNumberTile()
+    const cheatSheet = make("button", "cheatSheet", "cheatSheet", nextNumberTile.innerHTML)
+    cheatSheet.hidden = true
+    menuDiv.appendChild(cheatSheet)
 }
 
 
@@ -79,6 +98,7 @@ const start = (menuDiv: HTMLElement, boardDiv: HTMLElement) => {
 const restart = (boardDiv: HTMLElement) => {
     clearBoard(boardDiv)
     startGame(boardDiv)
+    get("cheatSheet").innerHTML = `${1}`
 }
 
 const quit = () => {
@@ -96,18 +116,52 @@ const mute = (muteButton: HTMLElement) => {
     }
 }
 
-const help = (helpButton: HTMLElement) => {
-    const next = <HTMLElement>document.getElementsByClassName("nextNumber")[0]!
+const easy = (easyButton: HTMLElement) => {
+    const nextNumber = getNextNumberTile()
 
-    if (helpButton.id === "help") {
-        helpButton.id = ""
-        next.style.animationName = ""
+    if (DIFFICULTY === "medium") {
+        get("cheatSheet").hidden = true
+        get("medium").id = ""
+    } else if (DIFFICULTY === "hard") {
+        get("hard").id = ""
+    } else { return }
+
+    easyButton.id = "easy"
+    NEXT = "nextNumber"
+    nextNumber.style.animationName = "nextNumber"
+    DIFFICULTY = "easy"
+}
+
+const medium = (mediumButton: HTMLElement) => {
+    const nextNumber = getNextNumberTile()
+
+    if (DIFFICULTY === "easy") {
+        nextNumber.style.animationName = ""
         NEXT = ""
-    } else {
-        helpButton.id = "help"
-        next.style.animationName = "nextNumber"
-        NEXT = "nextNumber"
-    }
+        get("easy").id = ""
+    } else if (DIFFICULTY === "hard") {
+        get("hard").id = ""
+    } else { return }
+
+    get("cheatSheet").hidden = false
+    mediumButton.id = "medium"
+    DIFFICULTY = "medium"
+}
+
+const hard = (hardButton: HTMLElement) => {
+    const nextNumber = getNextNumberTile()
+
+    if (DIFFICULTY === "easy") {
+        nextNumber.style.animationName = ""
+        NEXT = ""
+        get("easy").id = ""
+    } else if (DIFFICULTY === "medium") {
+        get("cheatSheet").hidden = true
+        get("medium").id = ""
+    } else { return }
+
+    hardButton.id = "hard"
+    DIFFICULTY = "hard"
 }
 
 
@@ -123,11 +177,19 @@ const loadMenuPreGame = (menuDiv: HTMLElement, boardDiv: HTMLElement) => {
 
 const loadMenuInGame = (menuDiv: HTMLElement, boardDiv: HTMLElement) => {
     clearMenu(menuDiv)
+
     addHeader(menuDiv)
-    addMuteButton(menuDiv)
-    addHelpButton(menuDiv)
+    addCheatSheet(menuDiv)
     addLineBreak(menuDiv)
+
+    addEasyButton(menuDiv)
+    addMediumButton(menuDiv)
+    addHardButton(menuDiv)
+    addLineBreak(menuDiv)
+
+    addMuteButton(menuDiv)
     addRestartButton(menuDiv, boardDiv)
     addQuitButton(menuDiv)
+
     addFooter(menuDiv)
 }

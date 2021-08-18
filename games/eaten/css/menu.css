@@ -22,18 +22,32 @@ button {
     color: #d3cbbc;
     border: 4px solid #d3cbbc;
     text-align: center;
-    margin: 1rem;
-    padding: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    padding: 0.5rem;
 }
 
 button:hover {
     cursor: pointer;
 }
 
-#help {
+#easy {
+    background-color: #958174;
+}
+
+#medium {
+    background-color: #958174;
+}
+
+#hard {
     background-color: #958174;
 }
 
 #mute {
     background-color: #958174;
+}
+
+.cheatSheet {
+    font-size: 150px;
+    padding: 0rem 6rem;
 }

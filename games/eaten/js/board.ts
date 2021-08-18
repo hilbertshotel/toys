@@ -87,7 +87,7 @@ const startGame = (boardDiv: HTMLElement) => {
         nextNumber = 1,
         previous = { type: "E", class: "empty", text: "" }
 
-    const action = (nextTile: string, move: () => void) => {
+    const action = async (nextTile: string, move: () => void) => {
         if (nextTile === "E") {
             getAudio("moveSound").play()
 
@@ -119,10 +119,11 @@ const startGame = (boardDiv: HTMLElement) => {
             
             get(numbers[nextNumber]).style.animationName = "player"
             nextNumber++
-            if (nextNumber === 11) {}
-            else {
+            if (nextNumber < 11) {
                 get(numbers[nextNumber]).className = "nextNumber"
                 get(numbers[nextNumber]).style.animationName = NEXT
+                await sleep(1500)
+                get("cheatSheet").innerHTML = `${nextNumber}`
             }
         }
 

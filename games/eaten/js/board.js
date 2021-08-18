@@ -60,7 +60,7 @@ const loadNewBoard = (board, boardDiv) => {
 };
 const startGame = (boardDiv) => {
     let board = newBoard(), [[row, column], numbers] = loadNewBoard(board, boardDiv), nextNumber = 1, previous = { type: "E", class: "empty", text: "" };
-    const action = (nextTile, move) => {
+    const action = async (nextTile, move) => {
         if (nextTile === "E") {
             getAudio("moveSound").play();
             board[row][column].type = previous.type;
@@ -84,10 +84,11 @@ const startGame = (boardDiv) => {
             get(board[row][column].id).innerHTML = "";
             get(numbers[nextNumber]).style.animationName = "player";
             nextNumber++;
-            if (nextNumber === 11) { }
-            else {
+            if (nextNumber < 11) {
                 get(numbers[nextNumber]).className = "nextNumber";
                 get(numbers[nextNumber]).style.animationName = NEXT;
+                await sleep(1500);
+                get("cheatSheet").innerHTML = `${nextNumber}`;
             }
         }
         else if (isNumber(nextTile)) {

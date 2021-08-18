@@ -48,6 +48,14 @@ const isNumber = (str: string) => {
     return "12345678910".includes(str)
 }
 
+const getNextNumberTile = (): HTMLElement => {
+    return <HTMLElement>document.getElementsByClassName("nextNumber")[0]!
+}
+
+function sleep (ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 // INTEFACES
 interface Numbers {
     [key: string]: string
