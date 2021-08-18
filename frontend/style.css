@@ -2,16 +2,17 @@ body {
     margin: 2rem;
 }
 
-#eaten {
+.game_anchor {
     display: block;
     font-size: 2rem;
     text-decoration: none;
     color: black;
     background-color: cadetblue;
     padding: 1rem;
+    margin: 1rem 0rem;
 }
 
-#eaten:hover {
+.game_anchor:hover {
     background-color: darkgoldenrod;
 }
 

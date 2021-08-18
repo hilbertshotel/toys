@@ -11,8 +11,11 @@ func Mux() *http.ServeMux {
 	main := http.FileServer(http.Dir("frontend/"))
 	mux.Handle("/", main)
 
-	counting := http.StripPrefix("/eaten/", http.FileServer(http.Dir("games/eaten/")))
-	mux.Handle("/eaten/", counting)
+	eaten := http.StripPrefix("/eaten/", http.FileServer(http.Dir("games/eaten/")))
+	mux.Handle("/eaten/", eaten)
+
+	letter_ladder := http.StripPrefix("/letter_ladder/", http.FileServer(http.Dir("games/letter_ladder/")))
+	mux.Handle("/letter_ladder/", letter_ladder)
 
 	mux.Handle("/toys.log", http.FileServer(http.Dir("logs/")))
 

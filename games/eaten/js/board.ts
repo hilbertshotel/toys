@@ -87,7 +87,7 @@ const startGame = (boardDiv: HTMLElement) => {
         nextNumber = 1,
         previous = { type: "E", class: "empty", text: "" }
 
-    const action = async (nextTile: string, move: () => void) => {
+    const action = (nextTile: string, move: () => void) => {
         if (nextTile === "E") {
             getAudio("moveSound").play()
 
@@ -143,7 +143,7 @@ const startGame = (boardDiv: HTMLElement) => {
     }
 
     document.onkeydown = (event: KeyboardEvent) => {
-        // event.preventDefault()
+        event.preventDefault()
     }
 
     document.onkeyup = (event: KeyboardEvent) => {
