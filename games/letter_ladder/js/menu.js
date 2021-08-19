@@ -1,47 +1,64 @@
-"use strict";
+"use strict"
+
 // ____________________________________________________________
 // MENU DOM ELEMENTS
-var addHeader = function (mainWindow) {
-    var headerDiv = make("h1", "header", "", "Letter Ladder");
-    mainWindow.appendChild(headerDiv);
-};
-var addStartButton = function (mainWindow) {
-    var startButton = make("button", "", "", "START GAME");
-    startButton.onclick = function () { start(mainWindow); };
-    mainWindow.appendChild(startButton);
-};
-var addQuitButton = function (mainWindow) {
-    var quitButton = make("button", "", "", "QUIT GAME");
-    quitButton.onclick = quit;
-    mainWindow.appendChild(quitButton);
-};
-var addLineBreak = function (mainWindow) {
-    var br = make("br", "", "", "");
-    mainWindow.appendChild(br);
-};
+
+const addHeader = (mainWindow) => {
+    const headerDiv = make("h1", "header", "", "Letter Ladder")
+    mainWindow.appendChild(headerDiv)
+}
+
+const addStartButton = (mainWindow) => {
+    const startButton = make("button", "", "", "START GAME")
+    startButton.onclick = () => { start(mainWindow) }
+    mainWindow.appendChild(startButton)
+}
+
+const addQuitButton = (mainWindow) => {
+    const quitButton = make("button", "", "", "QUIT GAME")
+    quitButton.onclick = quit
+    mainWindow.appendChild(quitButton)
+}
+
+const addLineBreak = (mainWindow) => {
+    const br = make("br", "", "", "")
+    mainWindow.appendChild(br)
+}
+
+
 // ____________________________________________________________
 // MENU BUTTONS
-var start = function (mainWindow) {
-    startGame(mainWindow);
-};
-var quit = function () {
-    window.location.href = "/";
-};
+
+const start = (mainWindow) => {
+    startGame(mainWindow)
+}
+
+const quit = () => {
+    window.location.href = "/"
+}
+
+
 // ____________________________________________________________
 // MENU FUNCTIONS
-var loadMenu = function (mainWindow) {
-    addHeader(mainWindow);
-    addStartButton(mainWindow);
-    addLineBreak(mainWindow);
-    addQuitButton(mainWindow);
-};
-var clearMenu = function (mainWindow) {
-    mainWindow.innerHTML = "";
-};
+
+const loadMenu = (mainWindow) => {
+    addHeader(mainWindow)
+    addStartButton(mainWindow)
+    addLineBreak(mainWindow)
+    addQuitButton(mainWindow)
+}
+
+const clearMenu = (mainWindow) => {
+    mainWindow.innerHTML = ""
+}
+
+
 // ____________________________________________________________
 // MAIN
-var main = function () {
-    var mainWindow = get("mainWindow");
-    loadMenu(mainWindow);
-};
-main();
+
+const main = () => {
+    const mainWindow = get("mainWindow")
+    loadMenu(mainWindow)
+}
+
+main()
