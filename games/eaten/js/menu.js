@@ -99,7 +99,7 @@ const mute = (muteButton) => {
     }
 };
 const easy = (easyButton) => {
-    const nextNumber = getNextNumberTile();
+    const nextNumberTile = getNextNumberTile();
     if (DIFFICULTY === "medium") {
         get("cheatSheet").hidden = true;
         get("medium").id = "";
@@ -112,13 +112,13 @@ const easy = (easyButton) => {
     }
     easyButton.id = "easy";
     NEXT = "nextNumber";
-    nextNumber.style.animationName = "nextNumber";
+    nextNumberTile.style.animationName = "nextNumber";
     DIFFICULTY = "easy";
 };
 const medium = (mediumButton) => {
-    const nextNumber = getNextNumberTile();
+    const nextNumberTile = getNextNumberTile();
     if (DIFFICULTY === "easy") {
-        nextNumber.style.animationName = "";
+        nextNumberTile.style.animationName = "";
         NEXT = "";
         get("easy").id = "";
     }
@@ -133,9 +133,9 @@ const medium = (mediumButton) => {
     DIFFICULTY = "medium";
 };
 const hard = (hardButton) => {
-    const nextNumber = getNextNumberTile();
+    const nextNumberTile = getNextNumberTile();
     if (DIFFICULTY === "easy") {
-        nextNumber.style.animationName = "";
+        nextNumberTile.style.animationName = "";
         NEXT = "";
         get("easy").id = "";
     }

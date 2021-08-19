@@ -117,7 +117,7 @@ const mute = (muteButton: HTMLElement) => {
 }
 
 const easy = (easyButton: HTMLElement) => {
-    const nextNumber = getNextNumberTile()
+    const nextNumberTile = getNextNumberTile()
 
     if (DIFFICULTY === "medium") {
         get("cheatSheet").hidden = true
@@ -128,15 +128,15 @@ const easy = (easyButton: HTMLElement) => {
 
     easyButton.id = "easy"
     NEXT = "nextNumber"
-    nextNumber.style.animationName = "nextNumber"
+    nextNumberTile.style.animationName = "nextNumber"
     DIFFICULTY = "easy"
 }
 
 const medium = (mediumButton: HTMLElement) => {
-    const nextNumber = getNextNumberTile()
+    const nextNumberTile = getNextNumberTile()
 
     if (DIFFICULTY === "easy") {
-        nextNumber.style.animationName = ""
+        nextNumberTile.style.animationName = ""
         NEXT = ""
         get("easy").id = ""
     } else if (DIFFICULTY === "hard") {
@@ -149,10 +149,10 @@ const medium = (mediumButton: HTMLElement) => {
 }
 
 const hard = (hardButton: HTMLElement) => {
-    const nextNumber = getNextNumberTile()
+    const nextNumberTile = getNextNumberTile()
 
     if (DIFFICULTY === "easy") {
-        nextNumber.style.animationName = ""
+        nextNumberTile.style.animationName = ""
         NEXT = ""
         get("easy").id = ""
     } else if (DIFFICULTY === "medium") {

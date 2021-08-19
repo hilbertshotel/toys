@@ -90,6 +90,10 @@ const startGame = (boardDiv) => {
                 await sleep(1500);
                 get("cheatSheet").innerHTML = `${nextNumber}`;
             }
+            else {
+                await sleep(2000);
+                restart(boardDiv);
+            }
         }
         else if (isNumber(nextTile)) {
             getAudio("moveSound").play();
