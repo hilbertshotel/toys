@@ -1,5 +1,6 @@
 "use strict";
 const loadEmptyBoard = (boardDiv) => {
+    clearBoard(boardDiv);
     for (let i = 0; i < 64; i++) {
         const tileDiv = make("div", "empty", "", "");
         boardDiv.appendChild(tileDiv);
@@ -58,30 +59,30 @@ const loadNewBoard = (board, boardDiv) => {
     }
     return [playerPosition, numbers];
 };
-const startGame = (boardDiv) => {
+const startGame = (menuDiv, boardDiv) => {
     let board = newBoard(), [[row, column], numbers] = loadNewBoard(board, boardDiv), nextNumber = 1, previous = { type: "E", class: "empty", text: "" };
     const action = async (nextTile, move) => {
         if (nextTile === "E") {
-            getAudio("moveSound").play();
             board[row][column].type = previous.type;
             get(board[row][column].id).className = previous.class;
             get(board[row][column].id).innerHTML = previous.text;
+            getAudio("moveSound").play();
             move();
             previous = { type: "E", class: "empty", text: "" };
             board[row][column].type = "P";
             get(board[row][column].id).className = "player";
         }
         else if (nextTile === `${nextNumber}`) {
-            getAudio("moveSound").play();
-            playNextNumber(nextNumber);
             board[row][column].type = previous.type;
             get(board[row][column].id).className = previous.class;
             get(board[row][column].id).innerHTML = previous.text;
+            getAudio("moveSound").play();
             move();
             previous = { type: "E", class: "empty", text: "" };
             board[row][column].type = "P";
             get(board[row][column].id).className = "player";
             get(board[row][column].id).innerHTML = "";
+            playNextNumber(nextNumber);
             get(numbers[nextNumber]).style.animationName = "player";
             nextNumber++;
             if (nextNumber < 11) {
@@ -91,15 +92,16 @@ const startGame = (boardDiv) => {
                 get("cheatSheet").innerHTML = `${nextNumber}`;
             }
             else {
-                await sleep(2000);
-                restart(boardDiv);
+                await sleep(1500);
+                loadEmptyBoard(boardDiv);
+                loadMenuPreGame(menuDiv, boardDiv);
             }
         }
         else if (isNumber(nextTile)) {
-            getAudio("moveSound").play();
             board[row][column].type = previous.type;
             get(board[row][column].id).className = previous.class;
             get(board[row][column].id).innerHTML = previous.text;
+            getAudio("moveSound").play();
             move();
             previous = { type: nextTile, class: "number", text: nextTile };
             board[row][column].type = "P";

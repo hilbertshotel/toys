@@ -28,7 +28,7 @@ const addFooter = (menuDiv: HTMLElement) => {
 
 const addRestartButton = (menuDiv: HTMLElement, boardDiv: HTMLElement) => {
     const restartButton = make("button", "", "", "Restart")
-    restartButton.onclick = () => { restart(boardDiv) }
+    restartButton.onclick = () => { restart(menuDiv, boardDiv) }
     menuDiv.appendChild(restartButton)
 }
 
@@ -74,7 +74,7 @@ const start = (menuDiv: HTMLElement, boardDiv: HTMLElement) => {
     clearBoard(boardDiv)
     clearMenu(menuDiv)
 
-    startGame(boardDiv)
+    startGame(menuDiv, boardDiv)
     loadMenuInGame(menuDiv, boardDiv)
 
     addAudio("sound/music.ogg", "music")
@@ -95,9 +95,9 @@ const start = (menuDiv: HTMLElement, boardDiv: HTMLElement) => {
     music.play()
 }
 
-const restart = (boardDiv: HTMLElement) => {
+const restart = (menuDiv: HTMLElement, boardDiv: HTMLElement) => {
     clearBoard(boardDiv)
-    startGame(boardDiv)
+    startGame(menuDiv, boardDiv)
     get("cheatSheet").innerHTML = `${1}`
 }
 

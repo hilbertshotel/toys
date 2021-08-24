@@ -1,4 +1,5 @@
 const loadEmptyBoard = (boardDiv: HTMLElement) => {
+    clearBoard(boardDiv)
     for (let i=0; i<64; i++) {
         const tileDiv = make("div", "empty", "", "")
         boardDiv.appendChild(tileDiv)
@@ -80,7 +81,7 @@ const loadNewBoard = (board: Tile[][], boardDiv: HTMLElement): [number[], Number
     return [playerPosition, numbers]
 }
 
-const startGame = (boardDiv: HTMLElement) => {
+const startGame = (menuDiv: HTMLElement, boardDiv: HTMLElement) => {
     let 
         board = newBoard(),
         [[row, column], numbers] = loadNewBoard(board, boardDiv),
@@ -89,12 +90,11 @@ const startGame = (boardDiv: HTMLElement) => {
 
     const action = async (nextTile: string, move: () => void) => {
         if (nextTile === "E") {
-            getAudio("moveSound").play()
-
             board[row][column].type = previous.type
             get(board[row][column].id).className = previous.class
             get(board[row][column].id).innerHTML = previous.text
 
+            getAudio("moveSound").play()
             move()
             previous = { type: "E", class: "empty", text: "" }
 
@@ -103,13 +103,12 @@ const startGame = (boardDiv: HTMLElement) => {
         }
 
         else if (nextTile === `${nextNumber}`) {
-            getAudio("moveSound").play()
-            playNextNumber(nextNumber)
 
             board[row][column].type = previous.type
             get(board[row][column].id).className = previous.class
             get(board[row][column].id).innerHTML = previous.text
 
+            getAudio("moveSound").play()
             move()
             previous = { type: "E", class: "empty", text: "" }
 
@@ -117,6 +116,7 @@ const startGame = (boardDiv: HTMLElement) => {
             get(board[row][column].id).className = "player"
             get(board[row][column].id).innerHTML = ""
             
+            playNextNumber(nextNumber)
             get(numbers[nextNumber]).style.animationName = "player"
             nextNumber++
             
@@ -126,18 +126,18 @@ const startGame = (boardDiv: HTMLElement) => {
                 await sleep(1500)
                 get("cheatSheet").innerHTML = `${nextNumber}`
             } else {
-                await sleep(2000)
-                restart(boardDiv)
+                await sleep(1500)
+                loadEmptyBoard(boardDiv)
+                loadMenuPreGame(menuDiv, boardDiv)
             }
         }
 
         else if (isNumber(nextTile)) {
-            getAudio("moveSound").play()
-
             board[row][column].type = previous.type
             get(board[row][column].id).className = previous.class
             get(board[row][column].id).innerHTML = previous.text
 
+            getAudio("moveSound").play()
             move()
             previous = { type: nextTile, class: "number", text: nextTile }
 
