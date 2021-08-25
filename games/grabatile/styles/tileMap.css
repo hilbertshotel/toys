@@ -1,0 +1,25 @@
+.tileMap {
+    margin: -9rem auto;
+    width: 828px; /* (128 * 6) 768 + 36 (6 * 6) = 804 */
+    transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
+
+    display: grid;
+    grid-template-columns: repeat(6, 128px);
+    grid-auto-rows: 128px;
+    grid-gap: 10px;
+}
+
+.tile {
+    position: relative;
+    background-image: url("../images/tile.png");
+}
+
+.tile:hover {
+    cursor: grab;
+    left: -4px;
+    top: 4px;
+}
+
+.tile:active {
+    cursor: grabbing;
+}

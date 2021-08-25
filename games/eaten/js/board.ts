@@ -119,16 +119,15 @@ const startGame = (menuDiv: HTMLElement, boardDiv: HTMLElement) => {
             playNextNumber(nextNumber)
             get(numbers[nextNumber]).style.animationName = "player"
             nextNumber++
-            
+
             if (nextNumber < 11) {
                 get(numbers[nextNumber]).className = "nextNumber"
                 get(numbers[nextNumber]).style.animationName = NEXT
-                await sleep(1500)
+                await sleep(1000)
                 get("cheatSheet").innerHTML = `${nextNumber}`
             } else {
                 await sleep(1500)
-                loadEmptyBoard(boardDiv)
-                loadMenuPreGame(menuDiv, boardDiv)
+                restart(menuDiv, boardDiv)
             }
         }
 

@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    background-color: #e5e5e5;
+}
+
+.header {
+    margin: auto;
+    padding: 0rem 1rem;
+    font-family: 'Common Pixel', sans-serif;
+    font-size: 100px;
+    background-color: rgb(31, 111, 231);
+    color: white;
+}
+
+.menu {
+    text-align: right;
+    margin: 0.5rem 2.5rem;
+}
+
+.button {
+    outline: none;
+    border: none;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    margin-left: 0.1rem;
+    border: 2px solid red;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+#startButton {
+    background-image: url("../images/restart.png");
+}
+
+#muteButton {
+    background-image: url("../images/mute.png");
+}
+
+#quitButton {
+    background-image: url("../images/quit.png");
+}

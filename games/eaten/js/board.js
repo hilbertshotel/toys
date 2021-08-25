@@ -88,13 +88,12 @@ const startGame = (menuDiv, boardDiv) => {
             if (nextNumber < 11) {
                 get(numbers[nextNumber]).className = "nextNumber";
                 get(numbers[nextNumber]).style.animationName = NEXT;
-                await sleep(1500);
+                await sleep(1000);
                 get("cheatSheet").innerHTML = `${nextNumber}`;
             }
             else {
                 await sleep(1500);
-                loadEmptyBoard(boardDiv);
-                loadMenuPreGame(menuDiv, boardDiv);
+                restart(menuDiv, boardDiv);
             }
         }
         else if (isNumber(nextTile)) {
