@@ -5,11 +5,11 @@ body {
 
 .header {
     margin: auto;
-    padding: 0rem 1rem;
+    padding: 0rem 2rem;
     font-family: 'Common Pixel', sans-serif;
     font-size: 100px;
-    background-color: rgb(31, 111, 231);
-    color: white;
+    background-color: #b6b6b6;
+    color: #e5e5e5;
 }
 
 .menu {
@@ -24,7 +24,6 @@ body {
     height: 60px;
     background-color: white;
     margin-left: 0.1rem;
-    border: 2px solid red;
 }
 
 .button:hover {
@@ -32,7 +31,7 @@ body {
 }
 
 #startButton {
-    background-image: url("../images/restart.png");
+    background-image: url("../images/start.png");
 }
 
 #muteButton {
