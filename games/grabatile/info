@@ -1,3 +1,9 @@
+1. finish action function
+
+2. add menu functionality
+
+3. add sounds and music
+
 
 compiler string:
     nim js -o:script.js src/main.nim

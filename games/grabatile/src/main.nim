@@ -1,16 +1,11 @@
-import random
-import dom
-import system
-import strformat
-import system
-
-import lib
-import data
+import random, dom, system, strformat
+import lib, data
 
 
 # GAME PROCEDURES
 # ================================================================================
-proc action(tile, header: Node) =
+
+proc action(tile, headerHouse: Node) =
     # delete topmost header
     # make the one below visible
     tile.style.visibility = "hidden"
@@ -20,6 +15,7 @@ proc sampleTileColors(): seq[Color] =
     randomize()
     for i in 1..36:
         add(result, sample(COLORS)) 
+
 
 
 proc sortByNextOccurence(tileColors: seq[Color]): seq[string] =
@@ -33,6 +29,7 @@ proc sortByNextOccurence(tileColors: seq[Color]): seq[string] =
             for color in colors:
                 if color.hex == currentColor:
                     result.add(color.hex)
+
 
 
 proc stackHeaders(headerBoard: Node, headerColors: seq[string]) =
@@ -51,6 +48,7 @@ proc stackHeaders(headerBoard: Node, headerColors: seq[string]) =
         insert(headerBoard, header)
 
 
+
 proc fillTileMap(tileMap, headerBoard: Node, tileColors: seq[Color]) =
 
     for color in tileColors:
@@ -62,8 +60,10 @@ proc fillTileMap(tileMap, headerBoard: Node, tileColors: seq[Color]) =
             insert(tileMap, tile)
 
 
+
 # START GAME
 # ================================================================================
+
 proc start() =
 
     let
@@ -76,6 +76,7 @@ proc start() =
         
     stackHeaders(headerBoard, headerColors)
     fillTileMap(tileMap, headerBoard, tileColors)
+
 
 
 start()

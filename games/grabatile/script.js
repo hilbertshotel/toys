@@ -8,7 +8,7 @@ var NTI1214635 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI9690015 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
 var NTI5645232 = {size: 0,kind: 31,base: null,node: null,finalizer: null};
 var NTI5900011 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI11788016 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI11788003 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI1214649 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI1872749 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI1214653 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
@@ -65,9 +65,9 @@ NTI1872749.node = NNI1872749;
 var NNI1214649 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI1214649.node = NNI1214649;
 NTI1214649.base = NTI1214619;
-var NNI11788016 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "name", len: 0, typ: NTI1208013, name: "name", sons: null}, 
+var NNI11788003 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "name", len: 0, typ: NTI1208013, name: "name", sons: null}, 
 {kind: 1, offset: "hex", len: 0, typ: NTI1208013, name: "hex", sons: null}]};
-NTI11788016.node = NNI11788016;
+NTI11788003.node = NNI11788003;
 var NNI5900011 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "a", len: 0, typ: NTI5645232, name: "a", sons: null}, 
 {kind: 1, offset: "b", len: 0, typ: NTI1208044, name: "b", sons: null}]};
 NTI5900011.node = NNI5900011;
@@ -364,7 +364,7 @@ function chckIndx(i_1500086, a_1500087, b_1500088) {
   return result_1500089;
 
 }
-            var COLORS_11788039 = [{name: makeNimstrLit("white"), hex: makeNimstrLit("#FFFFFF")}, {name: makeNimstrLit("yellow"), hex: makeNimstrLit("#FFdd00")}, {name: makeNimstrLit("orange"), hex: makeNimstrLit("#FF9100")}, {name: makeNimstrLit("red"), hex: makeNimstrLit("#FF4b1F")}, {name: makeNimstrLit("brown"), hex: makeNimstrLit("#9e5b0e")}, {name: makeNimstrLit("green"), hex: makeNimstrLit("#6e9900")}, {name: makeNimstrLit("blue"), hex: makeNimstrLit("#146de0")}, {name: makeNimstrLit("purple"), hex: makeNimstrLit("#a72bff")}, {name: makeNimstrLit("pink"), hex: makeNimstrLit("#ff4fdf")}, {name: makeNimstrLit("grey"), hex: makeNimstrLit("#b6b6b6")}, {name: makeNimstrLit("black"), hex: makeNimstrLit("#1e1e1e")}];
+            var COLORS_11788026 = [{name: makeNimstrLit("white"), hex: makeNimstrLit("#FFFFFF")}, {name: makeNimstrLit("yellow"), hex: makeNimstrLit("#FFdd00")}, {name: makeNimstrLit("orange"), hex: makeNimstrLit("#FF9100")}, {name: makeNimstrLit("red"), hex: makeNimstrLit("#FF4b1F")}, {name: makeNimstrLit("brown"), hex: makeNimstrLit("#9e5b0e")}, {name: makeNimstrLit("green"), hex: makeNimstrLit("#6e9900")}, {name: makeNimstrLit("blue"), hex: makeNimstrLit("#146de0")}, {name: makeNimstrLit("purple"), hex: makeNimstrLit("#a72bff")}, {name: makeNimstrLit("pink"), hex: makeNimstrLit("#ff4fdf")}, {name: makeNimstrLit("grey"), hex: makeNimstrLit("#b6b6b6")}, {name: makeNimstrLit("black"), hex: makeNimstrLit("#1e1e1e")}];
 function eqStrings(a_1480222, b_1480223) {
         if (a_1480222 == b_1480223) return true;
     if (a_1480222 === null && b_1480223.length == 0) return true;
@@ -3037,9 +3037,6 @@ framePtr = F.prev;
 var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
 framePtr = F;
 framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
 var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
 framePtr = F;
 framePtr = F.prev;
@@ -3566,12 +3563,6 @@ var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\
 framePtr = F;
 framePtr = F.prev;
 var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
 framePtr = F;
 framePtr = F.prev;
 var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
@@ -3634,9 +3625,6 @@ framePtr = F.prev;
 var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
 framePtr = F;
 framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
 var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
 framePtr = F;
 framePtr = F.prev;
@@ -3731,9 +3719,6 @@ var F={procname:"module lib",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\
 framePtr = F;
 framePtr = F.prev;
 var F={procname:"module lib",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
 framePtr = F;
 framePtr = F.prev;
 var F={procname:"module data",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\data.nim",line:0};
@@ -4171,7 +4156,7 @@ function sample_11789047(a_11789051) {
   var F={procname:"sample.sample",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
   framePtr = F;
     F.line = 451;
-    nimCopy(result_11789052, a_11789051[chckIndx(rand_11789091(HEX2EHEX2E_3450220(0, (a_11789051).length - 1)), 0, (a_11789051).length-1)], NTI11788016);
+    nimCopy(result_11789052, a_11789051[chckIndx(rand_11789091(HEX2EHEX2E_3450220(0, (a_11789051).length - 1)), 0, (a_11789051).length-1)], NTI11788003);
   framePtr = F.prev;
 
   return result_11789052;
@@ -4182,10 +4167,10 @@ function sampleTileColors_11789031() {
 
   var F={procname:"main.sampleTileColors",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
   framePtr = F;
-    F.line = 20;
+    F.line = 15;
     randomize_11611001();
     L1: do {
-      F.line = 21;
+      F.line = 16;
       var i_11789044 = 0;
       F.line = 77;
       var res_11855110 = 1;
@@ -4193,10 +4178,10 @@ function sampleTileColors_11789031() {
         F.line = 78;
           L3: while (true) {
           if (!(res_11855110 <= 36)) break L3;
-            F.line = 21;
+            F.line = 16;
             i_11789044 = res_11855110;
-            F.line = 22;
-            result_11789034.push(sample_11789047(COLORS_11788039));;
+            F.line = 17;
+            result_11789034.push(sample_11789047(COLORS_11788026));;
             F.line = 80;
             res_11855110 = addInt(res_11855110, 1);
           }
@@ -4229,7 +4214,7 @@ function HEX26_11795832(x_11795836, y_11795838) {
             F.line = 1652;
             i_11795871 = res_11855166;
             F.line = 1653;
-            nimCopy(result_11795840[chckIndx(i_11795871, 0, (result_11795840).length-1)], x_11795836[chckIndx(i_11795871, 0, (x_11795836).length-1)], NTI11788016);
+            nimCopy(result_11795840[chckIndx(i_11795871, 0, (result_11795840).length-1)], x_11795836[chckIndx(i_11795871, 0, (x_11795836).length-1)], NTI11788003);
             F.line = 80;
             res_11855166 = addInt(res_11855166, 1);
           }
@@ -4251,7 +4236,7 @@ function HEX26_11795832(x_11795836, y_11795838) {
             F.line = 1654;
             i_11795885 = res_11855173;
             F.line = 1655;
-            nimCopy(result_11795840[chckIndx(addInt(i_11795885, (x_11795836).length), 0, (result_11795840).length-1)], y_11795838[chckIndx(i_11795885, 0, (y_11795838).length-1)], NTI11788016);
+            nimCopy(result_11795840[chckIndx(addInt(i_11795885, (x_11795836).length), 0, (result_11795840).length-1)], y_11795838[chckIndx(i_11795885, 0, (y_11795838).length-1)], NTI11788003);
             F.line = 80;
             res_11855173 = addInt(res_11855173, 1);
           }
@@ -4284,7 +4269,7 @@ function HEX5BHEX5D_11795022(s_11795028, x_11795030) {
             F.line = 2567;
             i_11795420 = i_11855181;
             F.line = 2567;
-            nimCopy(result_11795032[chckIndx(i_11795420, 0, (result_11795032).length-1)], s_11795028[chckIndx(addInt(i_11795420, a_11795201), 0, (s_11795028).length-1)], NTI11788016);
+            nimCopy(result_11795032[chckIndx(i_11795420, 0, (result_11795032).length-1)], s_11795028[chckIndx(addInt(i_11795420, a_11795201), 0, (s_11795028).length-1)], NTI11788003);
             F.line = 109;
             i_11855181 = addInt(i_11855181, 1);
           }
@@ -4329,7 +4314,7 @@ function HEX5BHEX5D_11795474(s_11795480, x_11795482) {
             F.line = 2567;
             i_11795816 = i_11855188;
             F.line = 2567;
-            nimCopy(result_11795484[chckIndx(i_11795816, 0, (result_11795484).length-1)], s_11795480[chckIndx(addInt(i_11795816, a_11795601), 0, (s_11795480).length-1)], NTI11788016);
+            nimCopy(result_11795484[chckIndx(i_11795816, 0, (result_11795484).length-1)], s_11795480[chckIndx(addInt(i_11795816, a_11795601), 0, (s_11795480).length-1)], NTI11788003);
             F.line = 109;
             i_11855188 = addInt(i_11855188, 1);
           }
@@ -4400,12 +4385,12 @@ function sortByNextOccurence_11789277(tileColors_11789280) {
 
   var F={procname:"main.sortByNextOccurence",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
   framePtr = F;
-    F.line = 27;
+    F.line = 23;
     var colors_11795904 = HEX26_11795832(HEX5BHEX5D_11795022(tileColors_11789280, HEX2EHEX2E_5900001(18, 1)), HEX5BHEX5D_11795474(tileColors_11789280, HEX2EHEX2E_3450220(0, 17)));
-    F.line = 28;
+    F.line = 24;
     var currentColor_11795905 = [];
     L1: do {
-      F.line = 30;
+      F.line = 26;
       var c_11805214 = null;
       F.line = 199;
       var i_11855161 = 0;
@@ -4415,13 +4400,13 @@ function sortByNextOccurence_11789277(tileColors_11789280) {
         F.line = 201;
           L3: while (true) {
           if (!(i_11855161 < L_11855162)) break L3;
-            F.line = 30;
+            F.line = 26;
             c_11805214 = colors_11795904[chckIndx(i_11855161, 0, (colors_11795904).length-1)];
-            F.line = 31;
+            F.line = 27;
             currentColor_11795905 = nimCopy(null, c_11805214.hex, NTI1208013);
             if (!(contains_9950002(result_11789282, currentColor_11795905))) {
             L4: do {
-              F.line = 33;
+              F.line = 29;
               var color_11810015 = null;
               F.line = 199;
               var i_11855158 = 0;
@@ -4431,10 +4416,10 @@ function sortByNextOccurence_11789277(tileColors_11789280) {
                 F.line = 201;
                   L6: while (true) {
                   if (!(i_11855158 < L_11855159)) break L6;
-                    F.line = 33;
+                    F.line = 29;
                     color_11810015 = colors_11795904[chckIndx(i_11855158, 0, (colors_11795904).length-1)];
                     if (eqStrings(color_11810015.hex, currentColor_11795905)) {
-                    F.line = 35;
+                    F.line = 31;
                     var Tmp7 = nimCopy(null, color_11810015.hex, NTI1208013);
                     result_11789282.push(Tmp7);;
                     }
@@ -5204,27 +5189,27 @@ function HEX5BHEX5D_11825022(s_11825028, x_11825030) {
 function stackHeaders_11810054(headerBoard_11810056, headerColors_11810058) {
   var F={procname:"main.stackHeaders",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
   framePtr = F;
-    F.line = 41;
+    F.line = 38;
     var firstColor_11810059 = nimCopy(null, headerColors_11810058[chckIndx(0, 0, (headerColors_11810058).length-1)], NTI1208013);
-    F.line = 42;
-    F.line = 42;
+    F.line = 39;
+    F.line = 39;
     var fmtRes_11810065 = [mnewString(0)];
-    F.line = 42;
+    F.line = 39;
     fmtRes_11810065[0].push.apply(fmtRes_11810065[0], makeNimstrLit("id="));;
-    F.line = 42;
+    F.line = 39;
     formatValue_11715080(fmtRes_11810065, 0, firstColor_11810059, []);
     var firstHeader_11815002 = make_11787205(makeNimstrLit("h1"), [makeNimstrLit("class=header"), nimCopy(null, fmtRes_11810065[0], NTI1208013), makeNimstrLit("text=GRABATILE")]);
-    F.line = 44;
+    F.line = 41;
     firstHeader_11815002.style.backgroundColor = toJSStr(firstColor_11810059);
-    F.line = 45;
+    F.line = 42;
     insert_11787139(headerBoard_11810056, [firstHeader_11815002]);
     L1: do {
-      F.line = 47;
+      F.line = 44;
       var color_11835214 = null;
       var color_11835214_Idx = 0;
       F.line = 197;
       var colontmp__11855196 = [];
-      F.line = 47;
+      F.line = 44;
       colontmp__11855196 = HEX5BHEX5D_11825022(headerColors_11810058, HEX2EHEX2E_5900001(1, 1));
       F.line = 199;
       var i_11855198 = 0;
@@ -5234,21 +5219,21 @@ function stackHeaders_11810054(headerBoard_11810056, headerColors_11810058) {
         F.line = 201;
           L3: while (true) {
           if (!(i_11855198 < L_11855199)) break L3;
-            F.line = 47;
+            F.line = 44;
             color_11835214 = colontmp__11855196; color_11835214_Idx = chckIndx(i_11855198, 0, (colontmp__11855196).length-1);
-            F.line = 48;
-            F.line = 48;
+            F.line = 45;
+            F.line = 45;
             var fmtRes_11835217 = [mnewString(0)];
-            F.line = 48;
+            F.line = 45;
             fmtRes_11835217[0].push.apply(fmtRes_11835217[0], makeNimstrLit("id="));;
-            F.line = 48;
+            F.line = 45;
             formatValue_11715080(fmtRes_11835217, 0, color_11835214[color_11835214_Idx], []);
             var header_11840002 = make_11787205(makeNimstrLit("h1"), [makeNimstrLit("class=header"), nimCopy(null, fmtRes_11835217[0], NTI1208013), makeNimstrLit("text=GRABATILE")]);
-            F.line = 49;
+            F.line = 46;
             header_11840002.style.visibility = "hidden";
-            F.line = 50;
+            F.line = 47;
             header_11840002.style.backgroundColor = toJSStr(color_11835214[color_11835214_Idx]);
-            F.line = 51;
+            F.line = 48;
             insert_11787139(headerBoard_11810056, [header_11840002]);
             F.line = 203;
             i_11855198 = addInt(i_11855198, 1);
@@ -5264,10 +5249,10 @@ function stackHeaders_11810054(headerBoard_11810056, headerColors_11810058) {
 
   
 }
-function action_11789014(tile_11789016, header_11789017) {
+function action_11789014(tile_11789016, headerHouse_11789017) {
   var F={procname:"main.action",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
   framePtr = F;
-    F.line = 16;
+    F.line = 11;
     tile_11789016.style.visibility = "hidden";
   framePtr = F.prev;
 
@@ -5278,7 +5263,7 @@ function fillTileMap_11840063(tileMap_11840065, headerBoard_11840066, tileColors
                 function HEX3Aanonymous_11855002(__11855004) {
                   var F={procname:":anonymous.:anonymous",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
                   framePtr = F;
-                    F.line = 61;
+                    F.line = 59;
                     action_11789014(tile_11850002, headerBoard_11840066);
                   framePtr = F.prev;
 
@@ -5287,27 +5272,27 @@ function fillTileMap_11840063(tileMap_11840065, headerBoard_11840066, tileColors
 
               var F={procname:"fillTileMap.:anonymous",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
               framePtr = F;
-                F.line = 59;
-                F.line = 59;
+                F.line = 57;
+                F.line = 57;
                 var fmtRes_11845005 = [mnewString(0)];
-                F.line = 59;
+                F.line = 57;
                 fmtRes_11845005[0].push.apply(fmtRes_11845005[0], makeNimstrLit("id="));;
-                F.line = 59;
+                F.line = 57;
                 formatValue_11715080(fmtRes_11845005, 0, color_11840076.hex, []);
                 var tile_11850002 = make_11787205(makeNimstrLit("div"), [makeNimstrLit("class=tile"), nimCopy(null, fmtRes_11845005[0], NTI1208013)]);
-                F.line = 60;
-                F.line = 60;
+                F.line = 58;
+                F.line = 58;
                 var fmtRes_11850003 = [mnewString(0)];
-                F.line = 60;
+                F.line = 58;
                 fmtRes_11850003[0].push.apply(fmtRes_11850003[0], makeNimstrLit("url(\"images/"));;
-                F.line = 60;
+                F.line = 58;
                 formatValue_11715080(fmtRes_11850003, 0, color_11840076.name, []);
-                F.line = 60;
+                F.line = 58;
                 fmtRes_11850003[0].push.apply(fmtRes_11850003[0], makeNimstrLit("_tile.png\")"));;
                 tile_11850002.style.backgroundImage = toJSStr(fmtRes_11850003[0]);
-                F.line = 61;
+                F.line = 59;
                 tile_11850002.onclick = HEX3Aanonymous_11855002;
-                F.line = 62;
+                F.line = 60;
                 insert_11787139(tileMap_11840065, [tile_11850002]);
               framePtr = F.prev;
 
@@ -5317,7 +5302,7 @@ function fillTileMap_11840063(tileMap_11840065, headerBoard_11840066, tileColors
   var F={procname:"main.fillTileMap",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
   framePtr = F;
     L1: do {
-      F.line = 56;
+      F.line = 54;
       var color_11840076 = null;
       F.line = 199;
       var i_11855278 = 0;
@@ -5327,9 +5312,9 @@ function fillTileMap_11840063(tileMap_11840065, headerBoard_11840066, tileColors
         F.line = 201;
           L3: while (true) {
           if (!(i_11855278 < L_11855279)) break L3;
-            F.line = 56;
+            F.line = 54;
             color_11840076 = tileColors_11840068[chckIndx(i_11855278, 0, (tileColors_11840068).length-1)];
-            F.line = 58;
+            F.line = 56;
             HEX3Aanonymous_11845001();
             F.line = 203;
             i_11855278 = addInt(i_11855278, 1);
@@ -5366,7 +5351,7 @@ function start_11855077() {
 }
 var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
 framePtr = F;
-F.line = 81;
+F.line = 82;
 start_11855077();
 framePtr = F.prev;
 var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
