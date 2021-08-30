@@ -3,18 +3,22 @@ body {
     background-color: #e5e5e5;
 }
 
+#headerDiv {
+    position: relative;
+}
+
 .header {
-    margin: auto;
+    position: absolute;
+    margin: 0rem auto;
     padding: 0rem 2rem;
     font-family: 'Common Pixel', sans-serif;
     font-size: 100px;
-    background-color: #b6b6b6;
     color: #e5e5e5;
 }
 
 .menu {
     text-align: right;
-    margin: 0.5rem 2.5rem;
+    margin: 1rem 2.5rem;
 }
 
 .button {

@@ -1,5 +1,5 @@
 .tileMap {
-    margin: -9rem auto;
+    margin: -1rem auto;
     width: 828px; /* (128 * 6) 768 + 36 (6 * 6) = 804 */
     transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
 
