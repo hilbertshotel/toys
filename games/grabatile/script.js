@@ -10,14 +10,13 @@ var NTI5645232 = {size: 0,kind: 31,base: null,node: null,finalizer: null};
 var NTI5900011 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI11788003 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI1214649 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI1208044 = {size: 0,kind: 31,base: null,node: null,finalizer: null};
 var NTI1872749 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI1214653 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI1214633 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI1214637 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI2337015 = {size: 0,kind: 43,base: null,node: null,finalizer: null};
 var NTI2337202 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI1208044 = {size: 0,kind: 31,base: null,node: null,finalizer: null};
-var NTI1400043 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI1214408 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI1214728 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
 var NTI1208015 = {size: 0,kind: 29,base: null,node: null,finalizer: null};
@@ -43,10 +42,6 @@ NTI1214408.node = NNI1214408;
 NTI1214617.base = NTI1214408;
 NTI1214619.base = NTI1214617;
 NTI1214641.base = NTI1214619;
-var NNI1400043 = {kind: 2, len: 3, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI1208015, name: "Field0", sons: null}, 
-{kind: 1, offset: "Field1", len: 0, typ: NTI1208044, name: "Field1", sons: null}, 
-{kind: 1, offset: "Field2", len: 0, typ: NTI1208015, name: "Field2", sons: null}]};
-NTI1400043.node = NNI1400043;
 var NNI2337202 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "a0", len: 0, typ: NTI2337015, name: "a0", sons: null}, 
 {kind: 1, offset: "a1", len: 0, typ: NTI2337015, name: "a1", sons: null}]};
 NTI2337202.node = NNI2337202;
@@ -81,6 +76,83 @@ var NNI1214621 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI1214621.node = NNI1214621;
 NTI1214621.base = NTI1214617;
 NTI1214643.base = NTI1214621;
+function toJSStr(s_1475096) {
+                    var Tmp5;
+            var Tmp7;
+
+  var result_1475097 = null;
+
+    var res_1475170 = newSeq_1475128((s_1475096).length);
+    var i_1475172 = 0;
+    var j_1475174 = 0;
+    L1: do {
+        L2: while (true) {
+        if (!(i_1475172 < (s_1475096).length)) break L2;
+          var c_1475175 = s_1475096[i_1475172];
+          if ((c_1475175 < 128)) {
+          res_1475170[j_1475174] = String.fromCharCode(c_1475175);
+          i_1475172 += 1;
+          }
+          else {
+            var helper_1475198 = newSeq_1475128(0);
+            L3: do {
+                L4: while (true) {
+                if (!true) break L4;
+                  var code_1475199 = c_1475175.toString(16);
+                  if ((((code_1475199) == null ? 0 : (code_1475199).length) == 1)) {
+                  helper_1475198.push("%0");;
+                  }
+                  else {
+                  helper_1475198.push("%");;
+                  }
+                  
+                  helper_1475198.push(code_1475199);;
+                  i_1475172 += 1;
+                    if (((s_1475096).length <= i_1475172)) Tmp5 = true; else {                      Tmp5 = (s_1475096[i_1475172] < 128);                    }                  if (Tmp5) {
+                  break L3;
+                  }
+                  
+                  c_1475175 = s_1475096[i_1475172];
+                }
+            } while(false);
+++excHandler;
+            Tmp7 = framePtr;
+            try {
+            res_1475170[j_1475174] = decodeURIComponent(helper_1475198.join(""));
+--excHandler;
+} catch (EXC) {
+ var prevJSError = lastJSError;
+ lastJSError = EXC;
+ --excHandler;
+            framePtr = Tmp7;
+            res_1475170[j_1475174] = helper_1475198.join("");
+            lastJSError = prevJSError;
+            } finally {
+            framePtr = Tmp7;
+            }
+          }
+          
+          j_1475174 += 1;
+        }
+    } while(false);
+    if (res_1475170.length < j_1475174) { for (var i=res_1475170.length;i<j_1475174;++i) res_1475170.push(null); }
+               else { res_1475170.length = j_1475174; };
+    result_1475097 = res_1475170.join("");
+
+  return result_1475097;
+
+}
+function makeNimstrLit(c_1475062) {
+      var ln = c_1475062.length;
+  var result = new Array(ln);
+  for (var i = 0; i < ln; ++i) {
+    result[i] = c_1475062.charCodeAt(i);
+  }
+  return result;
+  
+
+  
+}
 function setConstr() {
         var result = {};
     for (var i = 0; i < arguments.length; ++i) {
@@ -176,20 +248,46 @@ function nimCopy(dest_1490023, src_1490024, ti_1490025) {
   return result_1495219;
 
 }
-function makeNimstrLit(c_1475062) {
-      var ln = c_1475062.length;
-  var result = new Array(ln);
-  for (var i = 0; i < ln; ++i) {
-    result[i] = c_1475062.charCodeAt(i);
-  }
-  return result;
+function raiseException(e_1440218, ename_1440219) {
+    e_1440218.name = ename_1440219;
+    if ((excHandler == 0)) {
+    unhandledException(e_1440218);
+    }
+    
+    throw e_1440218;
+
+  
+}
+function addInt(a_1480419, b_1480420) {
+        var result = a_1480419 + b_1480420;
+    checkOverflowInt(result);
+    return result;
   
 
   
 }
-function arrayConstr(len_1500067, value_1500068, typ_1500069) {
-        var result = new Array(len_1500067);
-    for (var i = 0; i < len_1500067; ++i) result[i] = nimCopy(null, value_1500068, typ_1500069);
+function chckRange(i_1505016, a_1505017, b_1505018) {
+      var Tmp1;
+
+  var result_1505019 = 0;
+
+  BeforeRet: do {
+      if (!(a_1505017 <= i_1505016)) Tmp1 = false; else {        Tmp1 = (i_1505016 <= b_1505018);      }    if (Tmp1) {
+    result_1505019 = i_1505016;
+    break BeforeRet;
+    }
+    else {
+    raiseRangeError();
+    }
+    
+  } while (false);
+
+  return result_1505019;
+
+}
+function subInt(a_1480437, b_1480438) {
+        var result = a_1480437 - b_1480438;
+    checkOverflowInt(result);
     return result;
   
 
@@ -229,118 +327,6 @@ function cstrToNimstr(c_1475079) {
     ++r;
   }
   return result;
-  
-
-  
-}
-function toJSStr(s_1475096) {
-                    var Tmp5;
-            var Tmp7;
-
-  var result_1475097 = null;
-
-    var res_1475170 = newSeq_1475128((s_1475096).length);
-    var i_1475172 = 0;
-    var j_1475174 = 0;
-    L1: do {
-        L2: while (true) {
-        if (!(i_1475172 < (s_1475096).length)) break L2;
-          var c_1475175 = s_1475096[i_1475172];
-          if ((c_1475175 < 128)) {
-          res_1475170[j_1475174] = String.fromCharCode(c_1475175);
-          i_1475172 += 1;
-          }
-          else {
-            var helper_1475198 = newSeq_1475128(0);
-            L3: do {
-                L4: while (true) {
-                if (!true) break L4;
-                  var code_1475199 = c_1475175.toString(16);
-                  if ((((code_1475199) == null ? 0 : (code_1475199).length) == 1)) {
-                  helper_1475198.push("%0");;
-                  }
-                  else {
-                  helper_1475198.push("%");;
-                  }
-                  
-                  helper_1475198.push(code_1475199);;
-                  i_1475172 += 1;
-                    if (((s_1475096).length <= i_1475172)) Tmp5 = true; else {                      Tmp5 = (s_1475096[i_1475172] < 128);                    }                  if (Tmp5) {
-                  break L3;
-                  }
-                  
-                  c_1475175 = s_1475096[i_1475172];
-                }
-            } while(false);
-++excHandler;
-            Tmp7 = framePtr;
-            try {
-            res_1475170[j_1475174] = decodeURIComponent(helper_1475198.join(""));
---excHandler;
-} catch (EXC) {
- var prevJSError = lastJSError;
- lastJSError = EXC;
- --excHandler;
-            framePtr = Tmp7;
-            res_1475170[j_1475174] = helper_1475198.join("");
-            lastJSError = prevJSError;
-            } finally {
-            framePtr = Tmp7;
-            }
-          }
-          
-          j_1475174 += 1;
-        }
-    } while(false);
-    if (res_1475170.length < j_1475174) { for (var i=res_1475170.length;i<j_1475174;++i) res_1475170.push(null); }
-               else { res_1475170.length = j_1475174; };
-    result_1475097 = res_1475170.join("");
-
-  return result_1475097;
-
-}
-function raiseException(e_1440218, ename_1440219) {
-    e_1440218.name = ename_1440219;
-    if ((excHandler == 0)) {
-    unhandledException(e_1440218);
-    }
-    
-    e_1440218.trace = nimCopy(null, rawWriteStackTrace_1430260(), NTI1208013);
-    throw e_1440218;
-
-  
-}
-function addInt(a_1480419, b_1480420) {
-        var result = a_1480419 + b_1480420;
-    checkOverflowInt(result);
-    return result;
-  
-
-  
-}
-function chckRange(i_1505016, a_1505017, b_1505018) {
-      var Tmp1;
-
-  var result_1505019 = 0;
-
-  BeforeRet: do {
-      if (!(a_1505017 <= i_1505016)) Tmp1 = false; else {        Tmp1 = (i_1505016 <= b_1505018);      }    if (Tmp1) {
-    result_1505019 = i_1505016;
-    break BeforeRet;
-    }
-    else {
-    raiseRangeError();
-    }
-    
-  } while (false);
-
-  return result_1505019;
-
-}
-function subInt(a_1480437, b_1480438) {
-        var result = a_1480437 - b_1480438;
-    checkOverflowInt(result);
-    return result;
   
 
   
@@ -456,3309 +442,32 @@ if (!Math.trunc) {
   };
 }
 
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module algorithm",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\algorithm.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module macros",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\core\\macros.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module bitops",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\bitops.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module math",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\math.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-F.line = 113;
 var state_2337205 = [{a0: 1773455756, a1: 4275166512}];
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module parseutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module unicode",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strutils",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module typetraits",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\typetraits.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module options",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\options.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jscore",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jscore.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-F.line = 1282;
 if (globalThis.utcInstance_11040231 === undefined) {
   utcInstance_11040231 = [null];
 }
-F.line = 1283;
 if (globalThis.localInstance_11040232 === undefined) {
   localInstance_11040232 = [null];
 }
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module times",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module random",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module dom",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\dom.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module strformat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module jsconsole",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\js\\jsconsole.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module lib",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module lib",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module lib",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module lib",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module lib",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module lib",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module lib",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module lib",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module lib",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module lib",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module lib",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module data",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\data.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module data",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\data.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module data",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\data.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
+function newSeq_1475128(len_1475131) {
+  var result_1475133 = [];
+
+    result_1475133 = new Array(len_1475131); for (var i=0;i<len_1475131;++i) {result_1475133[i]=null;}
+  return result_1475133;
+
+}
+function getId_11787059(id_11787061) {
+  var result_11787062 = null;
+
+    result_11787062 = document.getElementById(toJSStr(id_11787061));
+
+  return result_11787062;
+
+}
 function toFloat_1236659(i_1236661) {
   var result_1236662 = 0.0;
 
-  var F={procname:"system.toFloat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-  framePtr = F;
-    F.line = 1425;
     result_1236662 = i_1236661;
-  framePtr = F.prev;
 
   return result_1236662;
 
@@ -3766,11 +475,7 @@ function toFloat_1236659(i_1236661) {
 function HEX2F_1575648(x_1575650, y_1575651) {
   var result_1575652 = 0.0;
 
-  var F={procname:"system./",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-  framePtr = F;
-    F.line = 2448;
     result_1575652 = (toFloat_1236659(x_1575650) / toFloat_1236659(y_1575651));
-  framePtr = F.prev;
 
   return result_1575652;
 
@@ -3778,11 +483,7 @@ function HEX2F_1575648(x_1575650, y_1575651) {
 function epochTime_11610141() {
   var result_11610143 = 0.0;
 
-  var F={procname:"times.epochTime",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\times.nim",line:0};
-  framePtr = F;
-    F.line = 2584;
     result_11610143 = HEX2F_1575648(new Date().getTime(), 1000);
-  framePtr = F.prev;
 
   return result_11610143;
 
@@ -3834,97 +535,6 @@ function add_1377211(x_1377214, x_1377214_Idx, y_1377215) {
 
   
 }
-function auxWriteStackTrace_1400038(f_1400040) {
-          var Tmp3;
-
-  var result_1400041 = [[]];
-
-    var it_1400051 = f_1400040;
-    var i_1400053 = 0;
-    var total_1400055 = 0;
-    var tempFrames_1400062 = arrayConstr(64, {Field0: null, Field1: 0, Field2: null}, NTI1400043);
-    L1: do {
-        L2: while (true) {
-          if (!!((it_1400051 == null))) Tmp3 = false; else {            Tmp3 = (i_1400053 <= 63);          }        if (!Tmp3) break L2;
-          tempFrames_1400062[i_1400053].Field0 = it_1400051.procname;
-          tempFrames_1400062[i_1400053].Field1 = it_1400051.line;
-          tempFrames_1400062[i_1400053].Field2 = it_1400051.filename;
-          i_1400053 += 1;
-          total_1400055 += 1;
-          it_1400051 = it_1400051.prev;
-        }
-    } while(false);
-    L4: do {
-        L5: while (true) {
-        if (!!((it_1400051 == null))) break L5;
-          total_1400055 += 1;
-          it_1400051 = it_1400051.prev;
-        }
-    } while(false);
-    result_1400041[0] = nimCopy(null, [], NTI1208013);
-    if (!((total_1400055 == i_1400053))) {
-    result_1400041[0].push.apply(result_1400041[0], makeNimstrLit("("));;
-    result_1400041[0].push.apply(result_1400041[0], cstrToNimstr(((total_1400055 - i_1400053))+""));;
-    result_1400041[0].push.apply(result_1400041[0], makeNimstrLit(" calls omitted) ...\x0A"));;
-    }
-    
-    L6: do {
-      var j_1415236 = 0;
-      var colontmp__11855122 = 0;
-      colontmp__11855122 = (i_1400053 - 1);
-      var res_11855127 = colontmp__11855122;
-      L7: do {
-          L8: while (true) {
-          if (!(0 <= res_11855127)) break L8;
-            j_1415236 = res_11855127;
-            result_1400041[0].push.apply(result_1400041[0], cstrToNimstr(tempFrames_1400062[j_1415236].Field2));;
-            if ((0 < tempFrames_1400062[j_1415236].Field1)) {
-            result_1400041[0].push.apply(result_1400041[0], makeNimstrLit("("));;
-            result_1400041[0].push.apply(result_1400041[0], cstrToNimstr((tempFrames_1400062[j_1415236].Field1)+""));;
-            if (false) {
-            result_1400041[0].push.apply(result_1400041[0], makeNimstrLit(", "));;
-            result_1400041[0].push.apply(result_1400041[0], makeNimstrLit("0"));;
-            }
-            
-            result_1400041[0].push.apply(result_1400041[0], makeNimstrLit(")"));;
-            }
-            
-            result_1400041[0].push.apply(result_1400041[0], makeNimstrLit(" at "));;
-            add_1377211(result_1400041, 0, tempFrames_1400062[j_1415236].Field0);
-            result_1400041[0].push.apply(result_1400041[0], makeNimstrLit("\x0A"));;
-            res_11855127 -= 1;
-          }
-      } while(false);
-    } while(false);
-
-  return result_1400041[0];
-
-}
-function rawWriteStackTrace_1430260() {
-  var result_1430262 = [];
-
-    if (!((framePtr == null))) {
-    result_1430262 = nimCopy(null, (makeNimstrLit("Traceback (most recent call last)\x0A") || []).concat(auxWriteStackTrace_1400038(framePtr) || []), NTI1208013);
-    }
-    else {
-      result_1430262 = nimCopy(null, makeNimstrLit("No stack traceback available\x0A"), NTI1208013);
-    }
-    
-
-  return result_1430262;
-
-}
-function newSeq_1475128(len_1475131) {
-  var result_1475133 = [];
-
-  var F={procname:"newSeq.newSeq",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-  framePtr = F;
-    F.line = 656;
-    result_1475133 = new Array(len_1475131); for (var i=0;i<len_1475131;++i) {result_1475133[i]=null;}  framePtr = F.prev;
-
-  return result_1475133;
-
-}
 function unhandledException(e_1435059) {
     var buf_1435060 = [[]];
     if (!(((e_1435059.message).length == 0))) {
@@ -3938,7 +548,6 @@ function unhandledException(e_1435059) {
     buf_1435060[0].push.apply(buf_1435060[0], makeNimstrLit(" ["));;
     add_1377211(buf_1435060, 0, e_1435059.name);
     buf_1435060[0].push.apply(buf_1435060[0], makeNimstrLit("]\x0A"));;
-    buf_1435060[0].push.apply(buf_1435060[0], rawWriteStackTrace_1430260());;
     var cbuf_1440201 = toJSStr(buf_1435060[0]);
     framePtr = null;
       if (typeof(Error) !== "undefined") {
@@ -3952,40 +561,24 @@ function unhandledException(e_1435059) {
   
 }
 function sysFatal_1325418(message_1325422) {
-  var F={procname:"sysFatal.sysFatal",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system\\fatal.nim",line:0};
-  framePtr = F;
-    F.line = 49;
     raiseException({message: nimCopy(null, message_1325422, NTI1208013), m_type: NTI1214641, parent: null, name: null, trace: [], up: null}, "AssertionDefect");
-  framePtr = F.prev;
 
   
 }
 function raiseAssert_1325414(msg_1325416) {
-  var F={procname:"assertions.raiseAssert",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system\\assertions.nim",line:0};
-  framePtr = F;
-    F.line = 23;
     sysFatal_1325418(msg_1325416);
-  framePtr = F.prev;
 
   
 }
 function failedAssertImpl_1325480(msg_1325482) {
-  var F={procname:"assertions.failedAssertImpl",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system\\assertions.nim",line:0};
-  framePtr = F;
-    F.line = 30;
     raiseAssert_1325414(msg_1325482);
-  framePtr = F.prev;
 
   
 }
 function rotl_2337430(x_2337432, k_2337433) {
   var result_2337434 = 0;
 
-  var F={procname:"random.rotl",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-  framePtr = F;
-    F.line = 123;
     result_2337434 = ((x_2337432 << k_2337433) | ((x_2337432 >>> 0) >>> ((64 - k_2337433) >>> 0)));
-  framePtr = F.prev;
 
   return result_2337434;
 
@@ -3993,21 +586,12 @@ function rotl_2337430(x_2337432, k_2337433) {
 function next_2337458(r_2337461) {
   var result_2337462 = 0;
 
-  var F={procname:"random.next",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-  framePtr = F;
-    F.line = 140;
     var s0_2337463 = r_2337461.a0;
-    F.line = 141;
     var s1_2337464 = r_2337461.a1;
-    F.line = 142;
     result_2337462 = ((s0_2337463 + s1_2337464) >>> 0);
-    F.line = 143;
     s1_2337464 = (s1_2337464 ^ s0_2337463);
-    F.line = 144;
     r_2337461.a0 = ((rotl_2337430(s0_2337463, 55) ^ s1_2337464) ^ (s1_2337464 << 14));
-    F.line = 145;
     r_2337461.a1 = rotl_2337430(s1_2337464, 36);
-  framePtr = F.prev;
 
   return result_2337462;
 
@@ -4015,41 +599,25 @@ function next_2337458(r_2337461) {
 function initRand_2360214(seed_2360216) {
   var result_2360217 = [({a0: 0, a1: 0})];
 
-  var F={procname:"random.initRand",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-  framePtr = F;
     if (!(!((seed_2360216 == 0)))) {
-    F.line = 568;
-    failedAssertImpl_1325480(makeNimstrLit("C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim(568, 12) `seed != 0` "));
+    failedAssertImpl_1325480(makeNimstrLit("random.nim(568, 12) `seed != 0` "));
     }
     
-    F.line = 569;
     result_2360217[0].a0 = Math.floor(seed_2360216 / Math.pow(2,16));
-    F.line = 570;
     result_2360217[0].a1 = (seed_2360216 & 65535);
-    F.line = 571;
     var _ = next_2337458(result_2360217[0]);
-  framePtr = F.prev;
 
   return result_2360217[0];
 
 }
 function randomize_2375222(seed_2375224) {
-  var F={procname:"random.randomize",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-  framePtr = F;
-    F.line = 589;
     nimCopy(state_2337205[0], initRand_2360214(seed_2375224), NTI2337202);
-  framePtr = F.prev;
 
   
 }
 function randomize_11611001() {
-  var F={procname:"random.randomize",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-  framePtr = F;
-    F.line = 641;
     var time_11611203 = ((epochTime_11610141() * 1.0000000000000000e+03) & 2147483647);
-    F.line = 642;
     randomize_2375222(time_11611203);
-  framePtr = F.prev;
 
   
 }
@@ -4072,22 +640,16 @@ function raiseRangeError() {
 function rand_2340049(r_2340052, max_2340053) {
   var result_2340054 = 0;
 
-  var F={procname:"random.rand",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-  framePtr = F;
   BeforeRet: do {
     if ((max_2340053 == 0)) {
-    F.line = 224;
     break BeforeRet;
     }
     
     L1: do {
-      F.line = 225;
         L2: while (true) {
         if (!true) break L2;
-          F.line = 226;
           var x_2340055 = next_2337458(r_2340052);
           if ((x_2340055 <= ((4294967295 - (4294967295 % (max_2340053 >>> 0))) >>> 0))) {
-          F.line = 228;
           result_2340054 = chckRange((x_2340055 % ((max_2340053 + 1) )), -2147483648, 2147483647);
           break BeforeRet;
           }
@@ -4095,43 +657,30 @@ function rand_2340049(r_2340052, max_2340053) {
         }
     } while(false);
   } while (false);
-  framePtr = F.prev;
 
   return result_2340054;
 
 }
-function rand_11789122(r_11789125, x_11789127) {
-  var result_11789128 = 0;
+function rand_11789117(r_11789120, x_11789122) {
+  var result_11789123 = 0;
 
-  var F={procname:"rand.rand",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-  framePtr = F;
-    F.line = 316;
-    result_11789128 = addInt(rand_2340049(r_11789125, chckRange(subInt(x_11789127.b, x_11789127.a), 0, 2147483647)), x_11789127.a);
-  framePtr = F.prev;
+    result_11789123 = addInt(rand_2340049(r_11789120, chckRange(subInt(x_11789122.b, x_11789122.a), 0, 2147483647)), x_11789122.a);
 
-  return result_11789128;
+  return result_11789123;
 
 }
-function rand_11789097(x_11789101) {
-  var result_11789102 = 0;
+function rand_11789092(x_11789096) {
+  var result_11789097 = 0;
 
-  var F={procname:"rand.rand",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-  framePtr = F;
-    F.line = 340;
-    result_11789102 = rand_11789122(state_2337205[0], x_11789101);
-  framePtr = F.prev;
+    result_11789097 = rand_11789117(state_2337205[0], x_11789096);
 
-  return result_11789102;
+  return result_11789097;
 
 }
 function HEX2EHEX2E_3450220(a_3450225, b_3450227) {
   var result_3450229 = ({a: 0, b: 0});
 
-  var F={procname:".....",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-  framePtr = F;
-    F.line = 481;
     nimCopy(result_3450229, {a: a_3450225, b: b_3450227}, NTI1872749);
-  framePtr = F.prev;
 
   return result_3450229;
 
@@ -4150,99 +699,65 @@ function raiseIndexError(i_1460047, a_1460048, b_1460049) {
 
   
 }
-function sample_11789053(a_11789057) {
-  var result_11789058 = ({name: [], hex: []});
+function sample_11789048(a_11789052) {
+  var result_11789053 = ({name: [], hex: []});
 
-  var F={procname:"sample.sample",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\random.nim",line:0};
-  framePtr = F;
-    F.line = 451;
-    nimCopy(result_11789058, a_11789057[chckIndx(rand_11789097(HEX2EHEX2E_3450220(0, (a_11789057).length - 1)), 0, (a_11789057).length-1)], NTI11788003);
-  framePtr = F.prev;
+    nimCopy(result_11789053, a_11789052[chckIndx(rand_11789092(HEX2EHEX2E_3450220(0, (a_11789052).length - 1)), 0, (a_11789052).length-1)], NTI11788003);
 
-  return result_11789058;
+  return result_11789053;
 
 }
-function sampleTileColors_11789037() {
-  var result_11789040 = [];
+function sampleTileColors_11789032() {
+  var result_11789035 = [];
 
-  var F={procname:"main.sampleTileColors",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-  framePtr = F;
-    F.line = 24;
     randomize_11611001();
     L1: do {
-      F.line = 25;
-      var i_11789050 = 0;
-      F.line = 77;
-      var res_11855110 = 1;
+      var i_11789045 = 0;
+      var res_11855084 = 1;
       L2: do {
-        F.line = 78;
           L3: while (true) {
-          if (!(res_11855110 <= 36)) break L3;
-            F.line = 25;
-            i_11789050 = res_11855110;
-            F.line = 26;
-            result_11789040.push(sample_11789053(COLORS_11788026));;
-            F.line = 80;
-            res_11855110 = addInt(res_11855110, 1);
+          if (!(res_11855084 <= 36)) break L3;
+            i_11789045 = res_11855084;
+            result_11789035.push(sample_11789048(COLORS_11788026));;
+            res_11855084 = addInt(res_11855084, 1);
           }
       } while(false);
     } while(false);
-  framePtr = F.prev;
 
-  return result_11789040;
+  return result_11789035;
 
 }
 function HEX26_11795832(x_11795836, y_11795838) {
   var result_11795840 = [];
 
-  var F={procname:"&.&",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-  framePtr = F;
-    F.line = 1651;
     result_11795840 = new Array(chckRange(addInt((x_11795836).length, (y_11795838).length), 0, 2147483647)); for (var i=0;i<chckRange(addInt((x_11795836).length, (y_11795838).length), 0, 2147483647);++i) {result_11795840[i]=({name: [], hex: []});}    L1: do {
-      F.line = 1652;
       var i_11795871 = 0;
-      F.line = 66;
-      var colontmp__11855165 = 0;
-      F.line = 1652;
-      colontmp__11855165 = subInt((x_11795836).length, 1);
-      F.line = 77;
-      var res_11855166 = 0;
+      var colontmp__11855124 = 0;
+      colontmp__11855124 = subInt((x_11795836).length, 1);
+      var res_11855125 = 0;
       L2: do {
-        F.line = 78;
           L3: while (true) {
-          if (!(res_11855166 <= colontmp__11855165)) break L3;
-            F.line = 1652;
-            i_11795871 = res_11855166;
-            F.line = 1653;
+          if (!(res_11855125 <= colontmp__11855124)) break L3;
+            i_11795871 = res_11855125;
             nimCopy(result_11795840[chckIndx(i_11795871, 0, (result_11795840).length-1)], x_11795836[chckIndx(i_11795871, 0, (x_11795836).length-1)], NTI11788003);
-            F.line = 80;
-            res_11855166 = addInt(res_11855166, 1);
+            res_11855125 = addInt(res_11855125, 1);
           }
       } while(false);
     } while(false);
     L4: do {
-      F.line = 1654;
       var i_11795885 = 0;
-      F.line = 66;
-      var colontmp__11855172 = 0;
-      F.line = 1654;
-      colontmp__11855172 = subInt((y_11795838).length, 1);
-      F.line = 77;
-      var res_11855173 = 0;
+      var colontmp__11855131 = 0;
+      colontmp__11855131 = subInt((y_11795838).length, 1);
+      var res_11855132 = 0;
       L5: do {
-        F.line = 78;
           L6: while (true) {
-          if (!(res_11855173 <= colontmp__11855172)) break L6;
-            F.line = 1654;
-            i_11795885 = res_11855173;
-            F.line = 1655;
+          if (!(res_11855132 <= colontmp__11855131)) break L6;
+            i_11795885 = res_11855132;
             nimCopy(result_11795840[chckIndx(addInt(i_11795885, (x_11795836).length), 0, (result_11795840).length-1)], y_11795838[chckIndx(i_11795885, 0, (y_11795838).length-1)], NTI11788003);
-            F.line = 80;
-            res_11855173 = addInt(res_11855173, 1);
+            res_11855132 = addInt(res_11855132, 1);
           }
       } while(false);
     } while(false);
-  framePtr = F.prev;
 
   return result_11795840;
 
@@ -4250,32 +765,20 @@ function HEX26_11795832(x_11795836, y_11795838) {
 function HEX5BHEX5D_11795022(s_11795028, x_11795030) {
   var result_11795032 = [];
 
-  var F={procname:"[].[]",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-  framePtr = F;
-    F.line = 2564;
     var a_11795201 = x_11795030.a;
-    F.line = 2565;
     var L_11795405 = addInt(subInt(subInt((s_11795028).length, x_11795030.b), a_11795201), 1);
-    F.line = 2566;
     result_11795032 = new Array(chckRange(L_11795405, 0, 2147483647)); for (var i=0;i<chckRange(L_11795405, 0, 2147483647);++i) {result_11795032[i]=({name: [], hex: []});}    L1: do {
-      F.line = 2567;
       var i_11795420 = 0;
-      F.line = 106;
-      var i_11855181 = 0;
+      var i_11855140 = 0;
       L2: do {
-        F.line = 107;
           L3: while (true) {
-          if (!(i_11855181 < L_11795405)) break L3;
-            F.line = 2567;
-            i_11795420 = i_11855181;
-            F.line = 2567;
+          if (!(i_11855140 < L_11795405)) break L3;
+            i_11795420 = i_11855140;
             nimCopy(result_11795032[chckIndx(i_11795420, 0, (result_11795032).length-1)], s_11795028[chckIndx(addInt(i_11795420, a_11795201), 0, (s_11795028).length-1)], NTI11788003);
-            F.line = 109;
-            i_11855181 = addInt(i_11855181, 1);
+            i_11855140 = addInt(i_11855140, 1);
           }
       } while(false);
     } while(false);
-  framePtr = F.prev;
 
   return result_11795032;
 
@@ -4283,11 +786,7 @@ function HEX5BHEX5D_11795022(s_11795028, x_11795030) {
 function HEX2EHEX2E_5900001(a_5900006, b_5900008) {
   var result_5900014 = ({a: 0, b: 0});
 
-  var F={procname:".....",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-  framePtr = F;
-    F.line = 481;
     nimCopy(result_5900014, {a: a_5900006, b: b_5900008}, NTI5900011);
-  framePtr = F.prev;
 
   return result_5900014;
 
@@ -4295,32 +794,20 @@ function HEX2EHEX2E_5900001(a_5900006, b_5900008) {
 function HEX5BHEX5D_11795474(s_11795480, x_11795482) {
   var result_11795484 = [];
 
-  var F={procname:"[].[]",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-  framePtr = F;
-    F.line = 2564;
     var a_11795601 = x_11795482.a;
-    F.line = 2565;
     var L_11795801 = addInt(subInt(x_11795482.b, a_11795601), 1);
-    F.line = 2566;
     result_11795484 = new Array(chckRange(L_11795801, 0, 2147483647)); for (var i=0;i<chckRange(L_11795801, 0, 2147483647);++i) {result_11795484[i]=({name: [], hex: []});}    L1: do {
-      F.line = 2567;
       var i_11795816 = 0;
-      F.line = 106;
-      var i_11855188 = 0;
+      var i_11855147 = 0;
       L2: do {
-        F.line = 107;
           L3: while (true) {
-          if (!(i_11855188 < L_11795801)) break L3;
-            F.line = 2567;
-            i_11795816 = i_11855188;
-            F.line = 2567;
+          if (!(i_11855147 < L_11795801)) break L3;
+            i_11795816 = i_11855147;
             nimCopy(result_11795484[chckIndx(i_11795816, 0, (result_11795484).length-1)], s_11795480[chckIndx(addInt(i_11795816, a_11795601), 0, (s_11795480).length-1)], NTI11788003);
-            F.line = 109;
-            i_11855188 = addInt(i_11855188, 1);
+            i_11855147 = addInt(i_11855147, 1);
           }
       } while(false);
     } while(false);
-  framePtr = F.prev;
 
   return result_11795484;
 
@@ -4328,39 +815,27 @@ function HEX5BHEX5D_11795474(s_11795480, x_11795482) {
 function find_9950009(a_9950013, item_9950014) {
   var result_9950015 = 0;
 
-  var F={procname:"find.find",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-  framePtr = F;
   BeforeRet: do {
-    F.line = 1804;
     result_9950015 = 0;
     L1: do {
-      F.line = 1805;
       var i_9950022 = null;
       var i_9950022_Idx = 0;
-      F.line = 8;
-      var i_11855192 = 0;
+      var i_11855151 = 0;
       L2: do {
-        F.line = 9;
           L3: while (true) {
-          if (!(i_11855192 < (a_9950013).length)) break L3;
-            F.line = 1805;
-            i_9950022 = a_9950013; i_9950022_Idx = chckIndx(i_11855192, 0, (a_9950013).length-1);
+          if (!(i_11855151 < (a_9950013).length)) break L3;
+            i_9950022 = a_9950013; i_9950022_Idx = chckIndx(i_11855151, 0, (a_9950013).length-1);
             if (eqStrings(i_9950022[i_9950022_Idx], item_9950014)) {
-            F.line = 1806;
             break BeforeRet;
             }
             
-            F.line = 1807;
             result_9950015 = addInt(result_9950015, 1);
-            F.line = 11;
-            i_11855192 = addInt(i_11855192, 1);
+            i_11855151 = addInt(i_11855151, 1);
           }
       } while(false);
     } while(false);
-    F.line = 1808;
     result_9950015 = -1;
   } while (false);
-  framePtr = F.prev;
 
   return result_9950015;
 
@@ -4368,14 +843,10 @@ function find_9950009(a_9950013, item_9950014) {
 function contains_9950002(a_9950006, item_9950007) {
   var result_9950008 = false;
 
-  var F={procname:"contains.contains",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-  framePtr = F;
   BeforeRet: do {
-    F.line = 1822;
     result_9950008 = (0 <= find_9950009(a_9950006, item_9950007));
     break BeforeRet;
   } while (false);
-  framePtr = F.prev;
 
   return result_9950008;
 
@@ -4383,52 +854,34 @@ function contains_9950002(a_9950006, item_9950007) {
 function sortByNextOccurence_11789277(tileColors_11789280) {
   var result_11789282 = [];
 
-  var F={procname:"main.sortByNextOccurence",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-  framePtr = F;
-    F.line = 32;
     var colors_11795904 = HEX26_11795832(HEX5BHEX5D_11795022(tileColors_11789280, HEX2EHEX2E_5900001(18, 1)), HEX5BHEX5D_11795474(tileColors_11789280, HEX2EHEX2E_3450220(0, 17)));
-    F.line = 33;
     var currentColor_11795905 = [];
     L1: do {
-      F.line = 35;
       var c_11805214 = null;
-      F.line = 199;
-      var i_11855161 = 0;
-      F.line = 200;
-      var L_11855162 = (colors_11795904).length;
+      var i_11855120 = 0;
+      var L_11855121 = (colors_11795904).length;
       L2: do {
-        F.line = 201;
           L3: while (true) {
-          if (!(i_11855161 < L_11855162)) break L3;
-            F.line = 35;
-            c_11805214 = colors_11795904[chckIndx(i_11855161, 0, (colors_11795904).length-1)];
-            F.line = 36;
+          if (!(i_11855120 < L_11855121)) break L3;
+            c_11805214 = colors_11795904[chckIndx(i_11855120, 0, (colors_11795904).length-1)];
             currentColor_11795905 = nimCopy(null, c_11805214.hex, NTI1208013);
             if (!(contains_9950002(result_11789282, currentColor_11795905))) {
             L4: do {
-              F.line = 38;
               var color_11810015 = null;
-              F.line = 199;
-              var i_11855158 = 0;
-              F.line = 200;
-              var L_11855159 = (colors_11795904).length;
+              var i_11855117 = 0;
+              var L_11855118 = (colors_11795904).length;
               L5: do {
-                F.line = 201;
                   L6: while (true) {
-                  if (!(i_11855158 < L_11855159)) break L6;
-                    F.line = 38;
-                    color_11810015 = colors_11795904[chckIndx(i_11855158, 0, (colors_11795904).length-1)];
+                  if (!(i_11855117 < L_11855118)) break L6;
+                    color_11810015 = colors_11795904[chckIndx(i_11855117, 0, (colors_11795904).length-1)];
                     if (eqStrings(color_11810015.hex, currentColor_11795905)) {
-                    F.line = 40;
                     var Tmp7 = nimCopy(null, color_11810015.hex, NTI1208013);
                     result_11789282.push(Tmp7);;
                     }
                     
-                    F.line = 203;
-                    i_11855158 = addInt(i_11855158, 1);
-                    if (!(((colors_11795904).length == L_11855159))) {
-                    F.line = 204;
-                    failedAssertImpl_1325480(makeNimstrLit("C:\\Users\\kolu\\nim-1.4.8\\lib\\system\\iterators.nim(204, 11) `len(a) == L` the length of the seq changed while iterating over it"));
+                    i_11855117 = addInt(i_11855117, 1);
+                    if (!(((colors_11795904).length == L_11855118))) {
+                    failedAssertImpl_1325480(makeNimstrLit("iterators.nim(204, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
                   }
@@ -4436,67 +889,38 @@ function sortByNextOccurence_11789277(tileColors_11789280) {
             } while(false);
             }
             
-            F.line = 203;
-            i_11855161 = addInt(i_11855161, 1);
-            if (!(((colors_11795904).length == L_11855162))) {
-            F.line = 204;
-            failedAssertImpl_1325480(makeNimstrLit("C:\\Users\\kolu\\nim-1.4.8\\lib\\system\\iterators.nim(204, 11) `len(a) == L` the length of the seq changed while iterating over it"));
+            i_11855120 = addInt(i_11855120, 1);
+            if (!(((colors_11795904).length == L_11855121))) {
+            failedAssertImpl_1325480(makeNimstrLit("iterators.nim(204, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
             
           }
       } while(false);
     } while(false);
-  framePtr = F.prev;
 
   return result_11789282;
-
-}
-function getId_11787059(id_11787061) {
-  var result_11787062 = null;
-
-  var F={procname:"lib.getId",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-  framePtr = F;
-    F.line = 12;
-    result_11787062 = document.getElementById(toJSStr(id_11787061));
-  framePtr = F.prev;
-
-  return result_11787062;
 
 }
 function substr_1591022(s_1591024, first_1591025, last_1591026) {
   var result_1591027 = [];
 
-  var F={procname:"system.substr",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-  framePtr = F;
-    F.line = 3018;
     var first_1591028 = nimMax(first_1591025, 0);
-    F.line = 3019;
     var L_1591030 = nimMax(addInt(subInt(nimMin(last_1591026, (s_1591024).length - 1), first_1591028), 1), 0);
-    F.line = 3020;
     result_1591027 = nimCopy(null, mnewString(chckRange(L_1591030, 0, 2147483647)), NTI1208013);
     L1: do {
-      F.line = 3021;
       var i_1591039 = 0;
-      F.line = 66;
-      var colontmp__11855213 = 0;
-      F.line = 3021;
-      colontmp__11855213 = subInt(L_1591030, 1);
-      F.line = 77;
-      var res_11855214 = 0;
+      var colontmp__11855172 = 0;
+      colontmp__11855172 = subInt(L_1591030, 1);
+      var res_11855173 = 0;
       L2: do {
-        F.line = 78;
           L3: while (true) {
-          if (!(res_11855214 <= colontmp__11855213)) break L3;
-            F.line = 3021;
-            i_1591039 = res_11855214;
-            F.line = 3022;
+          if (!(res_11855173 <= colontmp__11855172)) break L3;
+            i_1591039 = res_11855173;
             result_1591027[chckIndx(i_1591039, 0, (result_1591027).length-1)] = s_1591024[chckIndx(addInt(i_1591039, first_1591028), 0, (s_1591024).length-1)];
-            F.line = 80;
-            res_11855214 = addInt(res_11855214, 1);
+            res_11855173 = addInt(res_11855173, 1);
           }
       } while(false);
     } while(false);
-  framePtr = F.prev;
 
   return result_1591027;
 
@@ -4504,54 +928,37 @@ function substr_1591022(s_1591024, first_1591025, last_1591026) {
 function nsuSplitChar(s_9685034, sep_9685035, maxsplit_9685036) {
   var result_9685038 = [];
 
-  var F={procname:"strutils.split",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-  framePtr = F;
-    F.line = 433;
     result_9685038 = nimCopy(null, [], NTI9690015);
     L1: do {
-      F.line = 434;
       var xHEX60gensym59_9690016 = [];
-      F.line = 405;
-      var lastHEX60gensym26_11855207 = 0;
-      F.line = 406;
-      var splitsHEX60gensym26_11855208 = maxsplit_9685036;
+      var lastHEX60gensym26_11855166 = 0;
+      var splitsHEX60gensym26_11855167 = maxsplit_9685036;
       L2: do {
-        F.line = 466;
           L3: while (true) {
-          if (!(lastHEX60gensym26_11855207 <= (s_9685034).length)) break L3;
-            F.line = 409;
-            var firstHEX60gensym26_11855210 = lastHEX60gensym26_11855207;
+          if (!(lastHEX60gensym26_11855166 <= (s_9685034).length)) break L3;
+            var firstHEX60gensym26_11855169 = lastHEX60gensym26_11855166;
             L4: do {
-              F.line = 410;
                 L5: while (true) {
-                if (!((lastHEX60gensym26_11855207 < (s_9685034).length) && !((s_9685034[chckIndx(lastHEX60gensym26_11855207, 0, (s_9685034).length-1)] == sep_9685035)))) break L5;
-                  F.line = 411;
-                  lastHEX60gensym26_11855207 = addInt(lastHEX60gensym26_11855207, 1);
+                if (!((lastHEX60gensym26_11855166 < (s_9685034).length) && !((s_9685034[chckIndx(lastHEX60gensym26_11855166, 0, (s_9685034).length-1)] == sep_9685035)))) break L5;
+                  lastHEX60gensym26_11855166 = addInt(lastHEX60gensym26_11855166, 1);
                 }
             } while(false);
-            if ((splitsHEX60gensym26_11855208 == 0)) {
-            F.line = 412;
-            lastHEX60gensym26_11855207 = (s_9685034).length;
+            if ((splitsHEX60gensym26_11855167 == 0)) {
+            lastHEX60gensym26_11855166 = (s_9685034).length;
             }
             
-            F.line = 743;
-            xHEX60gensym59_9690016 = substr_1591022(s_9685034, firstHEX60gensym26_11855210, subInt(lastHEX60gensym26_11855207, 1));
-            F.line = 434;
+            xHEX60gensym59_9690016 = substr_1591022(s_9685034, firstHEX60gensym26_11855169, subInt(lastHEX60gensym26_11855166, 1));
             var Tmp6 = nimCopy(null, xHEX60gensym59_9690016, NTI1208013);
             result_9685038.push(Tmp6);;
-            if ((splitsHEX60gensym26_11855208 == 0)) {
-            F.line = 414;
+            if ((splitsHEX60gensym26_11855167 == 0)) {
             break L2;
             }
             
-            F.line = 415;
-            splitsHEX60gensym26_11855208 = subInt(splitsHEX60gensym26_11855208, 1);
-            F.line = 416;
-            lastHEX60gensym26_11855207 = addInt(lastHEX60gensym26_11855207, 1);
+            splitsHEX60gensym26_11855167 = subInt(splitsHEX60gensym26_11855167, 1);
+            lastHEX60gensym26_11855166 = addInt(lastHEX60gensym26_11855166, 1);
           }
       } while(false);
     } while(false);
-  framePtr = F.prev;
 
   return result_9685038;
 
@@ -4559,49 +966,34 @@ function nsuSplitChar(s_9685034, sep_9685035, maxsplit_9685036) {
 function make_11787205(kind_11787207, properties_11787209) {
   var result_11787210 = null;
 
-  var F={procname:"lib.make",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-  framePtr = F;
-    F.line = 25;
-    F.line = 25;
     var element_11787211 = document.createElement(toJSStr(kind_11787207));
     L1: do {
-      F.line = 26;
       var property_11787218 = null;
       var property_11787218_Idx = 0;
-      F.line = 8;
-      var i_11855202 = 0;
+      var i_11855161 = 0;
       L2: do {
-        F.line = 9;
           L3: while (true) {
-          if (!(i_11855202 < (properties_11787209).length)) break L3;
-            F.line = 26;
-            property_11787218 = properties_11787209; property_11787218_Idx = chckIndx(i_11855202, 0, (properties_11787209).length-1);
-            F.line = 27;
+          if (!(i_11855161 < (properties_11787209).length)) break L3;
+            property_11787218 = properties_11787209; property_11787218_Idx = chckIndx(i_11855161, 0, (properties_11787209).length-1);
             var p_11787219 = nsuSplitChar(property_11787218[property_11787218_Idx], 61, -1);
-            F.line = 28;
             switch (toJSStr(p_11787219[chckIndx(0, 0, (p_11787219).length-1)])) {
             case "class":
-              F.line = 29;
               element_11787211.className = toJSStr(p_11787219[chckIndx(1, 0, (p_11787219).length-1)]);
               break;
             case "id":
-              F.line = 30;
               element_11787211.id = toJSStr(p_11787219[chckIndx(1, 0, (p_11787219).length-1)]);
               break;
             case "text":
-              F.line = 31;
               element_11787211.innerHTML = toJSStr(p_11787219[chckIndx(1, 0, (p_11787219).length-1)]);
               break;
             default: 
               break;
             }
-            F.line = 11;
-            i_11855202 = addInt(i_11855202, 1);
+            i_11855161 = addInt(i_11855161, 1);
           }
       } while(false);
     } while(false);
     result_11787210 = element_11787211;
-  framePtr = F.prev;
 
   return result_11787210;
 
@@ -4617,50 +1009,36 @@ function parseSaturatedNatural_2490017(s_2490019, b_2490021, b_2490021_Idx, star
 
   var result_2490024 = 0;
 
-  var F={procname:"parseutils.parseSaturatedNatural",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\parseutils.nim",line:0};
-  framePtr = F;
-    F.line = 490;
     var i_2490025 = start_2490022;
     if (((i_2490025 < (s_2490019).length) && (s_2490019[chckIndx(i_2490025, 0, (s_2490019).length-1)] == 43))) {
-    F.line = 491;
     i_2490025 = addInt(i_2490025, 1);
     }
     
       if (!(i_2490025 < (s_2490019).length)) Tmp1 = false; else {        Tmp1 = (ConstSet6[s_2490019[chckIndx(i_2490025, 0, (s_2490019).length-1)]] != undefined);      }    if (Tmp1) {
-    F.line = 493;
     b_2490021[b_2490021_Idx] = 0;
     L2: do {
-      F.line = 494;
         L3: while (true) {
           if (!(i_2490025 < (s_2490019).length)) Tmp4 = false; else {            Tmp4 = (ConstSet7[s_2490019[chckIndx(i_2490025, 0, (s_2490019).length-1)]] != undefined);          }        if (!Tmp4) break L3;
-          F.line = 495;
           var c_2500016 = subInt(s_2490019[chckIndx(i_2490025, 0, (s_2490019).length-1)], 48);
           if ((b_2490021[b_2490021_Idx] <= divInt(subInt(2147483647, c_2500016), 10))) {
-          F.line = 497;
           b_2490021[b_2490021_Idx] = addInt(mulInt(b_2490021[b_2490021_Idx], 10), c_2500016);
           }
           else {
-            F.line = 499;
             b_2490021[b_2490021_Idx] = 2147483647;
           }
           
-          F.line = 500;
           i_2490025 = addInt(i_2490025, 1);
           L5: do {
-            F.line = 501;
               L6: while (true) {
               if (!((i_2490025 < (s_2490019).length) && (s_2490019[chckIndx(i_2490025, 0, (s_2490019).length-1)] == 95))) break L6;
-                F.line = 501;
                 i_2490025 = addInt(i_2490025, 1);
               }
           } while(false);
         }
     } while(false);
-    F.line = 502;
     result_2490024 = subInt(i_2490025, start_2490022);
     }
     
-  framePtr = F.prev;
 
   return result_2490024;
 
@@ -4668,33 +1046,21 @@ function parseSaturatedNatural_2490017(s_2490019, b_2490021, b_2490021_Idx, star
 function HEX5BHEX5D_5900068(s_5900072, x_5900074) {
   var result_5900075 = [];
 
-  var F={procname:"[].[]",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-  framePtr = F;
-    F.line = 2508;
     var a_5900201 = x_5900074.a;
-    F.line = 2509;
     var L_5900401 = addInt(subInt(subInt((s_5900072).length, x_5900074.b), a_5900201), 1);
-    F.line = 2510;
     result_5900075 = nimCopy(null, mnewString(chckRange(L_5900401, 0, 2147483647)), NTI1208013);
     L1: do {
-      F.line = 2511;
       var i_5900409 = 0;
-      F.line = 106;
-      var i_11855233 = 0;
+      var i_11855192 = 0;
       L2: do {
-        F.line = 107;
           L3: while (true) {
-          if (!(i_11855233 < L_5900401)) break L3;
-            F.line = 2511;
-            i_5900409 = i_11855233;
-            F.line = 2511;
+          if (!(i_11855192 < L_5900401)) break L3;
+            i_5900409 = i_11855192;
             result_5900075[chckIndx(i_5900409, 0, (result_5900075).length-1)] = s_5900072[chckIndx(addInt(i_5900409, a_5900201), 0, (s_5900072).length-1)];
-            F.line = 109;
-            i_11855233 = addInt(i_11855233, 1);
+            i_11855192 = addInt(i_11855192, 1);
           }
       } while(false);
     } while(false);
-  framePtr = F.prev;
 
   return result_5900075;
 
@@ -4706,85 +1072,57 @@ function parseStandardFormatSpecifier_11670322(s_11670324, start_11670325, ignor
 
   var result_11670328 = ({fill: 0, align: 0, sign: 0, alternateForm: false, padWithZero: false, minimumWidth: 0, precision: 0, typ: 0, endPosition: 0});
 
-  var F={procname:"strformat.parseStandardFormatSpecifier",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-  framePtr = F;
-    F.line = 424;
     result_11670328.fill = 32;
-    F.line = 425;
     result_11670328.align = 0;
-    F.line = 426;
     result_11670328.sign = 45;
-    F.line = 427;
     var i_11670331 = start_11670325;
     if (((addInt(i_11670331, 1) < (s_11670324).length) && (ConstSet2[s_11670324[chckIndx(addInt(i_11670331, 1), 0, (s_11670324).length-1)]] != undefined))) {
-    F.line = 429;
     result_11670328.fill = s_11670324[chckIndx(i_11670331, 0, (s_11670324).length-1)];
-    F.line = 430;
     result_11670328.align = s_11670324[chckIndx(addInt(i_11670331, 1), 0, (s_11670324).length-1)];
-    F.line = 431;
     i_11670331 = addInt(i_11670331, 2);
     }
     else {
     if (((i_11670331 < (s_11670324).length) && (ConstSet3[s_11670324[chckIndx(i_11670331, 0, (s_11670324).length-1)]] != undefined))) {
-    F.line = 433;
     result_11670328.align = s_11670324[chckIndx(i_11670331, 0, (s_11670324).length-1)];
-    F.line = 434;
     i_11670331 = addInt(i_11670331, 1);
     }
     }
     if (((i_11670331 < (s_11670324).length) && (ConstSet4[s_11670324[chckIndx(i_11670331, 0, (s_11670324).length-1)]] != undefined))) {
-    F.line = 437;
     result_11670328.sign = s_11670324[chckIndx(i_11670331, 0, (s_11670324).length-1)];
-    F.line = 438;
     i_11670331 = addInt(i_11670331, 1);
     }
     
     if (((i_11670331 < (s_11670324).length) && (s_11670324[chckIndx(i_11670331, 0, (s_11670324).length-1)] == 35))) {
-    F.line = 441;
     result_11670328.alternateForm = true;
-    F.line = 442;
     i_11670331 = addInt(i_11670331, 1);
     }
     
       if (!((addInt(i_11670331, 1) < (s_11670324).length) && (s_11670324[chckIndx(i_11670331, 0, (s_11670324).length-1)] == 48))) Tmp1 = false; else {        Tmp1 = (ConstSet5[s_11670324[chckIndx(addInt(i_11670331, 1), 0, (s_11670324).length-1)]] != undefined);      }    if (Tmp1) {
-    F.line = 445;
     result_11670328.padWithZero = true;
-    F.line = 446;
     i_11670331 = addInt(i_11670331, 1);
     }
     
-    F.line = 448;
     var parsedLength_11690015 = parseSaturatedNatural_2490017(s_11670324, result_11670328, "minimumWidth", i_11670331);
-    F.line = 449;
     i_11670331 = addInt(i_11670331, parsedLength_11690015);
     if (((i_11670331 < (s_11670324).length) && (s_11670324[chckIndx(i_11670331, 0, (s_11670324).length-1)] == 46))) {
-    F.line = 451;
     i_11670331 = addInt(i_11670331, 1);
-    F.line = 452;
     var parsedLengthB_11690029 = parseSaturatedNatural_2490017(s_11670324, result_11670328, "precision", i_11670331);
-    F.line = 453;
     i_11670331 = addInt(i_11670331, parsedLengthB_11690029);
     }
     else {
-      F.line = 455;
       result_11670328.precision = -1;
     }
     
       if (!(i_11670331 < (s_11670324).length)) Tmp2 = false; else {        Tmp2 = (ConstSet8[s_11670324[chckIndx(i_11670331, 0, (s_11670324).length-1)]] != undefined);      }    if (Tmp2) {
-    F.line = 458;
     result_11670328.typ = s_11670324[chckIndx(i_11670331, 0, (s_11670324).length-1)];
-    F.line = 459;
     i_11670331 = addInt(i_11670331, 1);
     }
     
-    F.line = 460;
     result_11670328.endPosition = i_11670331;
       if (!!((i_11670331 == (s_11670324).length))) Tmp3 = false; else {        Tmp3 = !(ignoreUnknownSuffix_11670327);      }    if (Tmp3) {
-    F.line = 462;
     raiseException({message: (makeNimstrLit("invalid format string, cannot parse: ") || []).concat(HEX5BHEX5D_5900068(s_11670324, HEX2EHEX2E_5900001(i_11670331, 1)) || []), parent: null, m_type: NTI1214643, name: null, trace: [], up: null}, "ValueError");
     }
     
-  framePtr = F.prev;
 
   return result_11670328;
 
@@ -4792,55 +1130,41 @@ function parseStandardFormatSpecifier_11670322(s_11670324, start_11670325, ignor
 function nucruneLen(s_2572025) {
   var result_2572026 = 0;
 
-  var F={procname:"unicode.runeLen",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-  framePtr = F;
-    F.line = 42;
     result_2572026 = 0;
-    F.line = 43;
     var i_2572028 = 0;
     L1: do {
-      F.line = 44;
         L2: while (true) {
         if (!(i_2572028 < (s_2572025).length)) break L2;
           if ((s_2572025[chckIndx(i_2572028, 0, (s_2572025).length-1)] <= 127)) {
-          F.line = 45;
           i_2572028 = addInt(i_2572028, 1);
           }
           else {
           if ((((s_2572025[chckIndx(i_2572028, 0, (s_2572025).length-1)] >>> 0) >>> 5) == 6)) {
-          F.line = 46;
           i_2572028 = addInt(i_2572028, 2);
           }
           else {
           if ((((s_2572025[chckIndx(i_2572028, 0, (s_2572025).length-1)] >>> 0) >>> 4) == 14)) {
-          F.line = 47;
           i_2572028 = addInt(i_2572028, 3);
           }
           else {
           if ((((s_2572025[chckIndx(i_2572028, 0, (s_2572025).length-1)] >>> 0) >>> 3) == 30)) {
-          F.line = 48;
           i_2572028 = addInt(i_2572028, 4);
           }
           else {
           if ((((s_2572025[chckIndx(i_2572028, 0, (s_2572025).length-1)] >>> 0) >>> 2) == 62)) {
-          F.line = 49;
           i_2572028 = addInt(i_2572028, 5);
           }
           else {
           if ((((s_2572025[chckIndx(i_2572028, 0, (s_2572025).length-1)] >>> 0) >>> 1) == 126)) {
-          F.line = 50;
           i_2572028 = addInt(i_2572028, 6);
           }
           else {
-            F.line = 51;
           i_2572028 = addInt(i_2572028, 1);
           }
           }}}}}
-          F.line = 52;
           result_2572026 = addInt(result_2572026, 1);
         }
     } while(false);
-  framePtr = F.prev;
 
   return result_2572026;
 
@@ -4848,43 +1172,33 @@ function nucruneLen(s_2572025) {
 function runeLenAt_2572127(s_2572129, i_2572130) {
   var result_2572131 = 0;
 
-  var F={procname:"unicode.runeLenAt",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-  framePtr = F;
     if ((s_2572129[chckIndx(i_2572130, 0, (s_2572129).length-1)] <= 127)) {
-    F.line = 64;
     result_2572131 = 1;
     }
     else {
     if ((((s_2572129[chckIndx(i_2572130, 0, (s_2572129).length-1)] >>> 0) >>> 5) == 6)) {
-    F.line = 65;
     result_2572131 = 2;
     }
     else {
     if ((((s_2572129[chckIndx(i_2572130, 0, (s_2572129).length-1)] >>> 0) >>> 4) == 14)) {
-    F.line = 66;
     result_2572131 = 3;
     }
     else {
     if ((((s_2572129[chckIndx(i_2572130, 0, (s_2572129).length-1)] >>> 0) >>> 3) == 30)) {
-    F.line = 67;
     result_2572131 = 4;
     }
     else {
     if ((((s_2572129[chckIndx(i_2572130, 0, (s_2572129).length-1)] >>> 0) >>> 2) == 62)) {
-    F.line = 68;
     result_2572131 = 5;
     }
     else {
     if ((((s_2572129[chckIndx(i_2572130, 0, (s_2572129).length-1)] >>> 0) >>> 1) == 126)) {
-    F.line = 69;
     result_2572131 = 6;
     }
     else {
-      F.line = 70;
       result_2572131 = 1;
     }
     }}}}}
-  framePtr = F.prev;
 
   return result_2572131;
 
@@ -4892,34 +1206,24 @@ function runeLenAt_2572127(s_2572129, i_2572130) {
 function runeOffset_3195259(s_3195261, pos_3195262, start_3195263) {
   var result_3195264 = 0;
 
-  var F={procname:"unicode.runeOffset",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-  framePtr = F;
   BeforeRet: do {
-    F.line = 321;
     var i_3195266 = 0;
-    F.line = 322;
     var o_3195267 = start_3195263;
     L1: do {
-      F.line = 323;
         L2: while (true) {
         if (!(i_3195266 < pos_3195262)) break L2;
-          F.line = 324;
           o_3195267 = addInt(o_3195267, chckRange(runeLenAt_2572127(s_3195261, o_3195267), 0, 2147483647));
           if (((s_3195261).length <= o_3195267)) {
-          F.line = 326;
           result_3195264 = -1;
           break BeforeRet;
           }
           
-          F.line = 327;
           i_3195266 = addInt(i_3195266, 1);
         }
     } while(false);
-    F.line = 328;
     result_3195264 = o_3195267;
     break BeforeRet;
   } while (false);
-  framePtr = F.prev;
 
   return result_3195264;
 
@@ -4934,35 +1238,26 @@ function validateUtf8_2815244(s_2815246) {
 
   var result_2815247 = 0;
 
-  var F={procname:"unicode.validateUtf8",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\unicode.nim",line:0};
-  framePtr = F;
   BeforeRet: do {
-    F.line = 174;
     var i_2815249 = 0;
-    F.line = 175;
     var L_2815250 = (s_2815246).length;
     L1: do {
-      F.line = 176;
         L2: while (true) {
         if (!(i_2815249 < L_2815250)) break L2;
           if ((s_2815246[chckIndx(i_2815249, 0, (s_2815246).length-1)] <= 127)) {
-          F.line = 178;
           i_2815249 = addInt(i_2815249, 1);
           }
           else {
           if ((((s_2815246[chckIndx(i_2815249, 0, (s_2815246).length-1)] >>> 0) >>> 5) == 6)) {
           if ((s_2815246[chckIndx(i_2815249, 0, (s_2815246).length-1)] < 194)) {
-          F.line = 180;
           result_2815247 = i_2815249;
           break BeforeRet;
           }
           
             if (!(addInt(i_2815249, 1) < L_2815250)) Tmp3 = false; else {              Tmp3 = (((s_2815246[chckIndx(addInt(i_2815249, 1), 0, (s_2815246).length-1)] >>> 0) >>> 6) == 2);            }          if (Tmp3) {
-          F.line = 181;
           i_2815249 = addInt(i_2815249, 2);
           }
           else {
-            F.line = 182;
             result_2815247 = i_2815249;
             break BeforeRet;
           }
@@ -4971,11 +1266,9 @@ function validateUtf8_2815244(s_2815246) {
           else {
           if ((((s_2815246[chckIndx(i_2815249, 0, (s_2815246).length-1)] >>> 0) >>> 4) == 14)) {
             if (!(addInt(i_2815249, 2) < L_2815250)) Tmp5 = false; else {              Tmp5 = (((s_2815246[chckIndx(addInt(i_2815249, 1), 0, (s_2815246).length-1)] >>> 0) >>> 6) == 2);            }            if (!Tmp5) Tmp4 = false; else {              Tmp4 = (((s_2815246[chckIndx(addInt(i_2815249, 2), 0, (s_2815246).length-1)] >>> 0) >>> 6) == 2);            }          if (Tmp4) {
-          F.line = 185;
           i_2815249 = addInt(i_2815249, 3);
           }
           else {
-            F.line = 186;
             result_2815247 = i_2815249;
             break BeforeRet;
           }
@@ -4984,29 +1277,24 @@ function validateUtf8_2815244(s_2815246) {
           else {
           if ((((s_2815246[chckIndx(i_2815249, 0, (s_2815246).length-1)] >>> 0) >>> 3) == 30)) {
             if (!(addInt(i_2815249, 3) < L_2815250)) Tmp8 = false; else {              Tmp8 = (((s_2815246[chckIndx(addInt(i_2815249, 1), 0, (s_2815246).length-1)] >>> 0) >>> 6) == 2);            }            if (!Tmp8) Tmp7 = false; else {              Tmp7 = (((s_2815246[chckIndx(addInt(i_2815249, 2), 0, (s_2815246).length-1)] >>> 0) >>> 6) == 2);            }            if (!Tmp7) Tmp6 = false; else {              Tmp6 = (((s_2815246[chckIndx(addInt(i_2815249, 3), 0, (s_2815246).length-1)] >>> 0) >>> 6) == 2);            }          if (Tmp6) {
-          F.line = 191;
           i_2815249 = addInt(i_2815249, 4);
           }
           else {
-            F.line = 192;
             result_2815247 = i_2815249;
             break BeforeRet;
           }
           
           }
           else {
-            F.line = 194;
             result_2815247 = i_2815249;
             break BeforeRet;
           }
           }}}
         }
     } while(false);
-    F.line = 195;
     result_2815247 = -1;
     break BeforeRet;
   } while (false);
-  framePtr = F.prev;
 
   return result_2815247;
 
@@ -5014,33 +1302,21 @@ function validateUtf8_2815244(s_2815246) {
 function nsuRepeatChar(c_9950124, count_9950125) {
   var result_9950126 = [];
 
-  var F={procname:"strutils.repeat",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strutils.nim",line:0};
-  framePtr = F;
-    F.line = 1368;
     result_9950126 = nimCopy(null, mnewString(count_9950125), NTI1208013);
     L1: do {
-      F.line = 1369;
       var i_9950135 = 0;
-      F.line = 66;
-      var colontmp__11855262 = 0;
-      F.line = 1369;
-      colontmp__11855262 = subInt(count_9950125, 1);
-      F.line = 77;
-      var res_11855263 = 0;
+      var colontmp__11855221 = 0;
+      colontmp__11855221 = subInt(count_9950125, 1);
+      var res_11855222 = 0;
       L2: do {
-        F.line = 78;
           L3: while (true) {
-          if (!(res_11855263 <= colontmp__11855262)) break L3;
-            F.line = 1369;
-            i_9950135 = res_11855263;
-            F.line = 1369;
+          if (!(res_11855222 <= colontmp__11855221)) break L3;
+            i_9950135 = res_11855222;
             result_9950126[chckIndx(i_9950135, 0, (result_9950126).length-1)] = c_9950124;
-            F.line = 80;
-            res_11855263 = addInt(res_11855263, 1);
+            res_11855222 = addInt(res_11855222, 1);
           }
       } while(false);
     } while(false);
-  framePtr = F.prev;
 
   return result_9950126;
 
@@ -5050,14 +1326,10 @@ function alignString_11670222(s_11670224, minimumWidth_11670225, align_11670226,
 
   var result_11670228 = [];
 
-  var F={procname:"strformat.alignString",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-  framePtr = F;
     if ((minimumWidth_11670225 == 0)) {
-    F.line = 327;
     result_11670228 = nimCopy(null, s_11670224, NTI1208013);
     }
     else {
-      F.line = 329;
       if ((validateUtf8_2815244(s_11670224) == -1)) {
       Tmp1 = nucruneLen(s_11670224);
       }
@@ -5066,313 +1338,214 @@ function alignString_11670222(s_11670224, minimumWidth_11670225, align_11670226,
       }
       
       var sRuneLen_11670229 = Tmp1;
-      F.line = 330;
       var toFill_11670230 = subInt(minimumWidth_11670225, sRuneLen_11670229);
       if ((toFill_11670230 <= 0)) {
-      F.line = 332;
       result_11670228 = nimCopy(null, s_11670224, NTI1208013);
       }
       else {
       if (((align_11670226 == 60) || (align_11670226 == 0))) {
-      F.line = 334;
       result_11670228 = nimCopy(null, (s_11670224 || []).concat(nsuRepeatChar(fill_11670227, chckRange(toFill_11670230, 0, 2147483647)) || []), NTI1208013);
       }
       else {
       if ((align_11670226 == 94)) {
-      F.line = 336;
       var half_11670231 = divInt(toFill_11670230, 2);
-      F.line = 337;
       result_11670228 = nimCopy(null, (nsuRepeatChar(fill_11670227, chckRange(half_11670231, 0, 2147483647)) || []).concat(s_11670224 || [],nsuRepeatChar(fill_11670227, chckRange(subInt(toFill_11670230, half_11670231), 0, 2147483647)) || []), NTI1208013);
       }
       else {
-        F.line = 339;
         result_11670228 = nimCopy(null, (nsuRepeatChar(fill_11670227, chckRange(toFill_11670230, 0, 2147483647)) || []).concat(s_11670224 || []), NTI1208013);
       }
       }}
     }
     
-  framePtr = F.prev;
 
   return result_11670228;
 
 }
 function formatValue_11715080(result_11715083, result_11715083_Idx, value_11715084, specifier_11715085) {
-  var F={procname:"strformat.formatValue",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\pure\\strformat.nim",line:0};
-  framePtr = F;
-    F.line = 547;
     var spec_11715086 = parseStandardFormatSpecifier_11670322(specifier_11715085, 0, false);
-    F.line = 548;
     var value_11715087 = nimCopy(null, value_11715084, NTI1208013);
-    F.line = 549;
     switch (spec_11715086.typ) {
     case 115:
     case 0:
       break;
     default: 
-      F.line = 552;
       raiseException({message: (makeNimstrLit("invalid type in format string for string, expected \'s\', but got ") || []).concat([spec_11715086.typ]), parent: null, m_type: NTI1214643, name: null, trace: [], up: null}, "ValueError");
       break;
     }
     if (!((spec_11715086.precision == -1))) {
     if ((spec_11715086.precision < nucruneLen(value_11715087))) {
-    F.line = 557;
     (value_11715087.length = chckRange(runeOffset_3195259(value_11715087, chckRange(spec_11715086.precision, 0, 2147483647), 0), 0, 2147483647));
     }
     
     }
     
-    F.line = 558;
     result_11715083[result_11715083_Idx].push.apply(result_11715083[result_11715083_Idx], alignString_11670222(value_11715087, spec_11715086.minimumWidth, spec_11715086.align, spec_11715086.fill));;
-  framePtr = F.prev;
 
   
 }
 function insert_11787139(parent_11787141, elements_11787143) {
-  var F={procname:"lib.insert",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\lib.nim",line:0};
-  framePtr = F;
     L1: do {
-      F.line = 20;
       var element_11787176 = null;
       var element_11787176_Idx = 0;
-      F.line = 8;
-      var i_11855270 = 0;
+      var i_11855229 = 0;
       L2: do {
-        F.line = 9;
           L3: while (true) {
-          if (!(i_11855270 < (elements_11787143).length)) break L3;
-            F.line = 20;
-            element_11787176 = elements_11787143; element_11787176_Idx = chckIndx(i_11855270, 0, (elements_11787143).length-1);
-            F.line = 21;
+          if (!(i_11855229 < (elements_11787143).length)) break L3;
+            element_11787176 = elements_11787143; element_11787176_Idx = chckIndx(i_11855229, 0, (elements_11787143).length-1);
             parent_11787141.appendChild(element_11787176[element_11787176_Idx]);
-            F.line = 11;
-            i_11855270 = addInt(i_11855270, 1);
+            i_11855229 = addInt(i_11855229, 1);
           }
       } while(false);
     } while(false);
-  framePtr = F.prev;
 
   
 }
 function HEX5BHEX5D_11825022(s_11825028, x_11825030) {
   var result_11825032 = [];
 
-  var F={procname:"[].[]",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-  framePtr = F;
-    F.line = 2564;
     var a_11825201 = x_11825030.a;
-    F.line = 2565;
     var L_11825405 = addInt(subInt(subInt((s_11825028).length, x_11825030.b), a_11825201), 1);
-    F.line = 2566;
     result_11825032 = new Array(chckRange(L_11825405, 0, 2147483647)); for (var i=0;i<chckRange(L_11825405, 0, 2147483647);++i) {result_11825032[i]=[];}    L1: do {
-      F.line = 2567;
       var i_11825420 = 0;
-      F.line = 106;
-      var i_11855275 = 0;
+      var i_11855234 = 0;
       L2: do {
-        F.line = 107;
           L3: while (true) {
-          if (!(i_11855275 < L_11825405)) break L3;
-            F.line = 2567;
-            i_11825420 = i_11855275;
-            F.line = 2567;
+          if (!(i_11855234 < L_11825405)) break L3;
+            i_11825420 = i_11855234;
             result_11825032[chckIndx(i_11825420, 0, (result_11825032).length-1)] = nimCopy(null, s_11825028[chckIndx(addInt(i_11825420, a_11825201), 0, (s_11825028).length-1)], NTI1208013);
-            F.line = 109;
-            i_11855275 = addInt(i_11855275, 1);
+            i_11855234 = addInt(i_11855234, 1);
           }
       } while(false);
     } while(false);
-  framePtr = F.prev;
 
   return result_11825032;
 
 }
 function stackHeaders_11810054(headerBoard_11810056, headerColors_11810058) {
-  var F={procname:"main.stackHeaders",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-  framePtr = F;
-    F.line = 47;
     var firstColor_11810059 = nimCopy(null, headerColors_11810058[chckIndx(0, 0, (headerColors_11810058).length-1)], NTI1208013);
-    F.line = 48;
-    F.line = 48;
     var fmtRes_11810065 = [mnewString(0)];
-    F.line = 48;
     fmtRes_11810065[0].push.apply(fmtRes_11810065[0], makeNimstrLit("id="));;
-    F.line = 48;
     formatValue_11715080(fmtRes_11810065, 0, firstColor_11810059, []);
     var firstHeader_11815002 = make_11787205(makeNimstrLit("h1"), [makeNimstrLit("class=header"), nimCopy(null, fmtRes_11810065[0], NTI1208013), makeNimstrLit("text=GRABATILE")]);
-    F.line = 50;
     firstHeader_11815002.style.backgroundColor = toJSStr(firstColor_11810059);
-    F.line = 51;
     insert_11787139(headerBoard_11810056, [firstHeader_11815002]);
     L1: do {
-      F.line = 53;
       var color_11835214 = null;
       var color_11835214_Idx = 0;
-      F.line = 197;
-      var colontmp__11855196 = [];
-      F.line = 53;
-      colontmp__11855196 = HEX5BHEX5D_11825022(headerColors_11810058, HEX2EHEX2E_5900001(1, 1));
-      F.line = 199;
-      var i_11855198 = 0;
-      F.line = 200;
-      var L_11855199 = (colontmp__11855196).length;
+      var colontmp__11855155 = [];
+      colontmp__11855155 = HEX5BHEX5D_11825022(headerColors_11810058, HEX2EHEX2E_5900001(1, 1));
+      var i_11855157 = 0;
+      var L_11855158 = (colontmp__11855155).length;
       L2: do {
-        F.line = 201;
           L3: while (true) {
-          if (!(i_11855198 < L_11855199)) break L3;
-            F.line = 53;
-            color_11835214 = colontmp__11855196; color_11835214_Idx = chckIndx(i_11855198, 0, (colontmp__11855196).length-1);
-            F.line = 54;
-            F.line = 54;
+          if (!(i_11855157 < L_11855158)) break L3;
+            color_11835214 = colontmp__11855155; color_11835214_Idx = chckIndx(i_11855157, 0, (colontmp__11855155).length-1);
             var fmtRes_11835217 = [mnewString(0)];
-            F.line = 54;
             fmtRes_11835217[0].push.apply(fmtRes_11835217[0], makeNimstrLit("id="));;
-            F.line = 54;
             formatValue_11715080(fmtRes_11835217, 0, color_11835214[color_11835214_Idx], []);
             var header_11840002 = make_11787205(makeNimstrLit("h1"), [makeNimstrLit("class=header"), nimCopy(null, fmtRes_11835217[0], NTI1208013), makeNimstrLit("text=GRABATILE")]);
-            F.line = 55;
             header_11840002.style.visibility = "hidden";
-            F.line = 56;
             header_11840002.style.backgroundColor = toJSStr(color_11835214[color_11835214_Idx]);
-            F.line = 57;
             insert_11787139(headerBoard_11810056, [header_11840002]);
-            F.line = 203;
-            i_11855198 = addInt(i_11855198, 1);
-            if (!(((colontmp__11855196).length == L_11855199))) {
-            F.line = 204;
-            failedAssertImpl_1325480(makeNimstrLit("C:\\Users\\kolu\\nim-1.4.8\\lib\\system\\iterators.nim(204, 11) `len(a) == L` the length of the seq changed while iterating over it"));
+            i_11855157 = addInt(i_11855157, 1);
+            if (!(((colontmp__11855155).length == L_11855158))) {
+            failedAssertImpl_1325480(makeNimstrLit("iterators.nim(204, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
             
           }
       } while(false);
     } while(false);
-  framePtr = F.prev;
+    var lastHeader_11840007 = make_11787205(makeNimstrLit("h1"), [makeNimstrLit("class=header"), makeNimstrLit("text=GRABATILE")]);
+    lastHeader_11840007.style.visibility = "hidden";
+    lastHeader_11840007.style.color = "#998686";
+    insert_11787139(headerBoard_11810056, [lastHeader_11840007]);
 
   
 }
 function action_11789014(tile_11789016, headerBoard_11789017) {
-  var F={procname:"main.action",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-  framePtr = F;
-    F.line = 10;
     var currentHeader_11789018 = headerBoard_11789017.children[chckIndx(0, 0, (headerBoard_11789017.children).length-1)];
     if ((currentHeader_11789018.id == tile_11789016.id)) {
-    F.line = 13;
     tile_11789016.style.visibility = "hidden";
-    F.line = 14;
     headerBoard_11789017.removeChild(currentHeader_11789018);
-    if (((headerBoard_11789017.children).length == 0)) {
-    F.line = 17;
-    window.location.href = "/grabatile";
-    }
-    else {
-      F.line = 19;
-      headerBoard_11789017.children[chckIndx(0, 0, (headerBoard_11789017.children).length-1)].style.visibility = "visible";
+    headerBoard_11789017.children[chckIndx(0, 0, (headerBoard_11789017.children).length-1)].style.visibility = "visible";
     }
     
-    }
-    
-  framePtr = F.prev;
 
   
 }
-function fillTileMap_11840063(tileMap_11840065, headerBoard_11840066, tileColors_11840068) {
+function fillTileMap_11840083(tileMap_11840085, headerBoard_11840086, tileColors_11840088) {
             function HEX3Aanonymous_11845001() {
                 function HEX3Aanonymous_11855002(__11855004) {
-                  var F={procname:":anonymous.:anonymous",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-                  framePtr = F;
-                    F.line = 68;
-                    action_11789014(tile_11850002, headerBoard_11840066);
-                  framePtr = F.prev;
+                    action_11789014(tile_11850002, headerBoard_11840086);
 
                   
                 }
 
-              var F={procname:"fillTileMap.:anonymous",prev:framePtr,filename:"C:\\Users\\kolu\\nim-1.4.8\\lib\\system.nim",line:0};
-              framePtr = F;
-                F.line = 66;
-                F.line = 66;
                 var fmtRes_11845005 = [mnewString(0)];
-                F.line = 66;
                 fmtRes_11845005[0].push.apply(fmtRes_11845005[0], makeNimstrLit("id="));;
-                F.line = 66;
-                formatValue_11715080(fmtRes_11845005, 0, color_11840076.hex, []);
+                formatValue_11715080(fmtRes_11845005, 0, color_11840096.hex, []);
                 var tile_11850002 = make_11787205(makeNimstrLit("div"), [makeNimstrLit("class=tile"), nimCopy(null, fmtRes_11845005[0], NTI1208013)]);
-                F.line = 67;
-                F.line = 67;
                 var fmtRes_11850003 = [mnewString(0)];
-                F.line = 67;
-                fmtRes_11850003[0].push.apply(fmtRes_11850003[0], makeNimstrLit("url(\"images/"));;
-                F.line = 67;
-                formatValue_11715080(fmtRes_11850003, 0, color_11840076.name, []);
-                F.line = 67;
+                fmtRes_11850003[0].push.apply(fmtRes_11850003[0], makeNimstrLit("url(\"images/tiles/"));;
+                formatValue_11715080(fmtRes_11850003, 0, color_11840096.name, []);
                 fmtRes_11850003[0].push.apply(fmtRes_11850003[0], makeNimstrLit("_tile.png\")"));;
                 tile_11850002.style.backgroundImage = toJSStr(fmtRes_11850003[0]);
-                F.line = 68;
                 tile_11850002.onclick = HEX3Aanonymous_11855002;
-                F.line = 69;
-                insert_11787139(tileMap_11840065, [tile_11850002]);
-              framePtr = F.prev;
+                insert_11787139(tileMap_11840085, [tile_11850002]);
 
               
             }
 
-  var F={procname:"main.fillTileMap",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-  framePtr = F;
     L1: do {
-      F.line = 63;
-      var color_11840076 = null;
-      F.line = 199;
-      var i_11855278 = 0;
-      F.line = 200;
-      var L_11855279 = (tileColors_11840068).length;
+      var color_11840096 = null;
+      var i_11855237 = 0;
+      var L_11855238 = (tileColors_11840088).length;
       L2: do {
-        F.line = 201;
           L3: while (true) {
-          if (!(i_11855278 < L_11855279)) break L3;
-            F.line = 63;
-            color_11840076 = tileColors_11840068[chckIndx(i_11855278, 0, (tileColors_11840068).length-1)];
-            F.line = 65;
+          if (!(i_11855237 < L_11855238)) break L3;
+            color_11840096 = tileColors_11840088[chckIndx(i_11855237, 0, (tileColors_11840088).length-1)];
             HEX3Aanonymous_11845001();
-            F.line = 203;
-            i_11855278 = addInt(i_11855278, 1);
-            if (!(((tileColors_11840068).length == L_11855279))) {
-            F.line = 204;
-            failedAssertImpl_1325480(makeNimstrLit("C:\\Users\\kolu\\nim-1.4.8\\lib\\system\\iterators.nim(204, 11) `len(a) == L` the length of the seq changed while iterating over it"));
+            i_11855237 = addInt(i_11855237, 1);
+            if (!(((tileColors_11840088).length == L_11855238))) {
+            failedAssertImpl_1325480(makeNimstrLit("iterators.nim(204, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
             
           }
       } while(false);
     } while(false);
-  framePtr = F.prev;
 
   
 }
-function start_11855077() {
-  var F={procname:"main.start",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-  framePtr = F;
-    F.line = 79;
-    var tileColors_11855079 = sampleTileColors_11789037();
-    F.line = 80;
-    var headerColors_11855080 = sortByNextOccurence_11789277(tileColors_11855079);
-    F.line = 83;
-    var tileMap_11855081 = getId_11787059(makeNimstrLit("tileMap"));
-    F.line = 84;
-    var headerBoard_11855082 = getId_11787059(makeNimstrLit("headerBoard"));
-    F.line = 86;
-    stackHeaders_11810054(headerBoard_11855082, headerColors_11855080);
-    F.line = 87;
-    fillTileMap_11840063(tileMap_11855081, headerBoard_11855082, tileColors_11855079);
-  framePtr = F.prev;
+function startButton() {
+    var tileMap_11855064 = getId_11787059(makeNimstrLit("tileMap"));
+    var headerBoard_11855065 = getId_11787059(makeNimstrLit("headerBoard"));
+    tileMap_11855064.innerHTML = "";
+    headerBoard_11855065.innerHTML = "";
+    var tileColors_11855066 = sampleTileColors_11789032();
+    var headerColors_11855067 = sortByNextOccurence_11789277(tileColors_11855066);
+    stackHeaders_11810054(headerBoard_11855065, headerColors_11855067);
+    fillTileMap_11840083(tileMap_11855064, headerBoard_11855065, tileColors_11855066);
 
   
 }
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-F.line = 91;
-start_11855077();
-framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
-var F={procname:"module main",prev:framePtr,filename:"C:\\Users\\kolu\\src\\toys\\games\\grabatile\\src\\main.nim",line:0};
-framePtr = F;
-framePtr = F.prev;
+function print_11855243(input_11855246) {
+    console.log(toJSStr(input_11855246));
+
+  
+}
+function muteButton(button_11855242) {
+    print_11855243(makeNimstrLit("mute"));
+
+  
+}
+function quitButton() {
+    window.location.href = "/";
+
+  
+}
+function main_11855288() {
+    startButton();
+
+  
+}
+main_11855288();

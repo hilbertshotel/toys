@@ -12,11 +12,7 @@ proc action(tile, headerBoard: Node) =
     if currentHeader.id == tile.id:
         tile.style.visibility = "hidden"
         headerBoard.removeChild(currentHeader)
-
-        if headerBoard.children.len == 0:
-            window.location.href = "/grabatile"
-        else:
-            headerBoard.children[0].style.visibility = "visible"
+        headerBoard.children[0].style.visibility = "visible"        
     
 
 
@@ -27,7 +23,7 @@ proc sampleTileColors(): seq[Color] =
 
 
 
-proc sortByNextOccurence(tileColors: seq[Color]): seq[string] =
+func sortByNextOccurence(tileColors: seq[Color]): seq[string] =
     
     let colors = tileColors[18..^1] & tileColors[0..17]
     var currentColor: string
@@ -48,13 +44,18 @@ proc stackHeaders(headerBoard: Node, headerColors: seq[string]) =
         firstHeader = make("h1", "class=header", &"id={firstColor}", "text=GRABATILE")
 
     firstHeader.style.backgroundColor = firstColor
-    insert(headerBoard, firstHeader)
+    headerBoard.insert(firstHeader)
 
     for color in headerColors[1..^1]:
         let header = make("h1", "class=header", &"id={color}", "text=GRABATILE")
         header.style.visibility = "hidden"
         header.style.backgroundColor = color
-        insert(headerBoard, header)
+        headerBoard.insert(header)
+
+    let lastHeader = make("h1", "class=header", "text=GRABATILE")
+    lastHeader.style.visibility = "hidden"
+    lastHeader.style.color = "#998686"
+    headerBoard.insert(lastHeader)
 
 
 
@@ -64,28 +65,43 @@ proc fillTileMap(tileMap, headerBoard: Node, tileColors: seq[Color]) =
         
         closureScope:
             let tile = make("div", "class=tile", &"id={color.hex}")
-            tile.style.backgroundImage = &"url(\"images/{color.name}_tile.png\")"
+            tile.style.backgroundImage = &"url(\"images/tiles/{color.name}_tile.png\")"
             tile.onclick = (proc (_: Event) = action(tile, headerBoard))
-            insert(tileMap, tile)
+            tileMap.insert(tile)
 
 
 
-# START GAME
+# BUTTONS
 # ================================================================================
 
-proc start() =
-
-    let
-        tileColors = sampleTileColors()
-        headerColors = sortByNextOccurence(tileColors)
+proc startButton() {.exportc.} =
 
     let
         tileMap = getId("tileMap")
         headerBoard = getId("headerBoard")
+
+    tileMap.innerHTML = ""
+    headerBoard.innerHTML = ""
+
+    let
+        tileColors = sampleTileColors()
+        headerColors = sortByNextOccurence(tileColors)
         
     stackHeaders(headerBoard, headerColors)
     fillTileMap(tileMap, headerBoard, tileColors)
 
 
+proc muteButton(button: Node) {.exportc.} =
+    print("mute")
 
-start()
+proc quitButton() {.exportc.} =
+    window.location.href = "/"
+
+
+# MAIN
+# ================================================================================
+
+proc main() = startButton()
+
+
+main()

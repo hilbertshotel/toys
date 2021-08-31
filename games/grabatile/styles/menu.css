@@ -14,6 +14,11 @@ body {
     font-family: 'Common Pixel', sans-serif;
     font-size: 100px;
     color: #e5e5e5;
+    
+}
+
+#\#FFdd00, #\#FFFFFF {
+    color: #bebebe;
 }
 
 .menu {
@@ -35,13 +40,13 @@ body {
 }
 
 #startButton {
-    background-image: url("../images/start.png");
+    background-image: url("../images/buttons/start.png");
 }
 
 #muteButton {
-    background-image: url("../images/mute.png");
+    background-image: url("../images/buttons/mute.png");
 }
 
 #quitButton {
-    background-image: url("../images/quit.png");
+    background-image: url("../images/buttons/quit.png");
 }
