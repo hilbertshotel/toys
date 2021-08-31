@@ -4,6 +4,7 @@
 
 3. add sounds and music
 
+4. tweak design - colors and forms
 
 compiler string:
     nim js -o:script.js src/main.nim

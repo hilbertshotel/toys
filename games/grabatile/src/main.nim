@@ -5,10 +5,19 @@ import lib, data
 # GAME PROCEDURES
 # ================================================================================
 
-proc action(tile, headerHouse: Node) =
-    # delete topmost header
-    # make the one below visible
-    tile.style.visibility = "hidden"
+proc action(tile, headerBoard: Node) =
+
+    let currentHeader = headerBoard.children[0]
+
+    if currentHeader.id == tile.id:
+        tile.style.visibility = "hidden"
+        headerBoard.removeChild(currentHeader)
+
+        if headerBoard.children.len == 0:
+            window.location.href = "/grabatile"
+        else:
+            headerBoard.children[0].style.visibility = "visible"
+    
 
 
 proc sampleTileColors(): seq[Color] =
