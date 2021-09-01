@@ -31,11 +31,6 @@ proc make*(kind: string, properties: varargs[string]): Node =
         of "text": element.innerHTML = p[1]
     element
 
-# PIPE OPERATOR
-macro `|>`*(lhs, rhs: untyped): untyped =
-    case rhs.kind:
-    of nnkIdent: # single-parameter functions
-        result = newCall(rhs, lhs)
-    else:
-        result = rhs
-        result.insert(1, lhs)
+# GET AUDIO
+proc getAudio*(id: string): EmbedElement =
+    return document.getElementById(id).EmbedElement

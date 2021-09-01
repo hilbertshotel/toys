@@ -1,12 +1,11 @@
-- load sounds
-- add mute button functionality
+- FIX MUTE BUTTON
+- FIX EVENT LISTENERS FOR SOUNDS
 
 3. add sounds and music
     - move cursor on tile -> high frequency clicks (like icicles)
     - click on right tile -> soft suck in sound
     - click on wrong tile -> ?
     - change of color -> color word in English
-    - music (shri camel loop)
 
 4. tweak design - colors and images
 

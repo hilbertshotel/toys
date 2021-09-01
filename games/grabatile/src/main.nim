@@ -5,16 +5,6 @@ import lib, data
 # GAME PROCEDURES
 # ================================================================================
 
-proc action(tile, headerBoard: Node) =
-
-    let currentHeader = headerBoard.children[0]
-
-    if currentHeader.id == tile.id:
-        tile.style.visibility = "hidden"
-        headerBoard.removeChild(currentHeader)
-        headerBoard.children[0].style.visibility = "visible"        
-    
-
 
 proc sampleTileColors(): seq[Color] =
     randomize()
@@ -24,7 +14,6 @@ proc sampleTileColors(): seq[Color] =
 
 
 func sortByNextOccurence(tileColors: seq[Color]): seq[string] =
-    
     let colors = tileColors[18..^1] & tileColors[0..17]
     var currentColor: string
 
@@ -38,7 +27,6 @@ func sortByNextOccurence(tileColors: seq[Color]): seq[string] =
 
 
 proc stackHeaders(headerBoard: Node, headerColors: seq[string]) =
-
     let 
         firstColor = headerColors[0]
         firstHeader = make("h1", "class=header", &"id={firstColor}", "text=GRABATILE")
@@ -54,13 +42,23 @@ proc stackHeaders(headerBoard: Node, headerColors: seq[string]) =
 
     let lastHeader = make("h1", "class=header", "text=GRABATILE")
     lastHeader.style.visibility = "hidden"
-    lastHeader.style.color = "#998686"
+    lastHeader.style.color = "#bebebe"
     headerBoard.insert(lastHeader)
 
 
 
-proc fillTileMap(tileMap, headerBoard: Node, tileColors: seq[Color]) =
+proc action(tile, headerBoard: Node) =
+    let currentHeader = headerBoard.children[0]
 
+    if currentHeader.id == tile.id:
+        tile.style.visibility = "hidden"
+        getAudio("grab").play()
+        headerBoard.removeChild(currentHeader)
+        headerBoard.children[0].style.visibility = "visible"
+
+
+
+proc fillTileMap(tileMap, headerBoard: Node, tileColors: seq[Color]) =
     for color in tileColors:
         
         closureScope:
@@ -75,6 +73,7 @@ proc fillTileMap(tileMap, headerBoard: Node, tileColors: seq[Color]) =
 # ================================================================================
 
 proc startButton() {.exportc.} =
+    getAudio("music").play()
 
     let
         tileMap = getId("tileMap")
@@ -86,22 +85,16 @@ proc startButton() {.exportc.} =
     let
         tileColors = sampleTileColors()
         headerColors = sortByNextOccurence(tileColors)
-        
+
     stackHeaders(headerBoard, headerColors)
     fillTileMap(tileMap, headerBoard, tileColors)
 
 
+
 proc muteButton(button: Node) {.exportc.} =
-    print("mute")
+    getAudio("music").setAttribute("muted", "muted")
+
+
 
 proc quitButton() {.exportc.} =
     window.location.href = "/"
-
-
-# MAIN
-# ================================================================================
-
-proc main() = startButton()
-
-
-main()
