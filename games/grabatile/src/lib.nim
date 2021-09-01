@@ -1,7 +1,6 @@
 import jsconsole
 import dom
 import strutils
-import macros
 
 # PRINT
 proc print*(input: any) =
@@ -33,4 +32,4 @@ proc make*(kind: string, properties: varargs[string]): Node =
 
 # GET AUDIO
 proc getAudio*(id: string): EmbedElement =
-    return document.getElementById(id).EmbedElement
+    return getId(id).EmbedElement

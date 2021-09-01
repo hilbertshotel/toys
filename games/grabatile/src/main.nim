@@ -69,7 +69,7 @@ proc fillTileMap(tileMap, headerBoard: Node, tileColors: seq[Color]) =
 
 
 
-# BUTTONS
+# START
 # ================================================================================
 
 proc startButton() {.exportc.} =
@@ -88,13 +88,3 @@ proc startButton() {.exportc.} =
 
     stackHeaders(headerBoard, headerColors)
     fillTileMap(tileMap, headerBoard, tileColors)
-
-
-
-proc muteButton(button: Node) {.exportc.} =
-    getAudio("music").setAttribute("muted", "muted")
-
-
-
-proc quitButton() {.exportc.} =
-    window.location.href = "/"

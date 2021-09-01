@@ -38,15 +38,3 @@ body {
 .button:hover {
     cursor: pointer;
 }
-
-#startButton {
-    background-image: url("../images/buttons/start.png");
-}
-
-#muteButton {
-    background-image: url("../images/buttons/mute.png");
-}
-
-#quitButton {
-    background-image: url("../images/buttons/quit.png");
-}

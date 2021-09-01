@@ -19,15 +19,34 @@
     </div>
 
     <div class="menu">
-        <button onclick="startButton()" class="button" id="startButton"></button>
-        <button onclick="muteButton()" class="button" id="muteButton"></button>
-        <button onclick="quitButton()" class="button" id="quitButton"></button>
+        <button onclick="startButton()" class="button" style="background-image: url('images/buttons/start.png')"></button>
+        <button onclick="muteButton(this)" class="button" id="" style="background-image: url('images/buttons/mute.png')"></button>
+        <button onclick="quitButton()" class="button" style="background-image: url('images/buttons/quit.png')"></button>
     </div>
 
     <div class="tileMap" id="tileMap"></div>
 
     <audio id="music" src="audio/music.ogg" type="audio/ogg" loop></audio>
     <audio id="grab" src="audio/grab.ogg" type="audio/ogg"></audio>
+
+    <script>
+        
+        const muteButton = (button) => {
+            const music = document.getElementById("music")
+            if (button.id === "mute") {
+                music.muted = false
+                button.id = ""
+            } else {
+                music.muted = true
+                button.id = "mute"
+            }
+        }
+
+        const quitButton = () => {
+            window.location.href = "/"
+        }
+
+    </script>
 
     <script src="script.js"></script>
 
