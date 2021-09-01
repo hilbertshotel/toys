@@ -6,6 +6,19 @@ import lib, data
 # ================================================================================
 
 
+proc action(tile, headerBoard: Node) =
+    let currentHeader = headerBoard.children[0]
+
+    if currentHeader.id == tile.id:
+        tile.style.visibility = "hidden"
+        getAudio("grab").play()
+        headerBoard.removeChild(currentHeader)
+        headerBoard.children[0].style.visibility = "visible"
+    else:
+        getAudio("fail").play()
+
+
+
 proc sampleTileColors(): seq[Color] =
     randomize()
     for i in 1..36:
@@ -44,17 +57,6 @@ proc stackHeaders(headerBoard: Node, headerColors: seq[string]) =
     lastHeader.style.visibility = "hidden"
     lastHeader.style.color = "#bebebe"
     headerBoard.insert(lastHeader)
-
-
-
-proc action(tile, headerBoard: Node) =
-    let currentHeader = headerBoard.children[0]
-
-    if currentHeader.id == tile.id:
-        tile.style.visibility = "hidden"
-        getAudio("grab").play()
-        headerBoard.removeChild(currentHeader)
-        headerBoard.children[0].style.visibility = "visible"
 
 
 
