@@ -6,14 +6,32 @@ import lib, data
 # ================================================================================
 
 
-proc action(tile, headerBoard: Node) =
-    let currentHeader = headerBoard.children[0]
+proc playNextColor(nextColor: cstring) =
+    for color in COLORS:
+        if color.hex == nextColor:
+            getAudio(color.name).play()
 
-    if currentHeader.id == tile.id:
+
+
+proc action(tile, headerBoard: Node) =
+    let
+        currentHeader = headerBoard.children[0]
+        currentColor = currentHeader.id
+
+    if currentColor == tile.id:
         tile.style.visibility = "hidden"
         getAudio("grab").play()
         headerBoard.removeChild(currentHeader)
-        headerBoard.children[0].style.visibility = "visible"
+
+        let
+            nextHeader = headerBoard.children[0]
+            nextColor = nextHeader.id
+
+        nextHeader.style.visibility = "visible"
+
+        if nextColor != currentColor:
+            playNextColor(nextColor)
+            
     else:
         getAudio("fail").play()
 
@@ -87,6 +105,8 @@ proc startButton() {.exportc.} =
     let
         tileColors = sampleTileColors()
         headerColors = sortByNextOccurence(tileColors)
+        firstColor = headerBoard.children[0].id
 
     stackHeaders(headerBoard, headerColors)
     fillTileMap(tileMap, headerBoard, tileColors)
+    playNextColor(firstColor)

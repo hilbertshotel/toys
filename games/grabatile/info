@@ -1,5 +1,1 @@
-- ADD COLOR SOUNDS
-- FINE TUNE DESIGN - COLORS, IMAGES AND SIZES
-
-______________
 compile string:  nim js -d:release -o:script.js src/main.nim

@@ -12,8 +12,8 @@ const COLORS*: ColorsArray = [
         Color(name: "brown", hex: "#9e5b0e"),
         Color(name: "green", hex: "#6e9900"),
         Color(name: "blue", hex: "#146de0"),
-        Color(name: "purple", hex: "#a72bff"),
-        Color(name: "pink", hex: "#ff4fdf"),
+        Color(name: "purple", hex: "#a34aa3"),
+        Color(name: "pink", hex: "#feafc9"),
         Color(name: "grey", hex: "#b6b6b6"),
         Color(name: "black", hex: "#1e1e1e"),
     ]
