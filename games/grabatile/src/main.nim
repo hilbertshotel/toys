@@ -105,8 +105,7 @@ proc startButton() {.exportc.} =
     let
         tileColors = sampleTileColors()
         headerColors = sortByNextOccurence(tileColors)
-        firstColor = headerBoard.children[0].id
 
     stackHeaders(headerBoard, headerColors)
     fillTileMap(tileMap, headerBoard, tileColors)
-    playNextColor(firstColor)
+    playNextColor(headerBoard.children[0].id)
