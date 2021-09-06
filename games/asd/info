@@ -1,0 +1,5 @@
+1. FIGURE OUT NAME
+
+2. forbid rotation
+
+compile string:  nim js -d:release -o:script.js src/main.nim

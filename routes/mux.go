@@ -14,8 +14,11 @@ func Mux() *http.ServeMux {
 	eaten := http.StripPrefix("/eaten/", http.FileServer(http.Dir("games/eaten/")))
 	mux.Handle("/eaten/", eaten)
 
-	letter_ladder := http.StripPrefix("/grabatile/", http.FileServer(http.Dir("games/grabatile/")))
-	mux.Handle("/grabatile/", letter_ladder)
+	grabatile := http.StripPrefix("/grabatile/", http.FileServer(http.Dir("games/grabatile/")))
+	mux.Handle("/grabatile/", grabatile)
+
+	asd := http.StripPrefix("/asd/", http.FileServer(http.Dir("games/asd/")))
+	mux.Handle("/asd/", asd)
 
 	mux.Handle("/toys.log", http.FileServer(http.Dir("logs/")))
 
