@@ -1,14 +1,23 @@
 import dom
 import random
+import sequtils
+import strformat
 
 import lib
 
 # DATA
 # ================================================================================
 
-let
-    TILES = 3
-    COLORS = 1
+const
+    ORANGE = "#f09473"
+    YELLOW = "#f5b82b"
+    RED = "#eb5952"
+    PINK = "#e95990"
+    NOCOLOR = "#f7b6b1"
+
+var
+    TILENUM = 3
+    COLORNUM = 1
 
 
 # FUNCTIONS
@@ -21,82 +30,88 @@ func borderRadius(n: int): string =
         "0 6.5rem 0 6.5rem"
 
 
-func createTileSet(): array[16, string] =
-    var tileSet: array[16, string] = [ "#f7b6b1", "#f7b6b1", "#f7b6b1", "#f7b6b1", "#f7b6b1", 
-    "#f7b6b1", "#f7b6b1", "#f7b6b1", "#f7b6b1", "#f7b6b1", "#f7b6b1", "#f7b6b1", "#f7b6b1",
-    "#f09473", "#f09473", "#f09473" ]
-    tileSet
+proc sampleTiles(tilenum, colornum: int): seq[string] =
+    var
+        colors: seq[string]
+        tiles: seq[string]
 
+    case colornum:
+    of 1: colors = @[ORANGE]
+    of 2: colors = @[ORANGE, YELLOW]
+    of 3: colors = @[ORANGE, YELLOW, RED]
+    else: colors = @[ORANGE, YELLOW, RED, PINK]
+    
+    randomize()
+
+    for n in 1..tilenum:
+        tiles.add(sample(colors))
+
+    tiles = tiles & repeat(NOCOLOR, 16-tilenum)
+    shuffle(tiles)
+    tiles
 
 
 # DOM PROCEDURES
 # ================================================================================
 
-proc action() = discard
+proc action(tile: Node, tilenum, colornum: int) =
+    print(tile.id)
+    # case colornum:
+    # of 1:
+    # of 2:
+    # of 3:
+    # else:
+
+    # if LEFT BOX == RIGHT BOX -> LIUN GAME
 
 
-proc loadTiles(leftBox, rightBox: Node, tileSet: array[16, string]) =
+proc startGame(leftBox, rightBox: Node, tiles: seq[string], tilenum, colornum: int) =
     for n in 1..16:
-        let leftTile = make("div", "class=tile")
-        leftTile.style.borderRadius = borderRadius(n)
-        leftTile.onclick = proc (_: Event) = action()
+        closureScope:
+            let lt = make("div", "class=tile", &"id={NOCOLOR}")
+            lt.style.borderRadius = borderRadius(n)
+            lt.onclick = proc (_: Event) = action(lt, tilenum, colornum)
+            leftBox.insert(lt)
 
-        let rightTile = make("div", "class=tile")
-        rightTile.style.borderRadius = borderRadius(n)
-        rightTile.style.backgroundColor = tileSet[n-1]
-        
-        leftBox.insert(leftTile)
-        rightBox.insert(rightTile)
-
-
-proc loadEmptyBoxes() =
-    for n in 1..16:
-        let leftTile = make("div", "class=tile")
-        leftTile.style.borderRadius = borderRadius(n)
-
-        let rightTile = make("div", "class=tile")
-        rightTile.style.borderRadius = borderRadius(n)
-        
-        getId("leftBox").insert(leftTile)
-        getId("rightBox").insert(rightTile)
+        let rt = make("div", "class=tile")
+        rt.style.borderRadius = borderRadius(n)
+        rt.style.backgroundColor = tiles[n-1]
+        rightBox.insert(rt)
 
 
 # BUTTONS
 # ================================================================================
 
 proc play() {.exportc.} =
+    # START MUSIC
 
     let
         leftBox = getId("leftBox")
         rightBox = getId("rightBox")
-    var tileSet = createTileSet()
 
     leftBox.innerHTML = ""
     rightBox.innerHTML = ""
-    shuffle(tileSet)
 
-    loadTiles(leftBox, rightBox, tileSet)
-    # generate tiles
-    # generate colors
-    # start music
-    # generate game box
-    # generate example box with TILES and COLORS
+    var tiles = sampleTiles(TILENUM, COLORNUM)
+    startGame(leftBox, rightBox, tiles, TILENUM, COLORNUM)
 
 
 proc changeTiles(tile: Element) {.exportc.} =
     case $tile.innerHTML:
-    of "3t": tile.innerHTML = "6t"
-    of "6t": tile.innerHTML = "9t"
-    of "9t": tile.innerHTML = "12t"
-    else: tile.innerHTML = "3t"
+    of "3t": TILENUM = 6
+    of "6t": TILENUM = 9
+    of "9t": TILENUM = 12
+    of "12t": TILENUM = 3
+    tile.innerHTML = &"{TILENUM}t"
 
 
 proc changeColors(tile: Element) {.exportc.} =
     case $tile.innerHTML:
-    of "1c": tile.innerHTML = "2c"
-    of "2c": tile.innerHTML = "3c"
-    of "3c": tile.innerHTML = "4c"
-    else: tile.innerHTML = "1c"
+    of "1c": COLORNUM = 2
+    of "2c": COLORNUM = 3
+    of "3c": COLORNUM = 4
+    of "4c": COLORNUM = 1
+    tile.innerHTML = &"{COLORNUM}c"
 
 
 proc mute() {.exportc.} =
@@ -109,7 +124,18 @@ proc exit() {.exportc.} =
 
 # MAIN
 # ================================================================================
-proc main() = loadEmptyBoxes()
+
+proc main() =
+    for n in 1..16:
+        let
+            lt = make("div", "class=tile")
+            rt = make("div", "class=tile")
+
+        lt.style.borderRadius = borderRadius(n)
+        rt.style.borderRadius = borderRadius(n)
+        
+        getId("leftBox").insert(lt)
+        getId("rightBox").insert(rt)
 
 
 main()
