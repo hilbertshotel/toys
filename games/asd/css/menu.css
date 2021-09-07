@@ -46,7 +46,10 @@ main {
 }
 
 #tilesButton { animation-delay: 0s; }
-#colorsButton { animation-delay: 3s; }
+#colorsButton {
+    animation-delay: 3s;
+    margin-bottom: 3rem;    
+}
 #playButton { animation-delay: 1s; }
 #muteButton { animation-delay: 4s; }
 #exitButton { animation-delay: 2s; }

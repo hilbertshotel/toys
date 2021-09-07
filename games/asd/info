@@ -1,15 +1,12 @@
 0. CHANGE TOYS NAME
 
-1. FIGURE OUT NAME FOR THIRD GAME
+1. FIGURE OUT NAME FOR THIRD GAME -> PATTERNS?
 
-2. 
+2. SOUND
+- WIN GAME
+- CLICK ON BUTTON/TILE
+- MUSIC
+
+3. WHAT TO DO WHEN WIN GAME?
 
 compile string:  nim js -d:release -o:script.js src/main.nim
-
-
-COLORS:
-
-1. #f09473
-2. #f5b82b
-3. #eb5952
-4. #e95990
