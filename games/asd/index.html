@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet"> 
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/box.css">
     
     <title>Document</title>
 </head>
@@ -21,17 +22,12 @@
 
         <div class="menu">
 
-            <button class="button">3</button>
-            <button class="button">1</button>
-            <button class="button">6</button>
-            <button class="button">2</button>
-            <button class="button">9</button>
-            <button class="button">3</button>
-            <button class="button">12</button>
-            <button class="button">4</button>
-
-            <button class="button">M</button>
-            <button class="button">Q</button>
+            <div class="button" id="tilesButton" onclick="changeTiles(this)">3t</div>
+            <div class="button" id="colorsButton" onclick="changeColors(this)">1c</div>
+ 
+            <div class="button" id="playButton" onclick="play()">Pl</div>
+            <div class="button" id="muteButton">Mu</div>
+            <div class="button" id="exitButton" onclick="exit()">Ex</div>
 
         </div>
 

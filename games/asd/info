@@ -1,5 +1,15 @@
-1. FIGURE OUT NAME
+0. CHANGE TOYS NAME
 
-2. FIX BUTTONS - TOO UGLY, MAN
+1. FIGURE OUT NAME FOR THIRD GAME
+
+2. 
 
 compile string:  nim js -d:release -o:script.js src/main.nim
+
+
+COLORS:
+
+1. #f09473
+2. #f5b82b
+3. #eb5952
+4. #e95990
