@@ -17,8 +17,8 @@ func Mux() *http.ServeMux {
 	grabatile := http.StripPrefix("/grabatile/", http.FileServer(http.Dir("games/grabatile/")))
 	mux.Handle("/grabatile/", grabatile)
 
-	asd := http.StripPrefix("/asd/", http.FileServer(http.Dir("games/asd/")))
-	mux.Handle("/asd/", asd)
+	asd := http.StripPrefix("/patterns/", http.FileServer(http.Dir("games/patterns/")))
+	mux.Handle("/patterns/", asd)
 
 	mux.Handle("/toys.log", http.FileServer(http.Dir("logs/")))
 
