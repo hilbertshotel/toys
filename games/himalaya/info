@@ -1,0 +1,8 @@
+
+MENU  -  BOTTOM PADDING
+
+SOME OF THE CLOUDS WILL GO BEHIND THE PEAK
+
+PLACE TWO MORE SMALLER PEAKS IN THE BACKGROUND 
+
+compile string:  nim js -d:release -o:script.js src/main.nim

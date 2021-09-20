@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    margin: 0;
+    padding: 1%;
+
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: repeat(100, auto);
+    grid-template-rows: repeat(100, auto);
+    /* gap: 1%; */
+}
+
+.tile {
+    border-radius: 3vh;
+    background-color: #77a184;
+}
+
+.tile:nth-child(odd) {
+    background-color: #4a7c59;
+}

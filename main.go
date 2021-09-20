@@ -53,7 +53,7 @@ func main() {
 	
 	api := http.Server{
 		Addr: cfg.HostAddr,
-		Handler: routes.Mux(),
+		Handler: routes.Mux(log),
 		ReadTimeout: cfg.ReadTimeout,
 		WriteTimeout: cfg.WriteTimeout,
 	}

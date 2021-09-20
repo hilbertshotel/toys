@@ -1,25 +1,33 @@
 package routes
 
 import (
+	"log"
 	"net/http"
+	"io/ioutil"
 )
 
-func Mux() *http.ServeMux {
+const DIR = "./games"
+
+func Mux(log *log.Logger) *http.ServeMux {
 
 	mux := http.NewServeMux()
 	
+	// index page
 	main := http.FileServer(http.Dir("frontend/"))
 	mux.Handle("/", main)
 
-	eaten := http.StripPrefix("/eaten/", http.FileServer(http.Dir("games/eaten/")))
-	mux.Handle("/eaten/", eaten)
+	// dynamically add routes based on folder names
+	folders, err := ioutil.ReadDir(DIR)
+	if err != nil {
+		log.Println("ERROR:", err)
+	}
 
-	grabatile := http.StripPrefix("/grabatile/", http.FileServer(http.Dir("games/grabatile/")))
-	mux.Handle("/grabatile/", grabatile)
+	for _, folder := range folders {
+		name := "/" + folder.Name() + "/"
+		mux.Handle(name, http.StripPrefix(name, http.FileServer(http.Dir(DIR + name))))
+	}
 
-	asd := http.StripPrefix("/patterns/", http.FileServer(http.Dir("games/patterns/")))
-	mux.Handle("/patterns/", asd)
-
+	// logs
 	mux.Handle("/toys.log", http.FileServer(http.Dir("logs/")))
 
 	return mux
