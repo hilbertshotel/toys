@@ -1,117 +1,130 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    background-color: #ededed;
+  margin: 0;
+  background-color: #ededed;
 }
 
 .main {
-    padding: 1vw;
-    margin: 0 auto;
-    
-    position: fixed;
-    left: 0;
-    right: 0;
+  padding: 1vw;
+  margin: 0 auto;
+  
+  position: fixed;
+  left: 0;
+  right: 0;
 
-    width: 100vw;
-    height: 100vh;
-    max-width: 700px;
+  width: 100vw;
+  height: 100vh;
+  max-width: 700px;
 }
 
 .sky {
-    position: relative;
-    background-image: linear-gradient(#2c1e3f, #6e6e78, #ededed);
+  position: relative;
+  background-image: linear-gradient(#2c1e3f, #6e6e78, #ededed);
 
-    border-top-left-radius: 3%;
-    border-top-right-radius: 3%;
-    
-    width: 100%;
-    height: 100%;
+  border-top-left-radius: 3%;
+  border-top-right-radius: 3%;
+  
+  width: 100%;
+  height: 100%;
 }
 
 .peak {
-    position: relative;
-    bottom: -10%;
-    margin: auto;
+  position: relative;
+  bottom: -10%;
+  margin: auto;
 
-    background-image: url("images/peak.png");
-    background-size: cover;
+  background-image: url("images/peak.png");
+  background-size: cover;
 
-    height: 100%;
-    width: 60%;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  height: 100%;
+  width: 60%;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 
-    animation-name: peak;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
+  animation-name: peak;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
 
 .star {
-    position: absolute;
-    width: 1%;
-    height: 1%;
+  position: absolute;
+  width: 1%;
+  height: 1%;
 
-    background-color: #ffff00;
-    clip-path: circle(20%);
+  background-color: #ffff00;
+  clip-path: circle(20%);
 
-    animation-name: star;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+  animation-name: star;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 @keyframes star {
-    50% { width: 1.1%; height: 1.1%; }
+  50% { width: 1.1%; height: 1.1%; }
 }
 
 
-/* **************** CLOUDS & DREAMS ******************** */
+/********** CLOUDS & DREAMS **********/
 
 .cloud {
-    position: absolute;
-    width: 25%;
-    height: 20%;
+  position: absolute;
+  width: 20%;
+  height: 15%;
 
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    cursor: pointer;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  border-radius: 50%;
 }
 
 .cloudling {
-    position: absolute;
-    width: 50%;
-    height: 50%;
+  position: absolute;
+  width: 60%;
+  height: 60%;
 
-    border-radius: 50%;
-    border-style: solid;
-    border-color: #ededed;
-    background-color: #6e6e78;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #ededed;
+  border-width: 0 .6rem 0 0;
 
-    border-width: 0 .6rem 0 0;
+  background-color: #6e6e78;
+  cursor: pointer;
 }
 
 #cleft {
-    left: 15%;
-    top: 30%;
+  top: 20%;
+  left: 0%;
 }
 #cbottom {
-    top: 45%;
-    left: 25%;
+  top: 40%;
+  left: 20%;
 }
 #cright {
-    left: 40%;
-    top: 25%;
+  top: 20%;
+  left: 40%;
 }
 #ctop {
-    top: 10%;
-    left: 30%;
+  top: 0%;
+  left: 20%;
 }
 
 @keyframes clouds-left {
-    50% { left: 80%; }
+  50% { left: 80%; }
 }
 @keyframes clouds-right {
-    50% { left: 5% }
+  50% { left: 5% }
+}
+
+.number {
+  position: absolute;
+  color: #acbcd5;
+  font-family: monospace;
+  font-size: 8vh;
+  left: 33%;
+  top: -40%;
+  cursor: pointer;
+  user-select: none;
 }
