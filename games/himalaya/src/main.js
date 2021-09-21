@@ -74,12 +74,23 @@ const scatterClouds = async (sky, clouds) => {
         if (cloud.pos === 0) {
             cloudDiv.style.width = "15%"
             cloudDiv.style.height = "10%"
-            sky.insertAdjacentElement("afterbegin", cloudDiv)
+            insertAtStart(sky, cloudDiv)
         } else {
             insert(sky, cloudDiv)
         }
 
         await sleep(100)
+    }
+}
+
+
+const scatterStars = (sky, n) => {
+    for (let i=0; i<n; i++) {
+        const star = make("div", "class=star")
+        star.style.left = `${rand(5, 90)}%`
+        star.style.top = `${rand(5, 50)}%`
+        star.style.animationDelay = `${i}s`
+        insertAtStart(sky, star)
     }
 }
 
@@ -101,9 +112,10 @@ const main = () => {
     let
         sky = get("sky"),
         peak = make("div", "class=peak")
-        clouds = createClouds(10)
+        clouds = createClouds(30)
     
     insert(sky, peak)
+    scatterStars(sky, 10)
     scatterClouds(sky, clouds)
 
 }

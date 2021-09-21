@@ -47,3 +47,10 @@ const insert = (parent, ...elements) => {
         parent.append(element)
     }
 }
+
+// INSERT AFTER BEGIN
+const insertAtStart = (parent, ...elements) => {
+    for (const element of elements) {
+        parent.insertAdjacentElement("afterbegin", element)
+    }
+}

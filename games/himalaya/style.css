@@ -48,6 +48,24 @@ body {
     animation-iteration-count: infinite;
 }
 
+.star {
+    position: absolute;
+    width: 1%;
+    height: 1%;
+
+    background-color: #ffff00;
+    clip-path: circle(20%);
+
+    animation-name: star;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes star {
+    50% { width: 1.1%; height: 1.1%; }
+}
+
 
 /* **************** CLOUDS & DREAMS ******************** */
 
