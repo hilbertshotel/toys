@@ -131,22 +131,27 @@ const removeCloud = (cloudDiv) => {
   // playRemoveSound
 }
 
-const testOutcome = (peakDiv, touchpad, numOfStars) => {
+const testOutcome = (statue, spawnScreen, numOfStars) => {
   const clouds = getClass("cloud")
   if (clouds.length === numOfStars) {
 
+    get("eyes").hidden = false
+
     // play completion sound
-    peakDiv.onclick = null
-    peakDiv.style.cursor = "default"
-    touchpad.onclick = null
-    touchpad.style.cursor = "default"
+    statue.onclick = null
+    statue.style.cursor = "default"
+    spawnScreen.onclick = null
+    spawnScreen.style.cursor = "default"
 
     for (const cloud of clouds) {
       cloud.onclick = null
       cloud.style.cursor = "default"
     }
 
+  } else {
+    // play fail sound
   }
+
 }
 
 
@@ -155,21 +160,22 @@ const testOutcome = (peakDiv, touchpad, numOfStars) => {
 
 const start = async () => {
   // start music
+  get("eyes").hidden = true
 
   const
     starsDiv = get("starsDiv"),
     backDiv = get("backCloudsDiv"),
     frontDiv = get("frontCloudsDiv"),
-    touchpad = get("touchpad"),
-    peakDiv = get("peakDiv")
+    spawnScreen = get("spawnScreen"),
+    statue = get("statue")
 
   clear(starsDiv, backDiv, frontDiv)
   let numOfStars = await scatterStars(starsDiv)
 
-  touchpad.onclick = addCloud
-  touchpad.style.cursor = "pointer"
-  peakDiv.onclick = () => { testOutcome(peakDiv, touchpad, numOfStars) }
-  peakDiv.style.cursor = "pointer"
+  spawnScreen.onclick = addCloud
+  spawnScreen.style.cursor = "pointer"
+  statue.onclick = () => { testOutcome(statue, spawnScreen, numOfStars) }
+  statue.style.cursor = "pointer"
 }
 
 const mute = () => {
