@@ -48,14 +48,17 @@ const insert = (parent, ...elements) => {
   }
 }
 
-// INSERT AFTER BEGIN
-const insertAtStart = (parent, ...elements) => {
+// CLEAR
+const clear = (...elements) => {
   for (const element of elements) {
-    parent.insertAdjacentElement("afterbegin", element)
+    element.innerHTML = ""
   }
 }
 
-// CLEAR
-const clear = (element) => {
-  element.innerHTML = ""
+// SHUFFLE
+const shuffle = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    let rand = Math.floor(Math.random() * (i + 1));
+    [array[i], array[rand]] = [array[rand], array[i]]
+  }
 }

@@ -5,6 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet"> 
+
   <link rel="stylesheet" href="style.css">
 
   <title>Himalaya</title>
@@ -13,7 +17,22 @@
 <body>
     
   <div id="main" class="main">
-    <div id="sky" class="sky"></div>
+
+    <div id="sky" class="sky">
+      <div id="whiteStarsDiv"></div>
+      <div id="starsDiv"></div>
+      <div id="touchpad"></div>
+      <div id="backCloudsDiv"></div>
+      <div id="peakDiv" class="peak"></div>
+      <div id="frontCloudsDiv"></div>
+    </div>
+
+    <div class="menu">
+      <div onclick="start()">PLAY</div>
+      <div onclick="mute()">MUTE</div>
+      <div onclick="exit()">EXIT</div>
+    </div>
+
   </div>
 
   <script src="src/lib.js"></script>

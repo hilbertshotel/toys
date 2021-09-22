@@ -1,9 +1,3 @@
-// GLOBALS
-// ================================================================================
-
-let NEXT_NUMBER = 0
-
-
 // LOGIC
 // ================================================================================
 
@@ -17,7 +11,6 @@ const animationName = (num) => {
   }
 }
 
-
 const position = (num) => {
   if (num < 30) {
     return 0
@@ -25,7 +18,6 @@ const position = (num) => {
     return 1
   }
 }
-
 
 const createClouds = (n) => {
   let clouds = []
@@ -50,7 +42,7 @@ const createClouds = (n) => {
 }
 
 
-// DOM
+// DOM HANDLING
 // ================================================================================
 
 const newCloudDiv = (cloudNumber) => {
@@ -60,18 +52,17 @@ const newCloudDiv = (cloudNumber) => {
     cbottom = make("div", "class=cloudling", "id=cbottom"),
     cright = make("div", "class=cloudling", "id=cright"),
     ctop = make("div", "class=cloudling", "id=ctop")
-    number = make("div", "class=number", `id=n${cloudNumber}`, `text=${cloudDiv.id}`)
 
-  insert(cloudDiv, number, cleft, cbottom, cright, ctop)
+  insert(cloudDiv, cleft, cbottom, cright, ctop)
   return cloudDiv
 }
 
-
-const scatterClouds = (sky, clouds) => {
+const scatterClouds = (backDiv, frontDiv, clouds) => {
   for (const [i, cloud] of clouds.entries()) {
 
     const cloudDiv = newCloudDiv(i)
-    cloudDiv.onclick = () => { action(cloudDiv) }
+    cloudDiv.onclick = () => { removeCloud(cloudDiv) }
+    cloudDiv.style.cursor = "pointer"
 
     cloudDiv.style.top = cloud.top
     cloudDiv.style.left = cloud.left
@@ -81,85 +72,120 @@ const scatterClouds = (sky, clouds) => {
     if (cloud.pos === 0) {
       cloudDiv.style.width = "15%"
       cloudDiv.style.height = "10%"
-      insertAtStart(sky, cloudDiv)
-
-      // handle smaller font size in back clouds
-      const currentNumber = get(`n${i}`)
-      currentNumber.style.fontSize = "4.3vh"
-      currentNumber.style.top = "-35%"
-      currentNumber.style.left = "35%"
-    }
-    
-    else {
-      insert(sky, cloudDiv)
+      insert(backDiv, cloudDiv)
+    } else {
+      insert(frontDiv, cloudDiv)
     }
 
   }
 }
 
-
-const scatterStars = (sky, n) => {
-  for (let i=0; i<n; i++) {
-    const star = make("div", "class=star")
+const scatterWhiteStars = (starsDiv) => {
+  for (let i=0; i<100; i++){
+    const star = make("div", "class=whiteStar")
     star.style.left = `${rand(5, 90)}%`
-    star.style.top = `${rand(5, 50)}%`
-    star.style.animationDelay = `${i}s`
-    insertAtStart(sky, star)
+    star.style.top = `${rand(5, 80)}%`
+    insert(starsDiv, star)
+  }
+}
+
+const scatterStars = async (starsDiv) => {
+  let leftPositions = [
+    [5, 8], [10, 13], [15, 18], [20, 23], [25, 30],
+    [70, 73], [75, 78], [80, 83], [85, 88], [90, 93],
+  ]
+  shuffle(leftPositions)
+
+  const numOfStars = rand(1, 10)
+
+  for (let i=0; i<numOfStars; i++) {
+    const star = make("div", "class=star")
+    star.style.left = `${rand(leftPositions[i][0], leftPositions[i][1])}%`
+    star.style.top = `${rand(5, 40)}%`
+    insert(starsDiv, star)
+    
+    await sleep(100)
+  }
+
+  return numOfStars
+}
+
+
+// ACTIONS
+// ================================================================================
+
+const addCloud = () => {
+  const
+    clouds = createClouds(1),
+    backDiv = get("backCloudsDiv"),
+    frontDiv = get("frontCloudsDiv")
+
+  if (getClass("cloud").length !== 10) {
+    scatterClouds(backDiv, frontDiv, clouds)
+    // play add cloud
+  }
+}
+
+const removeCloud = (cloudDiv) => {
+  cloudDiv.remove()
+  // playRemoveSound
+}
+
+const testOutcome = (peakDiv, touchpad, numOfStars) => {
+  const clouds = getClass("cloud")
+  if (clouds.length === numOfStars) {
+
+    // play completion sound
+    peakDiv.onclick = null
+    peakDiv.style.cursor = "default"
+    touchpad.onclick = null
+    touchpad.style.cursor = "default"
+
+    for (const cloud of clouds) {
+      cloud.onclick = null
+      cloud.style.cursor = "default"
+    }
+
   }
 }
 
 
-const action = async (cloudDiv) => {
-  
-  if (cloudDiv.id === `${NEXT_NUMBER}`) {
+// BUTTONS
+// ================================================================================
 
-    cloudDiv.remove()
-    // playRemoveSound
-    NEXT_NUMBER++
+const start = async () => {
+  // start music
 
-    if (NEXT_NUMBER === 10) {
-      NEXT_NUMBER = 0
-      await sleep(100)
-      get("main").onclick = start
-      // play completion sound
-    }
+  const
+    starsDiv = get("starsDiv"),
+    backDiv = get("backCloudsDiv"),
+    frontDiv = get("frontCloudsDiv"),
+    touchpad = get("touchpad"),
+    peakDiv = get("peakDiv")
 
-  }
+  clear(starsDiv, backDiv, frontDiv)
+  let numOfStars = await scatterStars(starsDiv)
 
-  else {
-    // playWrongSound
-  }
-  
+  touchpad.onclick = addCloud
+  touchpad.style.cursor = "pointer"
+  peakDiv.onclick = () => { testOutcome(peakDiv, touchpad, numOfStars) }
+  peakDiv.style.cursor = "pointer"
+}
+
+const mute = () => {
+  // ADD FUNCTIONALITY
+}
+
+const exit = () => {
+  window.location.href = "/"
 }
 
 
 // ON PAGE LOAD
 // ================================================================================
 
-const start = () => {
-  const
-    main = get("main"),
-    sky = get("sky"),
-    peak = make("div", "class=peak"),
-    clouds = createClouds(10)
-  
-  main.onclick = null
-  clear(sky)
-  insert(sky, peak)
-  scatterClouds(sky, clouds)
-  scatterStars(sky, 10)
-}
-
-
 const main = () => {
-  const
-    main = get("main"),
-    sky = get("sky"),
-    peak = make("div", "class=peak")
-
-  main.onclick = start
-  insert(sky, peak)
-  scatterStars(sky, 10)
+  scatterWhiteStars(get("whiteStarsDiv"))
 }
 
 
