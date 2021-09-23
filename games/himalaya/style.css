@@ -20,7 +20,7 @@ body {
   max-width: 700px;
 }
 
-#spawnScreen {
+#cloudSpawnScreen {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -51,26 +51,22 @@ body {
 
 /********** STARS **********/
 
-.star {
-  position: absolute;
-  width: .1%;
-  height: .1%;
-  border-radius: 50%;
-  background-color: #ffff00;
-  box-shadow: 0 0 .8vh .4vh #ffff00;
-  animation: .5s star infinite linear;
-}
-
-@keyframes star {
-  50% { box-shadow: 0 0 .8vh .6vh #ffff00; }
-}
-
-.whiteStar {
+.star, .shiningStar {
   position: absolute;
   width: .1%;
   height: .1%;
   border-radius: 50%;
   background-color: #fff;
+
+}
+
+.shiningStar {
+  box-shadow: 0 0 .2vh .1vh #fff;
+  animation: 10s star infinite linear;
+}
+@keyframes star {
+  0% { box-shadow: 0 0 .2vh .2vh #fff; }
+  10%, 100% { box-shadow: 0 0 .2vh .1vh #fff; }
 }
 
 /********** CLOUDS **********/
@@ -93,7 +89,6 @@ body {
   border-style: solid;
   border-color: #ededed;
   border-width: 0 .6rem 0 0;
-
   background-color: #6e6e78;
 }
 
@@ -123,36 +118,50 @@ body {
 
 /********** STATUE **********/
 
-#statue, #head, #eyes {
+#statueDiv, #image, #numberDiv, #eyes {
   position: absolute;
 }
 
-#statue {
-  left: 28.5%;
-  bottom: 0%;
-  height: 28%;
-  width: 43%;
+#statueDiv {
+  left: 29%;
+  bottom: -1%;
+  height: 25%;
+  width: 42%;
   border-top-left-radius: 30vh;
   border-top-right-radius: 30vh;
 }
 
-#statue:hover {
-  background-color: rgba(237, 237, 237, 0.4);
-  cursor: pointer;
-}
-
-#head {
+#image {
   height: 100%;
   width: 100%;
-  background-image: url("images/statue.png");
+  background-image: url("images/buddha.png");
   background-size: 100% 100%;
 }
 
+#numberDiv {
+  left: 42.5%;
+  bottom: 22%;
+  font-size: 10vh;
+  color: #ededed;
+  text-shadow:
+    .1vh .1vh #6e6e78,
+    .2vh .2vh #6e6e78,
+    .3vh .3vh #6e6e78,
+    .4vh .4vh #6e6e78;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  user-select: none;
+  animation: number 3s infinite linear;
+}
+
+@keyframes number {
+  50% { bottom: 20%; }
+}
+
 #eyes {
-  left: 41.5%;
+  left: 40%;
   bottom: 78.15%;
   height: 12%;
-  width: 17%;
+  width: 20%;
   background-image: url("images/eyes.png");
   background-size: 100% 100%;
 }

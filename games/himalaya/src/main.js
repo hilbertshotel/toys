@@ -57,7 +57,7 @@ const newCloudDiv = (cloudNumber) => {
   return cloudDiv
 }
 
-const scatterClouds = (backDiv, frontDiv, clouds) => {
+const scatterClouds = (distantCloudsDiv, closeCloudsDiv, clouds) => {
   for (const [i, cloud] of clouds.entries()) {
 
     const cloudDiv = newCloudDiv(i)
@@ -72,42 +72,30 @@ const scatterClouds = (backDiv, frontDiv, clouds) => {
     if (cloud.pos === 0) {
       cloudDiv.style.width = "15%"
       cloudDiv.style.height = "10%"
-      insert(backDiv, cloudDiv)
+      insert(distantCloudsDiv, cloudDiv)
     } else {
-      insert(frontDiv, cloudDiv)
+      insert(closeCloudsDiv, cloudDiv)
     }
 
   }
 }
 
-const scatterWhiteStars = (starsDiv) => {
+const scatterStars = (starsDiv) => {
   for (let i=0; i<100; i++){
-    const star = make("div", "class=whiteStar")
+    const star = make("div", "class=star")
     star.style.left = `${rand(5, 90)}%`
     star.style.top = `${rand(5, 80)}%`
     insert(starsDiv, star)
   }
-}
 
-const scatterStars = async (starsDiv) => {
-  let leftPositions = [
-    [5, 8], [10, 13], [15, 18], [20, 23], [25, 30],
-    [70, 73], [75, 78], [80, 83], [85, 88], [90, 93],
-  ]
-  shuffle(leftPositions)
-
-  const numOfStars = rand(1, 10)
-
-  for (let i=0; i<numOfStars; i++) {
-    const star = make("div", "class=star")
-    star.style.left = `${rand(leftPositions[i][0], leftPositions[i][1])}%`
-    star.style.top = `${rand(5, 40)}%`
+  for (let i=0; i<10; i++) {
+    const star = make("div", "class=shiningStar")
+    star.style.left = `${rand(5, 90)}%`
+    star.style.top = `${rand(5, 80)}%`
+    star.style.animationDuration = `${rand(5, 20)}s`
+    star.style.animationDelay = `1.${i}s`
     insert(starsDiv, star)
-    
-    await sleep(100)
   }
-
-  return numOfStars
 }
 
 
@@ -117,31 +105,33 @@ const scatterStars = async (starsDiv) => {
 const addCloud = () => {
   const
     clouds = createClouds(1),
-    backDiv = get("backCloudsDiv"),
-    frontDiv = get("frontCloudsDiv")
+    distantCloudsDiv = get("distantCloudsDiv"),
+    closeCloudsDiv = get("closeCloudsDiv")
 
   if (getClass("cloud").length !== 10) {
-    scatterClouds(backDiv, frontDiv, clouds)
-    // play add cloud
+    scatterClouds(distantCloudsDiv, closeCloudsDiv, clouds)
+    get("click").play()
   }
 }
 
 const removeCloud = (cloudDiv) => {
   cloudDiv.remove()
-  // playRemoveSound
+  get("click").play()
 }
 
-const testOutcome = (statue, spawnScreen, numOfStars) => {
+const testOutcome = (statueDiv, cloudSpawnScreen, countNumber) => {
   const clouds = getClass("cloud")
-  if (clouds.length === numOfStars) {
+  
+  if (clouds.length === countNumber) {
 
     get("eyes").hidden = false
+    get("win").play()
+    get("numberDiv").innerHTML = ""
 
-    // play completion sound
-    statue.onclick = null
-    statue.style.cursor = "default"
-    spawnScreen.onclick = null
-    spawnScreen.style.cursor = "default"
+    statueDiv.onclick = null
+    statueDiv.style.cursor = "default"
+    cloudSpawnScreen.onclick = null
+    cloudSpawnScreen.style.cursor = "default"
 
     for (const cloud of clouds) {
       cloud.onclick = null
@@ -149,7 +139,7 @@ const testOutcome = (statue, spawnScreen, numOfStars) => {
     }
 
   } else {
-    // play fail sound
+    get("fail").play()
   }
 
 }
@@ -158,28 +148,36 @@ const testOutcome = (statue, spawnScreen, numOfStars) => {
 // BUTTONS
 // ================================================================================
 
-const start = async () => {
-  // start music
+const start = () => {
+  get("music").play()
   get("eyes").hidden = true
 
   const
     starsDiv = get("starsDiv"),
-    backDiv = get("backCloudsDiv"),
-    frontDiv = get("frontCloudsDiv"),
-    spawnScreen = get("spawnScreen"),
-    statue = get("statue")
+    distantCloudsDiv = get("distantCloudsDiv"),
+    closeCloudsDiv = get("closeCloudsDiv"),
+    cloudSpawnScreen = get("cloudSpawnScreen"),
+    statueDiv = get("statueDiv")
+    countNumber = rand(0, 9)
 
-  clear(starsDiv, backDiv, frontDiv)
-  let numOfStars = await scatterStars(starsDiv)
-
-  spawnScreen.onclick = addCloud
-  spawnScreen.style.cursor = "pointer"
-  statue.onclick = () => { testOutcome(statue, spawnScreen, numOfStars) }
-  statue.style.cursor = "pointer"
+  clear(starsDiv, distantCloudsDiv, closeCloudsDiv)
+  scatterStars(starsDiv)
+  get("numberDiv").innerHTML = countNumber
+  cloudSpawnScreen.onclick = addCloud
+  cloudSpawnScreen.style.cursor = "pointer"
+  statueDiv.onclick = () => { testOutcome(statueDiv, cloudSpawnScreen, countNumber) }
+  statueDiv.style.cursor = "pointer"
 }
 
-const mute = () => {
-  // ADD FUNCTIONALITY
+const mute = (button) => {
+  const music = get("music")
+    if (button.id === "mute") {
+      music.muted = false
+      button.id = ""
+    } else {
+      music.muted = true
+      button.id = "mute"
+    }
 }
 
 const exit = () => {
@@ -191,7 +189,7 @@ const exit = () => {
 // ================================================================================
 
 const main = () => {
-  scatterWhiteStars(get("whiteStarsDiv"))
+  scatterStars(get("starsDiv"))
 }
 
 

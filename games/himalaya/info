@@ -1,8 +1,7 @@
 SOUND:
-    - CLOUD CLICK
+    - CLOUD ADD
+    - CLOUD REMOVE
     - COMPLETION
-    - WRONG SOUND ?
-    - WRONG COMPLETION ?
-    - MUSIC
+    - NON COMPLETION
 
 image by: Conrad Jon

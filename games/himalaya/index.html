@@ -11,26 +11,31 @@
 
 </head>
 <body>
+
+  <audio id="music" src="audio/music.ogg" type="audio/ogg" loop></audio>
+  <audio id="win" src="audio/win.ogg" type="audio/ogg"></audio>
+  <audio id="fail" src="audio/fail.ogg" type="audio/ogg"></audio>
+  <audio id="click" src="audio/click.ogg" type="audio/ogg"></audio>
     
   <div id="main" class="main">
 
     <div id="sky" class="sky">
-      <div id="whiteStarsDiv"></div>
       <div id="starsDiv"></div>
-      <div id="spawnScreen"></div>
-      <div id="backCloudsDiv"></div>
+      <div id="cloudSpawnScreen"></div>
+      <div id="distantCloudsDiv"></div>
       <div class="peak"></div>
-      <div id="frontCloudsDiv"></div>
+      <div id="closeCloudsDiv"></div>
     </div>
 
-    <div id="statue">
-      <div id="head"></div>
+    <div id="statueDiv">
+      <div id="image"></div>
+      <div id="numberDiv"></div>
       <div id="eyes" hidden="false"></div>
     </div>
 
     <div class="menu">
       <div onclick="start()">खेल्नु</div>
-      <div onclick="mute()">मौन</div>
+      <div onclick="mute(this)">मौन</div>
       <div onclick="exit()">निकास</div>
     </div>
 
