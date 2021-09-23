@@ -1,19 +1,25 @@
 body {
+  background-color: aliceblue;
     margin: 2rem;
+    text-align: center;
 }
 
 .game_anchor {
-    display: block;
-    font-size: 2rem;
-    text-decoration: none;
+    font-size: 1.5rem;
     color: black;
-    background-color: cadetblue;
-    padding: 1rem;
-    margin: 1rem 0rem;
+    background-color: lightsteelblue;
+    padding: .5rem 1rem;
+    margin: 1rem auto;
+    max-width: 500px;
 }
 
 .game_anchor:hover {
-    background-color: darkgoldenrod;
+    background-color: rgb(137, 162, 194);
+    cursor: pointer;
+}
+
+.game_anchor h3 {
+  margin-top: 0;
 }
 
 #repo {
